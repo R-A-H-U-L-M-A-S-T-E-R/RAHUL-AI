@@ -43,7 +43,7 @@ module.exports = {
 	VERSION: require("./package.json").version,
 	ALIVE: process.env.ALIVE || "Hello i'm alive",
 	ALWAYS_ONLINE: toBool(process.env.ALWAYS_ONLINE || "false"),
-	BGMBOT : toBool(process.env.BGMBOT || "false"),
+	BGMBOT : toBool(process.env.BGMBOT || "true"),
 	API: "https://api-aswin-sparky.koyeb.app",
 	AUDIO_DATA: process.env.AUDIO_DATA || "𝚁𝙰𝙷𝚄𝙻-𝙰𝙸;ʀᴀʜᴜʟ ᴍᴀSᴛᴇʀ;https://i.ibb.co/qF79Bmcf/upload-1778259536127-6fe18ade-jpg.jpg",
 	AUTO_STATUS_VIEW: toBool(process.env.AUTO_STATUS_VIEW || "true"),
