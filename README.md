@@ -83,5 +83,5 @@
 <br>
 Beta tester & Debug
 
-* [`R-A-H-U-L-M-A-S-T-E-R`](https://github.com/RAHUL-AI)
+* [`R-A-H-U-L-M-A-S-T-E-R`](https://github.com/R-A-H-U-L-M-A-S-T-E-R)
  </details>
