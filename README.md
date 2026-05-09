@@ -28,14 +28,6 @@
 target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=koyeb'/></a>
 
 
-#### DEPLOY TO PANEL
-
-1. If You don't have a account in panel create it . 
-2. How to deploy in panel?
-    <br>
-<a href='https://github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI/wiki/deploy%E2%80%90vps' target="_blank"><img alt='PANEL' src='https://img.shields.io/badge/PANEL-100000?style=for-the-badge&logo=pterodactyl&logoColor=white&labelColor=black&color=black&logoSize=auto'/></a>
-
-
 #### Thanks To
 
 <details close>
