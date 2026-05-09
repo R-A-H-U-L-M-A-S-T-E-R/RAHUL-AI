@@ -105,7 +105,7 @@ const data = await getJson('https://api.github.com/repos/A-S-W-I-N-S-P-A-R-K-Y/X
 🔸 *Stars:* ${data.stargazers_count}
 🔸 *Forks:* ${data.forks_count}
 🔸 *GitHub Link:* 
-https://github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-i
+https://github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI 
 
 Hey ${m.pushName}!, Don't forget to star and fork my repository!`;
 
