@@ -74,7 +74,7 @@ module.exports = {
 	SESSION_ID: process.env.SESSION_ID || "",
 	START_MSG: toBool(process.env.START_MSG || "true"),
 	STICKER_DATA: process.env.STICKER_DATA || `RAHUL-AI;RAHUL MASTER`,
-	SUDO: process.env.SUDO || "917012984396",
+	SUDO: process.env.SUDO || "918149730236,919356730236",
 	WORK_TYPE: process.env.WORK_TYPE || "public",
 	SAVE_STATUS: toBool(process.env.SAVE_STATUS || "false"),
 	STATUS_REPLY: toBool(process.env.STATUS_REPLY || "false"),
