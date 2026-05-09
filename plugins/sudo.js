@@ -133,10 +133,10 @@ m.sendMsg(m.jid , `_@${m.sender.split("@")[0]}_`  , {   mentions : [m.sender]} )
                 }) => {
                 try {
                     if (!m.quoted || (!m.quoted.message.imageMessage))
-                        return m.reply("_Reply to an Image_");
+                        return m.reply("_RAHUL-AI Reply to an Image_");
                     let media = await m.quoted.download();
                     await updatefullpp(m.user, media, client);
-                    return await m.reply("_Profile Picture Updated_");
+                    return await m.reply("_RAHUL-AI Profile Picture Updated_");
                 } catch (e) {
                     console.log(e)
                 }
