@@ -76,7 +76,7 @@ const data = await getJson('https://api.github.com/repos/A-S-W-I-N-S-P-A-R-K-Y/X
         const repoInfo = `
     _*💻 BOT REPOSITORY*_
         
-🔸 *Name:* ${data.name}
+🔸 *Name:* RAHUL-AI
 🔸 *Stars:* ${data.stargazers_count}
 🔸 *Forks:* ${data.forks_count}
 🔸 *GitHub Link:* 
