@@ -15,7 +15,7 @@
    <br>
    
 **Server 1**  
-<a href='https://x-bot-md-qr.koyeb.app' target="_blank">
+<a href='https://teenage-trina-rahulmasters-e2dc046b.koyeb.app/' target="_blank">
     <img alt='SCAN QR' src='https://img.shields.io/badge/Scan_qr-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/>
 </a>
 
