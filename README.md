@@ -1,9 +1,9 @@
-# X BOT MD 3.6.0
+# RAHUL-AI BOT
 
 ## Join for updates 
 <p align="center">
 
-  <a aria-label="Join our channel" href="https://whatsapp.com/channel/0029Va9ZOf36rsR1Ym7O2x00" target="_blank">
+  <a aria-label="Join our channel" href="https://whatsapp.com/channel/0029VbCmpAv1dAw1IbV5JT2O" target="_blank">
     <img alt="whatsapp" src="https://img.shields.io/badge/Join Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
   </a>
 
@@ -11,7 +11,7 @@
 
 1. Must Fork This Repo Before Deployment !
    <br> 
-<a href="https://github.com/A-S-W-I-N-S-P-A-R-K-Y/X--BOT--MD/fork"><img title="FORK REPO" src="https://img.shields.io/badge/FORK REPO-h?color=black&style=for-the-badge&logo=stackshare"></a>
+<a href="https://github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI/fork"><img title="FORK REPO" src="https://img.shields.io/badge/FORK REPO-h?color=black&style=for-the-badge&logo=stackshare"></a>
 
 
 
@@ -57,7 +57,7 @@
 
 4. Now Deploy
     <br>
-<a href='https://app.koyeb.com/services/deploy?type=git&repository=github.com/A-S-W-I-N-S-P-A-R-K-Y/X--BOT--MD&branch=main&name=xbotmd&builder=dockerfile&env[SESSION_ID]=&env[WORK_TYPE]=public&env[HANDLERS]=.&env[BOT_INFO]=X-BOT-MD;ASWIN%20SPARKY;https://i.imgur.com/QH7T7u9.jpeg&env[SUDO]=917012984396&env[STICKER_DATA]=SPARKY&env[DATABASE_URL]&env[KOYEB_SERVICE_NAME]=xbotmd&env[KOYEB_API_KEY]' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=koyeb'/></a>
+<a href='https://app.koyeb.com/services/deploy?type=git&repository=github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI&branch=main&name=xbotmd&builder=dockerfile&env[SESSION_ID]=&env[WORK_TYPE]=public&env[HANDLERS]=.&env[BOT_INFO]=𝚁𝙰𝙷𝚄𝙻-𝙰𝙸;ʀᴀʜᴜʟ%20ᴍᴀSᴛᴇʀ;https://i.ibb.co/qF79Bmcf/upload-1778259536127-6fe18ade-jpg.jpg&env[SUDO]=918149730236&env[STICKER_DATA]=RAHUL-AI&env[DATABASE_URL]&env[KOYEB_SERVICE_NAME]=xbotmd&env[KOYEB_API_KEY]' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=koyeb'/></a>
 
 #### DEPLOY TO RENDER 
 
@@ -83,5 +83,5 @@
 <br>
 Beta tester & Debug
 
-* [`THEJUS`](https://github.com/jarviss4334)
+* [`R-A-H-U-L-M-A-S-T-E-R`](https://github.com/RAHUL-AI)
  </details>
