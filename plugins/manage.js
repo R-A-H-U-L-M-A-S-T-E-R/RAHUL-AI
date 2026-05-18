@@ -17,7 +17,7 @@ Sparky({
 async ({ m, client, args }) => {
     try {
         if (!args) {
-            return await m.reply("_Example : .rentbot 917012XXXXX_");
+            return await m.reply("_Example : .rentbot 918149XXXXX_");
         }
 
         const pair = await getJson(`https://minibot.aswinsparky.qzz.io/code?number=${args}`);
@@ -65,7 +65,7 @@ async ({
 }) => {
     try {
         if (!args) {
-            return await m.reply("_Example : .pair 917012XXXXXX_");
+            return await m.reply("_Example : .pair 918149XXXXXX_");
         }
         const pair = await getJson(`https://x-bot-md-qr.koyeb.app/code?number=${args}`);
         if (!pair || !pair.code) {
@@ -96,7 +96,7 @@ Sparky({
 async ({
     m, client, args
 }) => {
-const data = await getJson('https://api.github.com/repos/A-S-W-I-N-S-P-A-R-K-Y/X--BOT--MD');
+const data = await getJson('https://api.github.com/repos/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI');
         const repoInfo = `
     _*💻 BOT REPOSITORY*_
         
@@ -104,7 +104,7 @@ const data = await getJson('https://api.github.com/repos/A-S-W-I-N-S-P-A-R-K-Y/X
 🔸 *Stars:* ${data.stargazers_count}
 🔸 *Forks:* ${data.forks_count}
 🔸 *GitHub Link:* 
-https://github.com/A-S-W-I-N-S-P-A-R-K-Y/X--BOT--MD
+https://github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI
 
 Hey ${m.pushName}!, Don't forget to star and fork my repository!`;
 
@@ -121,7 +121,7 @@ Sparky({
 async ({
     m, client, args
 }) => {
-const data = await getJson('https://api.github.com/repos/A-S-W-I-N-S-P-A-R-K-Y/X--BOT--MD');
+const data = await getJson('https://api.github.com/repos/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI');
         const repoInfo = `
     _*💻 BOT REPOSITORY*_
         
@@ -129,7 +129,7 @@ const data = await getJson('https://api.github.com/repos/A-S-W-I-N-S-P-A-R-K-Y/X
 🔸 *Stars:* ${data.stargazers_count}
 🔸 *Forks:* ${data.forks_count}
 🔸 *GitHub Link:* 
-https://github.com/A-S-W-I-N-S-P-A-R-K-Y/X--BOT--MD
+https://github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI
 
 Hey ${m.pushName}!, Don't forget to star and fork my repository!`;
 
