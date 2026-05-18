@@ -26,8 +26,8 @@
             "INVALID_URL": "_अवैध यूआरएल!_",
             "NEED_Q": "_एक प्रश्न की आवश्यकता है_",
             "ERROR": "_त्रुटि_",
-            "AI_HI": "_Hi this is Sparky Your Ai. Assistant How can i help you?_",
-            "AI_SYS": "You are Sparky, a helpful WhatsApp AI assistant."
+            "AI_HI": "_Hi this is RAHUL Your AI. Assistant How can i help you?_",
+            "AI_SYS": "You are RAHUL, a helpful WhatsApp AI assistant."
         },
         "app": {
             "RESTART_DESC": "ऐप को पुनरारंभ करता है।",
