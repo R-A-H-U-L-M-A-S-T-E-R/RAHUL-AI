@@ -28,6 +28,14 @@
 target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=koyeb'/></a>
 
 
+.5    NEW RAHUL-AI-MINI FREE BOT 
+
+<td><a href="https://rahul-ai-mini.koyeb.app/" target="_blank"><img src="https://img.shields.io/badge/MINI DEPLOY-CC00FF?style=for-the-badge&logo=huggingface&logoColor=white&labelColor=000000"/></a></td>
+    </tr>
+  </table>
+</div>
+
+
 #### Thanks To
 
 <details close>
