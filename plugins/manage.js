@@ -67,7 +67,7 @@ async ({
         if (!args) {
             return await m.reply("_Example : .pair 918149XXXXXX_");
         }
-        const pair = await getJson(`https://x-bot-md-qr.koyeb.app/code?number=${args}`);
+        const pair = await getJson(`https://rahul-ai-mini.koyeb.app/code?number=${args}`);
         if (!pair || !pair.code) {
             return await m.reply("Failed to retrieve pairing code. Please check the phone number and try again.");
         }
