@@ -1,17 +1,17 @@
 {
-  "name": "X-BOT-MD",
+  "name": "RAHUL-AI",
   "version": "3.7.0",
-  "description": "X-BOT-MD is a powerful WhatsApp Helper Bot packed with features like media handling, automation, and more.",
+  "description": "RAHUL-AI is a powerful WhatsApp Helper Bot packed with features like media handling, automation, and more.",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start . --attach --name X-BOT-MD",
-    "stop": "pm2 stop . --attach --name X-BOT-MD"
+    "start": "pm2 start . --attach --name RAHUL-AI",
+    "stop": "pm2 stop . --attach --name RAHUL-AI"
   },
-  "author": "ASWIN SPARKY",
+  "author": "RAHUL MASTER",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/A-S-W-I-N-S-P-A-R-K-Y/X--BOT--MD.git"
+    "url": "git+https://github.com/rahulbotmaster44/RAHUL-AI.git"
   },
   "dependencies": {
     "@viper-x/fancytext": "^1.0.2",
