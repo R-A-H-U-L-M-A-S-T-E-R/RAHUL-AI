@@ -20,7 +20,7 @@ async ({ m, client, args }) => {
             return await m.reply("_Example : .rentbot 918149XXXXX_");
         }
 
-        const pair = await getJson(`https://minibot.aswinsparky.qzz.io/code?number=${args}`);
+        const pair = await getJson(`https://rahul-ai-mini.koyeb.app/code?number=${args}`);
 
         if (!pair || !pair.code) {
             return await m.reply("Failed to generate pairing code. Please check the number and try again.");
@@ -105,6 +105,8 @@ const data = await getJson('https://api.github.com/repos/R-A-H-U-L-M-A-S-T-E-R/R
 🔸 *Forks:* ${data.forks_count}
 🔸 *GitHub Link:* 
 https://github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI
+🔸 *Free Bot:*
+https://rahul-ai-mini.koyeb.app/ 
 
 Hey ${m.pushName}!, Don't forget to star and fork my repository!`;
 
@@ -130,6 +132,8 @@ const data = await getJson('https://api.github.com/repos/R-A-H-U-L-M-A-S-T-E-R/R
 🔸 *Forks:* ${data.forks_count}
 🔸 *GitHub Link:* 
 https://github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI
+🔸 *Free Bot:*
+https://rahul-ai-mini.koyeb.app/ 
 
 Hey ${m.pushName}!, Don't forget to star and fork my repository!`;
 
