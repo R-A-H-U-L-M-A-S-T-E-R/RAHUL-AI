@@ -35,6 +35,7 @@ Sparky({
                         await m.reply("_*Bot updated!*_\n_Restarting..._");
                         clearInterval(interval);
                   }
+				
             }, 5000)
                               break;
                         }
