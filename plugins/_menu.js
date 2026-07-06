@@ -42,15 +42,15 @@ Sparky({
             let menu = `╔══════════════════════════════╗
 ║   ${config.BOT_INFO.split(";")[0].toUpperCase()}
 ╠══════════════════════════════╣
-║ OWNER     ${config.BOT_INFO.split(";")[1].toLowerCase()}
-║ MODE      ${config.WORK_TYPE.toLowerCase()}
-║ PREFIX    ${m.prefix}
-║ PLATFORM  ${SERVER}
+║ 𝙾𝚆𝙽𝙴𝚁     ${config.BOT_INFO.split(";")[1].toLowerCase()}
+║ 𝙼𝙾𝙳𝙴      ${config.WORK_TYPE.toLowerCase()}
+║ 𝙿𝚁𝙴𝙵𝙸𝚇    ${m.prefix}
+║ 𝙿𝙻𝙰𝚃𝙵𝙾𝚁𝙼  ${SERVER}
 ╠══════════════════════════════╣
-║ DATE      ${date}
-║ TIME      ${time}
-║ UPTIME    ${await m.uptime()}
-║ PLUGINS   ${commands.length}
+║ 𝙳𝙰𝚃𝙴      ${date}
+║ 𝚃𝙸𝙼𝙴      ${time}
+║ 𝚄𝙿𝚃𝙸𝙼𝙴    ${await m.uptime()}
+║ 𝙿𝙻𝚄𝙶𝙸𝙽𝚂   ${commands.length}
 ╚══════════════════════════════╝\n ${readMore}\n\n`;
 
             let cmnd = [];
