@@ -42,35 +42,32 @@ async ({
 }) => {
     const start = Date.now();
     
-    // Send initial ping text
-    await m.sendMsg(m.jid, "```[ ⚡ ] ʀᴀʜᴜʟ ᴀɪ ꜱʏꜱᴛᴇᴍ ᴘɪɴɢɪɴɢ...```", {
+    let pingMsg = await m.sendMsg(m.jid, "```ᴘɪɴɢɪɴɢ ʀᴀʜᴜʟ-ᴀɪ... ⏳```", {
         quoted: m
     });
     
     const latency = Date.now() - start;
 
-    // Clean Cyberpunk / Neon style ping response
-    let pingStyle = `
-╔══════════════════╗
-║  ⚡ **ʀᴀʜᴜʟ ᴀɪ ꜱᴛᴀᴛᴜꜱ** ⚡  ║
-╚══════════════════╝
-│ 🚀 **Speed:** \`${latency} ms\`
-│ 🌐 **Status:** \`ONLINE & READY\`
-│ 🧨 **Engine:** \`BAILEYS v6\`
-╚══════════════════╝`.trim();
+    let pingBox = `
+┌──────────────────────────
+│ ⚡ **ʀᴀʜᴜʟ-ᴀɪ ꜱʏꜱᴛᴇᴍ ᴘɪɴɢ**
+├──────────────────────────
+│ 🚀 ʟᴀᴛᴇɴᴄʏ : \`${latency} ms\`
+│ 👑 ᴏᴡɴᴇʀ   : \`ʀᴀʜᴜʟ ᴍᴀꜱᴛᴇʀ\`
+│ 🌐 ꜱᴛᴀᴛᴜꜱ : \`ᴀᴄᴛɪᴠᴇ & ᴏɴʟɪɴᴇ\`
+│ 🧨 ᴍᴏᴅᴇ   : \`ᴘᴜʙʟɪᴄ\`
+└──────────────────────────`.trim();
 
-    return await m.sendMsg(m.jid, pingStyle, {
+    return await m.sendMsg(m.jid, pingBox, {
         quoted: m
     });
 });
-
-
 
 Sparky({
 		name: "wame",
 		fromMe: isPublic,
 		category: "misc",
-		desc: "Converts a phone number into a whatsapp link."
+		desc: "Converts a pho number into a whatsapp link."
 	},
 	async ({
 		m,
