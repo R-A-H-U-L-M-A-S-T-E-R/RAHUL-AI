@@ -29,7 +29,7 @@ Sparky({
         if (args) {
             for (let i of plugins.commands) {
                 if (i.name.test(args)) {
-                    return m.reply(style(`*command : ${args.trim()}*\n*description : ${i.desc.toLowerCase()}*`));
+                    return m.reply(style(`╭───[ COMMAND INFO ]───◆\n│ 📌 *Command:* ${args.trim()}\n│ 📝 *Desc:* ${i.desc.toLowerCase()}\n╰──────────────────────`));
                 }
             }
             return m.reply(style("_oops command not found_"))
@@ -39,19 +39,22 @@ Sparky({
             ] = new Date().toLocaleString("en-IN", {
                 timeZone: "Asia/Kolkata"
             }).split(",");
-            let menu = `╔══════════════════════════════╗
-║   ${config.BOT_INFO.split(";")[0].toUpperCase()}
-╠══════════════════════════════╣
-║ OWNER     ${config.BOT_INFO.split(";")[1].toLowerCase()}
-║ MODE      ${config.WORK_TYPE.toLowerCase()}
-║ PREFIX    ${m.prefix}
-║ PLATFORM  ${SERVER}
-╠══════════════════════════════╣
-║ DATE      ${date}
-║ TIME      ${time}
-║ UPTIME    ${await m.uptime()}
-║ PLUGINS   ${commands.length}
-╚══════════════════════════════╝\n ${readMore}\n\n`;
+            
+            // --- NEW MODERN MENU DESIGN ---
+            let botName = config.BOT_INFO.split(";")[0].toUpperCase();
+            let ownerName = config.BOT_INFO.split(";")[1].toLowerCase();
+            let workType = config.WORK_TYPE.toLowerCase();
+            
+            let menu = `╭━━━[ *${botName}* ]━━━┈⊷
+┃ 👤 *Owner:* ${ownerName}
+┃ ⚙️ *Mode:* ${workType}
+┃ ⚡ *Prefix:* ${m.prefix}
+┃ 🌐 *Platform:* ${SERVER}
+┃ 📅 *Date:* ${date}
+┃ ⏰ *Time:* ${time}
+┃ ⏱️ *Uptime:* ${await m.uptime()}
+┃ 📂 *Plugins:* ${commands.length}
+╰──────────────────────┈⊷\n${readMore}\n\n`;
 
             let cmnd = [];
             let Sparky;
@@ -81,16 +84,15 @@ Sparky({
 
             cmnd.sort();
             type.sort().forEach((cmmd) => {
-                menu += `╔══════════════════════════════╗
-┠┌─⭓『 *${cmmd.toUpperCase()}* 』\n`;
+                menu += `╭───❖ *${cmmd.toUpperCase()}* ❖───◆\n`;
                 let comad = cmnd.filter(({ category }) => category == cmmd);
                 comad.sort();
                 comad.forEach(({ Sparky }) => {
-                    menu += `║ ${Sparky.trim()}\n`;
+                    menu += `│ ◈ ${Sparky.trim()}\n`;
                 });
-                menu += `╠══════════════════════════════╣\n`;
-                menu += `╚══════════════════════════════╝\n`;
+                menu += `╰──────────────────────◆\n\n`;
             });
+
             let sperky = {
                 "key": {
                     "participants": "0@s.whatsapp.net",
@@ -125,7 +127,7 @@ Sparky({
                     break;
                 }
                 case 'image': {
-                    return await m.sendFromUrl(config.BOT_INFO.split(";")[2], { caption: style(menu) }); //client.sendMessage(m.jid, { image: config.BOT_INFO.split(";")[2], caption: style(menu) }, { quoted: m });
+                    return await m.sendFromUrl(config.BOT_INFO.split(";")[2], { caption: style(menu) });
                     break;
                 }
                 case 'small': {
@@ -221,4 +223,3 @@ Sparky({
         console.log(e);
     }
 });
-
