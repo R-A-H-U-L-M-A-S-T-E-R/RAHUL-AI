@@ -67,11 +67,11 @@ Sparky({
 		name: "wame",
 		fromMe: isPublic,
 		category: "misc",
-		desc: "Converts a pho number into a whatsapp link."
+		desc: "Converts a phone number into a whatsapp link."
 	},
 	async ({
 		m,
 		args
 	}) => {
-		return await m.reply(`https://wa.me/${m?.quoted ? m?b.quoted?.sender?.split("@")[0] : m?.sender?.split("@")[0]}${args ? `?text=${args}` : ''}`);
+		return await m.reply(`https://wa.me/${m?.quoted ? m?.quoted?.sender?.split("@")[0] : m?.sender?.split("@")[0]}${args ? `?text=${args}` : ''}`);
 	});
