@@ -32,7 +32,7 @@ Sparky({
 
 
 Sparky({
-    Name: "ping",
+    pattern: "ping",
     fromMe: isPublic,
     category: "misc",
     desc: "Checks if the bot is online and responsive."
@@ -42,15 +42,14 @@ async ({
 }) => {
     const start = Date.now();
     
-    // Initial stylish loader
-    let msg = await m.sendMsg(m.jid, "```[ ⚡ ] ʀᴀʜᴜʟ ᴀɪ ꜱʏꜱᴛᴇᴍ ᴘɪɴɢɪɴɢ...```", {
+    // Send initial ping text
+    await m.sendMsg(m.jid, "```[ ⚡ ] ʀᴀʜᴜʟ ᴀɪ ꜱʏꜱᴛᴇᴍ ᴘɪɴɢɪɴɢ...```", {
         quoted: m
     });
     
-    // Accurate latency calculation AFTER sending the loader message
     const latency = Date.now() - start;
 
-    // Cyberpunk / Neon active style response
+    // Clean Cyberpunk / Neon style ping response
     let pingStyle = `
 ╔══════════════════╗
 ║  ⚡ **ʀᴀʜᴜʟ ᴀɪ ꜱᴛᴀᴛᴜꜱ** ⚡  ║
@@ -61,7 +60,7 @@ async ({
 ╚══════════════════╝`.trim();
 
     return await m.sendMsg(m.jid, pingStyle, {
-        key: msg.key
+        quoted: m
     });
 });
 
