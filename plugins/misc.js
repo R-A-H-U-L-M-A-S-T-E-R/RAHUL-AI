@@ -32,25 +32,26 @@ Sparky({
 
 
 Sparky({
-		Name: "ping",
-		fromMe: isPublic,
-		category: "misc",
-		desc: "Checks if the bot is online and responsive."
-	},
-	async ({
-		m
-	}) => {
-		const start = Date.now();
-		
-		// Initial stylish loader
-		let msg = await m.sendMsg(m.jid, "```[ ⚡ ] ʀᴀʜᴜʟ ᴀɪ ꜱʏꜱᴛᴇᴍ ᴘɪɴɢɪɴɢ...```", {
-			quoted: m
-		});
-		
-		const latency = Date.now() - start;
+    Name: "ping",
+    fromMe: isPublic,
+    category: "misc",
+    desc: "Checks if the bot is online and responsive."
+},
+async ({
+    m
+}) => {
+    const start = Date.now();
+    
+    // Initial stylish loader
+    let msg = await m.sendMsg(m.jid, "```[ ⚡ ] ʀᴀʜᴜʟ ᴀɪ ꜱʏꜱᴛᴇᴍ ᴘɪɴɢɪɴɢ...```", {
+        quoted: m
+    });
+    
+    // Accurate latency calculation AFTER sending the loader message
+    const latency = Date.now() - start;
 
-		// Cyberpunk / Neon active style response
-		let pingStyle = `
+    // Cyberpunk / Neon active style response
+    let pingStyle = `
 ╔══════════════════╗
 ║  ⚡ **ʀᴀʜᴜʟ ᴀɪ ꜱᴛᴀᴛᴜꜱ** ⚡  ║
 ╚══════════════════╝
@@ -59,10 +60,10 @@ Sparky({
 │ 🧨 **Engine:** \`BAILEYS v6\`
 ╚══════════════════╝`.trim();
 
-		return await m.sendMsg(m.jid, pingStyle, {
-			edit: msg.key
-		});
-	});
+    return await m.sendMsg(m.jid, pingStyle, {
+        key: msg.key
+    });
+});
 
 
 
@@ -76,5 +77,5 @@ Sparky({
 		m,
 		args
 	}) => {
-		return await m.reply(`https://wa.me/${m?.quoted ? m?.quoted?.sender?.split("@")[0] : m?.sender?.split("@")[0]}${args ? `?text=${args}` : ''}`);
+		return await m.reply(`https://wa.me/${m?.quoted ? m?b.quoted?.sender?.split("@")[0] : m?.sender?.split("@")[0]}${args ? `?text=${args}` : ''}`);
 	});
