@@ -32,7 +32,7 @@ Sparky({
 
 
 Sparky({
-    pattern: "ping",
+    name: "ping",
     fromMe: isPublic,
     category: "misc",
     desc: "Checks if the bot is online and responsive."
