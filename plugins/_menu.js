@@ -15,6 +15,9 @@ const more = String.fromCharCode(8206);
 const readMore = more.repeat(4001);
 const _0x3471ce=_0x4c73;function _0x5149(){const _0x99704b=['HEROKU','PITCHER_API_BASE_URL','PWD','codesandbox','1460490jcYrnC','DIGITALOCEAN','REPLIT','13089848qhFTfM','CLOUDFLARE','GITHUB','TERMUX_VERSION','REPLIT_USER','env','32199750KLjfkJ','18wOomgQ','5701444PXyScu','AZURE','7366gnnTKS','846315zOxTke','RAILWAY','NETLIFY','VPS','AWS','GITHUB_SERVER_URL','DYNO','1131GsaKWJ','SPACE_ID','HUGGINGFACE','KOYEB','CODESANDBOX','RENDER','FLY_IO','5671732abHOue','AZURE_HTTP_FUNCTIONS','DIGITALOCEAN_APP_NAME','CF_PAGES','VERCEL','LINUX','userland'];_0x5149=function(){return _0x99704b;};return _0x5149();}(function(_0x14bc52,_0x9e047e){const _0x5ac994=_0x4c73,_0x256c17=_0x14bc52();while(!![]){try{const _0x1155d4=parseInt(_0x5ac994(0x14a))/0x1+parseInt(_0x5ac994(0x130))/0x2*(-parseInt(_0x5ac994(0x138))/0x3)+parseInt(_0x5ac994(0x13f))/0x4+parseInt(_0x5ac994(0x131))/0x5*(parseInt(_0x5ac994(0x12d))/0x6)+parseInt(_0x5ac994(0x12e))/0x7+parseInt(_0x5ac994(0x126))/0x8+-parseInt(_0x5ac994(0x12c))/0x9;if(_0x1155d4===_0x9e047e)break;else _0x256c17['push'](_0x256c17['shift']());}catch(_0x5dbaeb){_0x256c17['push'](_0x256c17['shift']());}}}(_0x5149,0xd4926));function _0x4c73(_0x3c6eb7,_0x511653){const _0x514924=_0x5149();return _0x4c73=function(_0x4c737c,_0x3e9250){_0x4c737c=_0x4c737c-0x125;let _0x40d9b6=_0x514924[_0x4c737c];return _0x40d9b6;},_0x4c73(_0x3c6eb7,_0x511653);}let SERVER=process[_0x3471ce(0x12b)][_0x3471ce(0x148)]?.['includes'](_0x3471ce(0x145))?_0x3471ce(0x144):process[_0x3471ce(0x12b)][_0x3471ce(0x147)]?.['includes'](_0x3471ce(0x149))?_0x3471ce(0x13c):process['env'][_0x3471ce(0x12a)]?_0x3471ce(0x125):process[_0x3471ce(0x12b)]['AWS_REGION']?_0x3471ce(0x135):process['env'][_0x3471ce(0x129)]?'TERMUX':process['env'][_0x3471ce(0x137)]?_0x3471ce(0x146):process[_0x3471ce(0x12b)]['KOYEB_APP_ID']?_0x3471ce(0x13b):process[_0x3471ce(0x12b)][_0x3471ce(0x136)]?_0x3471ce(0x128):process['env']['RENDER']?_0x3471ce(0x13d):process[_0x3471ce(0x12b)]['RAILWAY_SERVICE_NAME']?_0x3471ce(0x132):process[_0x3471ce(0x12b)][_0x3471ce(0x143)]?_0x3471ce(0x143):process[_0x3471ce(0x12b)][_0x3471ce(0x141)]?_0x3471ce(0x14b):process['env'][_0x3471ce(0x140)]?_0x3471ce(0x12f):process[_0x3471ce(0x12b)][_0x3471ce(0x133)]?_0x3471ce(0x133):process[_0x3471ce(0x12b)]['FLY_IO']?_0x3471ce(0x13e):process['env'][_0x3471ce(0x142)]?_0x3471ce(0x127):process[_0x3471ce(0x12b)][_0x3471ce(0x139)]?_0x3471ce(0x13a):_0x3471ce(0x134);
 
+// --- AUTO MENU ROTATION CONFIG ---
+let menuStyleIndex = 0;
+
 Sparky({
     name: "menu",
     category: "misc",
@@ -40,21 +43,57 @@ Sparky({
                 timeZone: "Asia/Kolkata"
             }).split(",");
             
-            // --- NEW MODERN MENU DESIGN ---
             let botName = config.BOT_INFO.split(";")[0].toUpperCase();
             let ownerName = config.BOT_INFO.split(";")[1].toLowerCase();
             let workType = config.WORK_TYPE.toLowerCase();
-            
-            let menu = `╭━━━[ *${botName}* ]━━━┈⊷
-┃ 👤 *Owner:* ${ownerName}
-┃ ⚙️ *Mode:* ${workType}
-┃ ⚡ *Prefix:* ${m.prefix}
-┃ 🌐 *Platform:* ${SERVER}
-┃ 📅 *Date:* ${date}
-┃ ⏰ *Time:* ${time}
-┃ ⏱️ *Uptime:* ${await m.uptime()}
-┃ 📂 *Plugins:* ${commands.length}
-╰──────────────────────┈⊷\n${readMore}\n\n`;
+            let uptimeVal = await m.uptime();
+
+            // Array of different automatic styles
+            const autoStyles = [
+                // Style 1: Modern Rounded Box
+                () => {
+                    let head = `╭━━━[ *${botName}* ]━━━┈⊷\n┃ 👤 *Owner:* ${ownerName}\n┃ ⚙️ *Mode:* ${workType}\n┃ ⚡ *Prefix:* ${m.prefix}\n┃ 🌐 *Platform:* ${SERVER}\n┃ 📅 *Date:* ${date}\n┃ ⏰ *Time:* ${time}\n┃ ⏱️ *Uptime:* ${uptimeVal}\n┃ 📂 *Plugins:* ${commands.length}\n╰──────────────────────┈⊷\n${readMore}\n\n`;
+                    let body = "";
+                    type.sort().forEach((cmmd) => {
+                        head += `╭───❖ *${cmmd.toUpperCase()}* ❖───◆\n`;
+                        let comad = cmnd.filter(({ category }) => category == cmmd);
+                        comad.sort();
+                        comad.forEach(({ Sparky }) => {
+                            head += `│ ◈ ${Sparky.trim()}\n`;
+                        });
+                        head += `╰──────────────────────◆\n\n`;
+                    });
+                    return head;
+                },
+                // Style 2: Cyberpunk Minimal
+                () => {
+                    let head = `┏━━━━━━━━━━━━━━━━━━━━━━┓\n┃      ⚡ *${botName}* ⚡      \n┣━━━━━━━━━━━━━━━━━━━━━━┫\n┃ 👑 Owner : ${ownerName}\n┃ 🔧 Mode  : ${workType}\n┃ 💻 Prefix: ${m.prefix}\n┃ 📊 Uptime: ${uptimeVal}\n┗━━━━━━━━━━━━━━━━━━━━━━┛\n${readMore}\n\n`;
+                    type.sort().forEach((cmmd) => {
+                        head += `┌───「 *${cmmd.toUpperCase()}* 」\n`;
+                        let comad = cmnd.filter(({ category }) => category == cmmd);
+                        comad.sort();
+                        comad.forEach(({ Sparky }) => {
+                            head += `├ • ${Sparky.trim()}\n`;
+                        });
+                        head += `└───────────────\n\n`;
+                    });
+                    return head;
+                },
+                // Style 3: Clean Elegant
+                () => {
+                    let head = `┌──────────────────────┐\n│   ✨ *${botName}* ✨\n├──────────────────────┤\n│ 👤 ${ownerName} | ⚙️ ${workType}\n│ 🚀 Prefix: ${m.prefix}\n│ ⏳ Uptime: ${uptimeVal}\n└──────────────────────┘\n${readMore}\n\n`;
+                    type.sort().forEach((cmmd) => {
+                        head += `✦ *${cmmd.toUpperCase()}*\n`;
+                        let comad = cmnd.filter(({ category }) => category == cmmd);
+                        comad.sort();
+                        comad.forEach(({ Sparky }) => {
+                            head += `  » ${Sparky.trim()}\n`;
+                        });
+                        head += `\n`;
+                    });
+                    return head;
+                }
+            ];
 
             let cmnd = [];
             let Sparky;
@@ -83,19 +122,16 @@ Sparky({
             });
 
             cmnd.sort();
-            type.sort().forEach((cmmd) => {
-                menu += `╭───❖ *${cmmd.toUpperCase()}* ❖───◆\n`;
-                let comad = cmnd.filter(({ category }) => category == cmmd);
-                comad.sort();
-                comad.forEach(({ Sparky }) => {
-                    menu += `│ ◈ ${Sparky.trim()}\n`;
-                });
-                menu += `╰──────────────────────◆\n\n`;
-            });
+
+            // Pick the current style from array and increment index for next time (Auto Rotate)
+            let selectedMenuStyle = autoStyles[menuStyleIndex]();
+            menuStyleIndex = (menuStyleIndex + 1) % autoStyles.length;
+
+            let menu = selectedMenuStyle;
 
             let sperky = {
                 "key": {
-                    "participants": "0@s.whatsapp.net",
+                    "participants": "0@s.s.whatsapp.net",
                     "remoteJid": "status@broadcast",
                     "fromMe": false,
                     "id": "Hey!"
