@@ -17,28 +17,28 @@ Sparky({
     try {
         await m.react('⏫');
         
-        // Media buffer ani mime type milvlela changla
         const mediaBuffer = await m.quoted.download();
         const mime = m.quoted.mimetype || 'image/jpeg';
-        
-        // Extension tharavne
         let ext = mime.split('/')[1] || 'bin';
-        
-        const blob = new Blob([mediaBuffer], { type: mime });
+
+        // Native Blob/FormData la bypass karun direct Axios kinva boundary fetch vapru shakto.
+        // Jar bot madhye axios asel tr ha sarvat best way ahe:
+        const FormData = require('form-data');
         const form = new FormData();
         form.append('reqtype', 'fileupload');
-        form.append('fileToUpload', blob, `media.${ext}`);
+        form.append('fileToUpload', mediaBuffer, { filename: `media.${ext}`, contentType: mime });
 
         const response = await fetch('https://sam-cdn.zone.id/upload', {
             method: 'POST',
             body: form,
+            headers: form.getHeaders ? form.getHeaders() : {}
         });
 
         const resText = await response.text();
-        console.log("API Response:", resText); // Console var response print hoil
+        console.log("API Response:", resText);
 
         if (!response.ok || !resText || !resText.startsWith('http')) {
-            throw new Error(`Upload failed with response: ${resText}`);
+            throw new Error(`Upload failed: ${resText}`);
         }
         
         await m.react('✅');
@@ -48,7 +48,7 @@ Sparky({
         await m.react('❌');
         return m.reply(`An error occurred: ${error.message}`);
     }
-}); 
+});
 
 Sparky(
   {
