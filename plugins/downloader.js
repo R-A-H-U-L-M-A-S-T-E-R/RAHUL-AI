@@ -20,6 +20,9 @@ async ({
     args = args || m.quoted?.text;
     if (!args) return await m.reply(lang.NEED_URL || "Krupaya Instagram chi link dya!");
 
+    // Clean URL (Remove extra tracking parameters if causing issues)
+    let cleanUrl = args.trim();
+
     // --- 1000+ DYNAMIC AUTO-CHANGING STYLES GENERATOR ---
     const edgeBorders = [
       ['╔', '╗', '╚', '╝', '═', '║'],
@@ -37,13 +40,11 @@ async ({
 
     const glowEffects = ['💠 [INSTA-LED]', '⚡ [RGB-REELS]', '🔥 [HD-POST]', '✨ [NEON-STORY]', '💫 [PULSE-MEDIA]'];
 
-    // Random selection to achieve 1000+ unique styles automatically
     const randomBorder = edgeBorders[Math.floor(Math.random() * edgeBorders.length)];
     const randomColor = themeColors[Math.floor(Math.random() * themeColors.length)];
     const randomGlow = glowEffects[Math.floor(Math.random() * glowEffects.length)];
-    const uniqueStyleId = Math.floor(Math.random() * 90000) + 10000; // 5-digit unique style code
+    const uniqueStyleId = Math.floor(Math.random() * 90000) + 10000;
 
-    // Safe variables mapping (No Destructuring Error)
     const tl = randomBorder[0];
     const tr = randomBorder[1];
     const bl = randomBorder[2];
@@ -63,20 +64,33 @@ async ({
       `${vt}${hz.repeat(22)}${vt}\n` +
       `${vt} 🔮 *Style:* #${uniqueStyleId} ${randomGlow} ${vt}\n` +
       `${vt} 📥 *Source:* Instagram Media ${vt}\n` +
-      `${vt} 🔗 *Link:* ${args} ${vt}\n` +
+      `${vt} 🔗 *Link:* ${cleanUrl} ${vt}\n` +
       `${bl}${hz.repeat(22)}${br}\n` +
       `⚡ *Status:* Fetching & Downloading... 🚀`;
 
     await m.reply(edgeLightingUI);
 
-    let response = await getJson(config.API + "/api/downloader/igdl?url=" + args);
+    // Fetching API response
+    let response = await getJson(config.API + "/api/downloader/igdl?url=" + encodeURIComponent(cleanUrl));
     
-    if (!response || !response.data || response.data.length === 0) {
-      return await m.reply("❌ Maaf kara, media sapadli nahi kinva link invalid aahe!");
+    // Fallback handlers for different API response structures
+    let mediaList = [];
+    if (response && response.data) {
+        mediaList = Array.isArray(response.data) ? response.data : [response.data];
+    } else if (response && response.result) {
+        mediaList = Array.isArray(response.result) ? response.result : [response.result];
+    } else if (response && response.url) {
+        mediaList = [{ url: response.url, type: response.type || 'video' }];
     }
 
-    for (let i of response.data) {
-      await m.sendMsg(m.jid, i.url, { quoted: m }, i.type);
+    if (!mediaList || mediaList.length === 0) {
+      return await m.reply("❌ Maaf kara, API madhun media bhetli nahi! Link check kara.");
+    }
+
+    for (let i of mediaList) {
+      let mediaUrl = i.url || i;
+      let mediaType = i.type || (mediaUrl.includes('.mp4') ? 'video' : 'image');
+      await m.sendMsg(m.jid, mediaUrl, { quoted: m }, mediaType);
     }
     
     await m.react('✅');
@@ -87,7 +101,6 @@ async ({
     m.reply(`⚠️ Error: ${e.message || e}`);
   }
 });
-
 
 Sparky({
     name: "rahulai",
