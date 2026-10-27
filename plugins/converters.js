@@ -17,36 +17,38 @@ Sparky({
     try {
         await m.react('⏫');
         
-        // Media buffer download karun ghetla
+        // Media buffer ani mime type milvlela changla
         const mediaBuffer = await m.quoted.download();
+        const mime = m.quoted.mimetype || 'image/jpeg';
         
-        // Native Blob ani FormData vaprun upload (extra package chi garaj nahi)
-        const blob = new Blob([mediaBuffer]);
+        // Extension tharavne
+        let ext = mime.split('/')[1] || 'bin';
+        
+        const blob = new Blob([mediaBuffer], { type: mime });
         const form = new FormData();
         form.append('reqtype', 'fileupload');
-        form.append('fileToUpload', blob, 'media.bin');
+        form.append('fileToUpload', blob, `media.${ext}`);
 
         const response = await fetch('https://sam-cdn.zone.id/upload', {
             method: 'POST',
             body: form,
         });
 
-        const mediaUrl = await response.text();
+        const resText = await response.text();
+        console.log("API Response:", resText); // Console var response print hoil
 
-        if (!mediaUrl || !mediaUrl.startsWith('http')) {
-            throw new Error('Upload failed');
+        if (!response.ok || !resText || !resText.startsWith('http')) {
+            throw new Error(`Upload failed with response: ${resText}`);
         }
         
         await m.react('✅');
-        return m.reply(mediaUrl.trim());
+        return m.reply(resText.trim());
     } catch (error) {
         console.error("URL Command Error:", error);
         await m.react('❌');
-        return m.reply('An error occurred while uploading the media.');
+        return m.reply(`An error occurred: ${error.message}`);
     }
-});
-
-
+}); 
 
 Sparky(
   {
