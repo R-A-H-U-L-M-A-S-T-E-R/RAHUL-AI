@@ -15,7 +15,7 @@ const more = String.fromCharCode(8206);
 const readMore = more.repeat(4001);
 const _0x3471ce=_0x4c73;function _0x5149(){const _0x99704b=['HEROKU','PITCHER_API_BASE_URL','PWD','codesandbox','1460490jcYrnC','DIGITALOCEAN','REPLIT','13089848qhFTfM','CLOUDFLARE','GITHUB','TERMUX_VERSION','REPLIT_USER','env','32199750KLjfkJ','18wOomgQ','5701444PXyScu','AZURE','7366gnnTKS','846315zOxTke','RAILWAY','NETLIFY','VPS','AWS','GITHUB_SERVER_URL','DYNO','1131GsaKWJ','SPACE_ID','HUGGINGFACE','KOYEB','CODESANDBOX','RENDER','FLY_IO','5671732abHOue','AZURE_HTTP_FUNCTIONS','DIGITALOCEAN_APP_NAME','CF_PAGES','VERCEL','LINUX','userland'];_0x5149=function(){return _0x99704b;};return _0x5149();}(function(_0x14bc52,_0x9e047e){const _0x5ac994=_0x4c73,_0x256c17=_0x14bc52();while(!![]){try{const _0x1155d4=parseInt(_0x5ac994(0x14a))/0x1+parseInt(_0x5ac994(0x130))/0x2*(-parseInt(_0x5ac994(0x138))/0x3)+parseInt(_0x5ac994(0x13f))/0x4+parseInt(_0x5ac994(0x131))/0x5*(parseInt(_0x5ac994(0x12d))/0x6)+parseInt(_0x5ac994(0x12e))/0x7+parseInt(_0x5ac994(0x126))/0x8+-parseInt(_0x5ac994(0x12c))/0x9;if(_0x1155d4===_0x9e047e)break;else _0x256c17['push'](_0x256c17['shift']());}catch(_0x5dbaeb){_0x256c17['push'](_0x256c17['shift']());}}}(_0x5149,0xd4926));function _0x4c73(_0x3c6eb7,_0x511653){const _0x514924=_0x5149();return _0x4c73=function(_0x4c737c,_0x3e9250){_0x4c737c=_0x4c737c-0x125;let _0x40d9b6=_0x514924[_0x4c737c];return _0x40d9b6;},_0x4c73(_0x3c6eb7,_0x511653);}let SERVER=process[_0x3471ce(0x12b)][_0x3471ce(0x148)]?.['includes'](_0x3471ce(0x145))?_0x3471ce(0x144):process[_0x3471ce(0x12b)][_0x3471ce(0x147)]?.['includes'](_0x3471ce(0x149))?_0x3471ce(0x13c):process['env'][_0x3471ce(0x12a)]?_0x3471ce(0x125):process[_0x3471ce(0x12b)][_0x3471ce(0x135)]?_0x3471ce(0x135):process['env'][_0x3471ce(0x129)]?'TERMUX':process['env'][_0x3471ce(0x137)]?_0x3471ce(0x146):process[_0x3471ce(0x12b)][_0x3471ce(0x13b)]?_0x3471ce(0x13b):process[_0x3471ce(0x12b)][_0x3471ce(0x136)]?_0x3471ce(0x128):process['env']['RENDER']?_0x3471ce(0x13d):process[_0x3471ce(0x12b)][_0x3471ce(0x132)]?_0x3471ce(0x132):process[_0x3471ce(0x12b)][_0x3471ce(0x143)]?_0x3471ce(0x143):process[_0x3471ce(0x12b)][_0x3471ce(0x141)]?_0x3471ce(0x14b):process['env'][_0x3471ce(0x140)]?_0x3471ce(0x12f):process[_0x3471ce(0x12b)][_0x3471ce(0x133)]?_0x3471ce(0x133):process[_0x3471ce(0x12b)][_0x3471ce(0x13e)]?_0x3471ce(0x13e):process['env'][_0x3471ce(0x142)]?_0x3471ce(0x127):process[_0x3471ce(0x12b)][_0x3471ce(0x139)]?_0x3471ce(0x13a):_0x3471ce(0x134);
 
-// --- 100+ AUTO ROTATING MENU STYLES ---
+// --- 1000 ULTRA MEGA AUTO-ROTATING MENU ENGINE ---
 let menuStyleIndex = 0;
 
 Sparky({
@@ -46,55 +46,220 @@ Sparky({
             let workType = config.WORK_TYPE.toLowerCase();
             let uptimeVal = await m.uptime();
 
-            // Dynamic Generator for 100+ Unique Layout Variations
-            const generateStyles = () => {
-                let stylesArr = [];
-                const borders = [
-                    { t: "╭", m: "┃", b: "╰", h: "━", s: "◆" },
-                    { t: "┏", m: "┃", b: "┗", h: "━", s: "★" },
-                    { t: "╔", m: "║", b: "╚", h: "═", s: "◆" },
-                    { t: "┌", m: "│", b: "└", h: "─", s: "◇" },
-                    { t: "╔═❖", m: "║", b: "╚═❖", h: "═", s: "✦" },
-                    { t: "╭━━━⟐", m: "┃", b: "╰━━━⟐", h: "─", s: "✧" },
-                    { t: "┏━━🚀", m: "┃", b: "┗━━⚡", h: "━", s: "❖" },
-                    { t: "┌──👑", m: "│", b: "└──👑", h: "─", s: "✦" },
-                    { t: "╔═══════╗", m: "║", b: "╚═══════╝", h: "═", s: "♦" },
-                    { t: "★━━━━", m: "┃", b: "━━━━★", h: "─", s: "✦" }
-                ];
+            // Programmatically generating 1000 unique styles seamlessly
+            const generate1000Styles = () => {
+                let stylesArray = [];
 
-                // Programmatically generate 100 diverse layouts using variations
-                for (let i = 0; i < 100; i++) {
-                    let b = borders[i % borders.length];
-                    let line = b.h.repeat(18);
-                    
-                    stylesArr.push(() => {
-                        let head = `${b.t}${line}[ *${botName}* ]${line}${b.s}\n` +
-                                   `${b.m} 👑 Owner   : ${ownerName}\n` +
-                                   `${b.m} ⚙️ Mode    : ${workType}\n` +
-                                   `${b.m} ⚡ Prefix  : ${m.prefix}\n` +
-                                   `${b.m} 🌐 Platform: ${SERVER}\n` +
-                                   `${b.m} 📅 Date    : ${date}\n` +
-                                   `${b.m} ⏰ Time    : ${time}\n` +
-                                   `${b.m} ⏱️ Uptime  : ${uptimeVal}\n` +
-                                   `${b.m} 📂 Plugins : ${commands.length}\n` +
-                                   `${b.b}${line}${line}${b.s}\n${readMore}\n\n`;
+                for (let i = 0; i < 1000; i++) {
+                    stylesArray.push((p) => {
+                        let header = "";
+                        let footer = readMore + "\n\n";
+                        
+                        // Switch across 50 distinct base archetypes to guarantee endless variety
+                        switch (i % 50) {
+                            case 0:
+                                header = `┌──────────────────────────────┐\n│   ⚡ [ *${botName} CORE* ] ⚡   │\n├──────────────────────────────┤\n│ 👤 USER   : ${ownerName}\n│ ⚙️ STATUS : ${workType}\n│ ⚡ PREFIX : ${p}\n│ ⏱️ UPTIME : ${uptimeVal}\n└──────────────────────────────┘\n${footer}`;
+                                break;
+                            case 1:
+                                header = `✦ ───『 *${botName}* 』─── ✦\n│ 👑 Owner  : ${ownerName}\n│ 🚀 Mode   : ${workType}\n│ 💻 Prefix : ${p}\n│ 🌐 Server : ${SERVER}\n✦──────────────────────✦\n${footer}`;
+                                break;
+                            case 2:
+                                header = `╔══════════════════════════════╗\n║      🌟 *${botName}* 🌟      ║\n╠══════════════════════════════╣\n║ 👤 MASTER : ${ownerName}\n║ 🔧 ENGINE : ${workType}\n║ 📌 TRIGGER: ${p}\n╚══════════════════════════════╝\n${footer}`;
+                                break;
+                            case 3:
+                                header = `╭━━━[ *${botName} v3.0* ]━━━╮\n┃ 🎯 Owner  : ${ownerName}\n┃ 🔋 Mode   : ${workType}\n┃ ⚡ Prefix : ${p}\n┃ ⏳ Uptime : ${uptimeVal}\n╰━━━━━━━━━━━━━━━━━━━━━━╯\n${footer}`;
+                                break;
+                            case 4:
+                                header = `---=== [ *${botName}* ] ===---\n » Owner  : ${ownerName}\n » Mode   : ${workType}\n » Prefix : ${p}\n » Server : ${SERVER}\n--------------------------\n${footer}`;
+                                break;
+                            case 5:
+                                header = `╔═.★.═════════════════.★.═╗\n║      *${botName} SYSTEM*      ║\n╠═════════════════════════╣\n║ 👑 Operator : ${ownerName}\n║ ⚙️ Protocol : ${workType}\n║ ⚡ Command  : ${p}\n╚═.★.═════════════════.★.═╝\n${footer}`;
+                                break;
+                            case 6:
+                                header = `┏━━━━━━━━━━━━━━━━━━━━━━┓\n┃   ⚡ *${botName}* ⚡   ┃\n┣━━━━━━━━━━━━━━━━━━━━━━┫\n┃ 👤 Owner : ${ownerName}\n┃ 🛠️ Mode  : ${workType}\n┃ 🚀 Prefix: ${p}\n┗━━━━━━━━━━━━━━━━━━━━━━┛\n${footer}`;
+                                break;
+                            case 7:
+                                header = `╭──────────────────────╮\n│   🔥 *${botName}* 🔥   │\n├──────────────────────┤\n│ Owner  : ${ownerName}\n│ Status : ${workType}\n│ Prefix : ${p}\n╰──────────────────────╯\n${footer}`;
+                                break;
+                            case 8:
+                                header = `★━━━━━━━[ *${botName}* ]━━━━━━━★\n╎ 👤 Owner : ${ownerName}\n╎ ⚙️ Mode  : ${workType}\n╎ ⚡ Prefix: ${p}\n╎ ⏱️ Uptime: ${uptimeVal}\n★━━━━━━━━━━━━━━━━━━━━━━★\n${footer}`;
+                                break;
+                            case 9:
+                                header = `◆════════════════════════◆\n◆     *${botName} HUB*     ◆\n◆════════════════════════◆\n│ 👤 Owner : ${ownerName}\n│ ⚙️ Mode  : ${workType}\n│ ⚡ Prefix: ${p}\n◆────────────────────────◆\n${footer}`;
+                                break;
+                            case 10:
+                                header = `🚀 ─── *${botName} PANEL* ─── 🚀\n│ 📌 Owner : ${ownerName}\n│ ⚙️ Mode  : ${workType}\n│ ⚡ Prefix: ${p}\n└────────────────────────┘\n${footer}`;
+                                break;
+                            case 11:
+                                header = `╔════════════════════════╗\n║  💎 *${botName}* 💎  ║\n╚════════════════════════╝\n│ 👤 Owner : ${ownerName}\n│ ⚡ Prefix: ${p}\n──────────────────────────\n${footer}`;
+                                break;
+                            case 12:
+                                header = `╭•《 *${botName} SYSTEM* 》•╮\n│ 👤 Owner : ${ownerName}\n│ ⚙️ Mode  : ${workType}\n│ ⚡ Prefix: ${p}\n╰────────────────────────╯\n${footer}`;
+                                break;
+                            case 13:
+                                header = `┌────────────────────────┐\n│ ⚡ *${botName} DASHBOARD* ⚡\n├────────────────────────┤\n│ 👤 Owner : ${ownerName}\n│ 🚀 Prefix: ${p}\n└────────────────────────┘\n${footer}`;
+                                break;
+                            case 14:
+                                header = `╔════════════════════════════╗\n║ 👑 *${botName}* - BOT      ║\n╠════════════════════════════╣\n║ User   : ${ownerName}\n║ Status : ${workType}\n╚════════════════════════════╝\n${footer}`;
+                                break;
+                            case 15:
+                                header = `⚡════════════════════════⚡\n     *${botName} v1.0*     \n⚡════════════════════════⚡\n│ Owner : ${ownerName}\n│ Prefix: ${p}\n──────────────────────────\n${footer}`;
+                                break;
+                            case 16:
+                                header = `╭•-•-•[ *${botName}* ]•-•-•╮\n│ 👤 Owner : ${ownerName}\n│ ⚙️ Mode  : ${workType}\n│ ⚡ Prefix: ${p}\n╰•-•-•-•-•-•-•-•-•-•-•-•╯\n${footer}`;
+                                break;
+                            case 17:
+                                header = `┌─[ *${botName}* ]─┐\n│ 👤 Owner : ${ownerName}\n│ ⚙️ Mode  : ${workType}\n│ ⚡ Prefix: ${p}\n└──────────────────┘\n${footer}`;
+                                break;
+                            case 18:
+                                header = `✨ *${botName} CONTROL CENTER* ✨\n──────────────────────────\n│ 👤 Owner : ${ownerName}\n│ ⚡ Prefix: ${p}\n│ ⏱️ Uptime: ${uptimeVal}\n──────────────────────────\n${footer}`;
+                                break;
+                            case 19:
+                                header = `╔══════════════════════════╗\n║ 🚀 *${botName}*           ║\n╠══════════════════════════╣\n║ Owner  : ${ownerName}\n║ Prefix : ${p}\n╚══════════════════════════╝\n${footer}`;
+                                break;
+                            case 20:
+                                header = `┏━━━❮ *${botName}* ❯━━━┓\n┃ 👤 Owner : ${ownerName}\n┃ ⚙️ Mode  : ${workType}\n┃ ⚡ Prefix: ${p}\n┗━━━━━━━━━━━━━━━┛\n${footer}`;
+                                break;
+                            case 21:
+                                header = `✦───────────────✦\n  *${botName} BOT MENU*  \n✦───────────────✦\n│ Owner : ${ownerName}\n│ Prefix: ${p}\n✦───────────────✦\n${footer}`;
+                                break;
+                            case 22:
+                                header = `╔════════════════════════╗\n║ 🛡️ *${botName} SECURITY* ║\n╠════════════════════════╣\n║ User   : ${ownerName}\n║ Prefix : ${p}\n╚════════════════════════╝\n${footer}`;
+                                break;
+                            case 23:
+                                header = `╭═══[ *${botName}* ]═══╮\n│ 👤 ${ownerName}\n│ ⚙️ ${workType}\n│ ⚡ ${p}\n╰──────────────────────╯\n${footer}`;
+                                break;
+                            case 24:
+                                header = `┌────────────────────────┐\n│  👑 *${botName}* 👑  │\n├────────────────────────┤\n│ Owner  : ${ownerName}\n│ Prefix : ${p}\n└────────────────────────┘\n${footer}`;
+                                break;
+                            case 25:
+                                header = `══════[ *${botName}* ]══════\n│ 👤 Owner : ${ownerName}\n│ ⚙️ Mode  : ${workType}\n│ ⚡ Prefix: ${p}\n══════════════════════════\n${footer}`;
+                                break;
+                            case 26:
+                                header = `╭───[ *${botName}* ]───╮\n│ ⚡ Owner : ${ownerName}\n│ 🔧 Mode  : ${workType}\n│ 🚀 Prefix: ${p}\n╰──────────────────────╯\n${footer}`;
+                                break;
+                            case 27:
+                                header = `┌•🌐 *${botName}* 🌐•┐\n│ Owner  : ${ownerName}\n│ Status : ${workType}\n│ Prefix : ${p}\n└──────────────────────┘\n${footer}`;
+                                break;
+                            case 28:
+                                header = `╔══✦ *${botName}* ✦══╗\n║ 👤 Owner : ${ownerName}\n║ ⚙️ Mode  : ${workType}\n║ ⚡ Prefix: ${p}\n╚══════════════════╝\n${footer}`;
+                                break;
+                            case 29:
+                                header = `┏━━━━━━━━━━━━━━━━━━━━━━┓\n┃   👑 *${botName}* 👑   ┃\n┣━━━━━━━━━━━━━━━━━━━━━━┫\n┃ Owner  : ${ownerName}\n┃ Prefix : ${p}\n┗━━━━━━━━━━━━━━━━━━━━━━┛\n${footer}`;
+                                break;
+                            case 30:
+                                header = `╔════════╦════════════════╗\n║ BOT    ║ *${botName}*   ║\n╠════════╬════════════════╣\n║ OWNER  ║ ${ownerName}   ║\n║ PREFIX ║ ${p}      ║\n╚════════╩════════════════╝\n${footer}`;
+                                break;
+                            case 31:
+                                header = `⚡ ── *${botName}* ── ⚡\n┌────────────────────────┐\n│ 👑 Owner : ${ownerName}\n│ ⚡ Prefix: ${p}\n└────────────────────────┘\n${footer}`;
+                                break;
+                            case 32:
+                                header = `🎯 *${botName} MAIN MENU* 🎯\n══════════════════════════\n│ 👤 Owner : ${ownerName}\n│ ⚙️ Mode  : ${workType}\n│ ⚡ Prefix: ${p}\n══════════════════════════\n${footer}`;
+                                break;
+                            case 33:
+                                header = `┌────────────────────────┐\n│ 🚀 *${botName}* v4.0   │\n└────────────────────────┘\n│ Owner  : ${ownerName}\n│ Prefix : ${p}\n──────────────────────────\n${footer}`;
+                                break;
+                            case 34:
+                                header = `🔥══════════════════════🔥\n     *${botName} HUB*     \n🔥══════════════════════🔥\n│ Owner  : ${ownerName}\n│ Prefix : ${p}\n──────────────────────────\n${footer}`;
+                                break;
+                            case 35:
+                                header = `╭──────────────────────╮\n│ 💻 *${botName}*          │\n├──────────────────────┤\n│ Owner : ${ownerName}\n│ Prefix: ${p}\n╰──────────────────────╯\n${footer}`;
+                                break;
+                            case 36:
+                                header = `★──────── *${botName}* --------★\n│ 👤 Owner : ${ownerName}\n│ ⚡ Prefix: ${p}\n★----------------------★\n${footer}`;
+                                break;
+                            case 37:
+                                header = `╔════════════════════════╗\n║ ⚡ *${botName}*        ║\n╚════════════════════════╝\n│ 👤 Owner : ${ownerName}\n│ ⚡ Prefix: ${p}\n──────────────────────────\n${footer}`;
+                                break;
+                            case 38:
+                                header = `┏━━━━━━━━━━━━━━━━━━━━━━┓\n┃ 🔥 *${botName}*       ┃\n┣━━━━━━━━━━━━━━━━━━━━━━┫\n┃ Owner : ${ownerName}\n┃ Prefix: ${p}\n┗━━━━━━━━━━━━━━━━━━━━━━┛\n${footer}`;
+                                break;
+                            case 39:
+                                header = `◆━━━━ *${botName}* ━━━━◆\n│ Owner : ${ownerName}\n│ Prefix: ${p}\n◆──────────────────────◆\n${footer}`;
+                                break;
+                            case 40:
+                                header = `╭━━━❖ *${botName}* ❖━━━╮\n│ Owner : ${ownerName}\n│ Prefix: ${p}\n╰──────────────────────╯\n${footer}`;
+                                break;
+                            case 41:
+                                header = `┌───「 *${botName}* 」───┐\n│ Owner : ${ownerName}\n│ Prefix: ${p}\n└──────────────────────┘\n${footer}`;
+                                break;
+                            case 42:
+                                header = `╔═✨ *${botName}* ✨═╗\n║ Owner : ${ownerName}\n║ Prefix: ${p}\n╚══════════════════════╝\n${footer}`;
+                                break;
+                            case 43:
+                                header = `✦══════════════════════✦\n  *${botName} SYSTEM*  \n✦══════════════════════✦\n│ Owner : ${ownerName}\n│ Prefix: ${p}\n✦══════════════════════✦\n${footer}`;
+                                break;
+                            case 44:
+                                header = `┌──────────────────────┐\n│ 👑 *${botName}*        │\n├──────────────────────┤\n│ Owner : ${ownerName}\n│ Prefix: ${p}\n└──────────────────────┘\n${footer}`;
+                                break;
+                            case 45:
+                                header = `┏━━━━━━━━━━━━━━━━━━━━━━┓\n┃ ⚡ *${botName}*         ┃\n┣━━━━━━━━━━━━━━━━━━━━━━┫\n┃ Owner : ${ownerName}\n┃ Prefix: ${p}\n┗━━━━━━━━━━━━━━━━━━━━━━┛\n${footer}`;
+                                break;
+                            case 46:
+                                header = `╭──────────────────────╮\n│ 🚀 *${botName}*        │\n├──────────────────────┤\n│ Owner : ${ownerName}\n│ Prefix: ${p}\n╰──────────────────────╯\n${footer}`;
+                                break;
+                            case 47:
+                                header = `╔══════════════════════╗\n║ 💻 *${botName}*        ║\n╠══════════════════════╣\n║ Owner : ${ownerName}\n║ Prefix: ${p}\n╚══════════════════════╝\n${footer}`;
+                                break;
+                            case 48:
+                                header = `★━━━━ *${botName}* ━━━━★\n│ Owner : ${ownerName}\n│ Prefix: ${p}\n★──────────────────────★\n${footer}`;
+                                break;
+                            case 49:
+                                header = `◆════ *${botName}* ════◆\n│ Owner : ${ownerName}\n│ Prefix: ${p}\n◆──────────────────────◆\n${footer}`;
+                                break;
+                        }
+                        
+                        let body = "";
+                        const categoryStyles = [
+                            (cat) => `┌───「 *${cat.toUpperCase()}* 」\n`,
+                            (cat) => `╭───❖ *${cat.toUpperCase()}* ❖───◆\n`,
+                            (cat) => `╔══ *${cat.toUpperCase()}* ══╗\n`,
+                            (cat) => `◆━━━ *${cat.toUpperCase()}* ━━━◆\n`,
+                            (cat) => `✦ *${cat.toUpperCase()}*\n`,
+                            (cat) => `┏━━━❮ *${cat.toUpperCase()}* ❯━━━┓\n`,
+                            (cat) => `⚡ *${cat.toUpperCase()}* ⚡\n`
+                        ];
 
-                        type.sort().forEach((cmmd) => {
-                            head += `${b.t}──❖ [ *${cmmd.toUpperCase()}* ] ❖──${b.s}\n`;
+                        const itemStyles = [
+                            (cmd) => `├ • ${cmd}\n`,
+                            (cmd) => `│ ◈ ${cmd}\n`,
+                            (cmd) => `║ ❯ ${cmd}\n`,
+                            (cmd) => `│ ⚡ ${cmd}\n`,
+                            (cmd) => `  » ${cmd}\n`,
+                            (cmd) => `┃ 📌 ${cmd}\n`
+                        ];
+
+                        const footerStyles = [
+                            () => `└───────────────\n\n`,
+                            () => `╰──────────────────────◆\n\n`,
+                            () => `╚═══════════════╝\n\n`,
+                            () => `◆──────────────────────◆\n\n`,
+                            () => `┗━━━━━━━━━━━━━━━┛\n\n`,
+                            () => `\n`
+                        ];
+
+                        type.sort().forEach((cmmd, idx) => {
+                            let catStyleFn = categoryStyles[(i + idx) % categoryStyles.length];
+                            body += catStyleFn(cmmd);
+                            
                             let comad = cmnd.filter(({ category }) => category == cmmd);
                             comad.sort();
-                            comad.forEach(({ Sparky }) => {
-                                head += `${b.m} 🚀 ${Sparky.trim()}\n`;
+                            comad.forEach(({ Sparky }, itemIdx) => {
+                                let itemStyleFn = itemStyles[(i + itemIdx) % itemStyles.length];
+                                body += itemStyleFn(Sparky.trim());
                             });
-                            head += `${b.b}──────────────────────${b.s}\n\n`;
+
+                            let footStyleFn = footerStyles[(i + idx) % footerStyles.length];
+                            body += footStyleFn();
                         });
-                        return head;
+
+                        return header + body;
                     });
                 }
-                return stylesArr;
+                return stylesArray;
             };
 
-            const autoStyles = generateStyles();
+            const autoStyles = generate1000Styles();
 
             let cmnd = [];
             let SparkyCmd;
@@ -124,8 +289,8 @@ Sparky({
 
             cmnd.sort();
 
-            // Auto-rotate through the 100+ styles seamlessly
-            let selectedMenuStyle = autoStyles[menuStyleIndex]();
+            // Auto-rotation engine index progression across 1000 styles
+            let selectedMenuStyle = autoStyles[menuStyleIndex](m.prefix);
             menuStyleIndex = (menuStyleIndex + 1) % autoStyles.length;
 
             let menu = selectedMenuStyle;
