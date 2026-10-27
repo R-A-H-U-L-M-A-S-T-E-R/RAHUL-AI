@@ -7,6 +7,16 @@ const lang = getString('converters');
 Sparky(
 	{
     name: "url",
+    const axios = require('axios');
+const FormData = require('form-data');
+const { Sparky, isPublic } = require("../lib");
+const { getString, convertToMp3, getBuffer, getJson } = require('./pluginsCore');
+const config = require('../config.js');
+const lang = getString('converters');
+
+Sparky(
+	{
+    name: "url",
     fromMe: true,
     desc: "Upload media and get a URL",
     category: "converters",
@@ -18,13 +28,30 @@ Sparky(
       await m.react('⏫');
       const mediaBuffer = await m.quoted.download();
       
-      // Try using uploadMedia if handleMediaUpload fails, or ensure handleMediaUpload is working correctly
-      const mediaUrl = await uploadMedia(mediaBuffer); // Alternatively: handleMediaUpload(mediaBuffer)
-      
+      // FormData create karun buffer upload sathe set karu
+      const formData = new FormData();
+      formData.append('file', mediaBuffer, {
+        filename: 'media.bin', // tumhi file extension/mimetype nusar badlu sakta
+      });
+
+      // sam-cdn.zone.id API call
+      const response = await axios.post('https://sam-cdn.zone.id/upload', formData, {
+        headers: {
+          ...formData.getHeaders(),
+        },
+      });
+
+      // API response madhun URL extract karu (response structure nusar yala adjust karu sakta)
+      const mediaUrl = response.data.url || response.data.result || response.data;
+
+      if (!mediaUrl) {
+        throw new Error('Failed to get URL from response');
+      }
+
       await m.react('✅');
       return m.reply(mediaUrl);
     } catch (error) {
-      console.error("URL Command Error:", error); // This will print the exact error in your terminal
+      console.error("URL Command Error:", error);
       await m.react('❌');
       return m.reply('An error occurred while uploading the media.');
     }
