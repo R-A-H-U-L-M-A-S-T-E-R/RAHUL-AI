@@ -3,13 +3,11 @@ const {getString, appendMp3Data, convertToMp3, addExifToWebP, getBuffer, getJson
 const googleTTS = require('google-tts-api');
 const config = require('../config.js');
 const lang = getString('converters');
-
 Sparky({
     name: "url",
-    Name: "url",
-fromMe: true,
-desc: "",
-category: "converters",
+    fromMe: true,
+    desc: "",
+    category: "converters",
 }, async ({ args, m }) => {
   if (!m.quoted) {
     return m.reply('Reply to an Image/Video/Audio');
@@ -34,6 +32,7 @@ category: "converters",
     m.reply('An error occurred while uploading the media.');
   }
 });
+
 
 Sparky(
   {
