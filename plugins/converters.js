@@ -6,9 +6,6 @@ const lang = getString('converters');
 const axios = require('axios');
 const FormData = require('form-data');
 
-const axios = require('axios');
-const FormData = require('form-data');
-
 Sparky({
     name: "url",
     fromMe: true,
@@ -21,6 +18,7 @@ Sparky({
     try {
         await m.react('⏫');
         
+        // Media buffer download karun ghetla
         const mediaBuffer = await m.quoted.download();
         
         const form = new FormData();
@@ -45,7 +43,6 @@ Sparky({
         return m.reply('An error occurred while uploading the media.');
     }
 });
-
 
 
 Sparky(
