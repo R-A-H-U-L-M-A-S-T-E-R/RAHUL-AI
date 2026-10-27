@@ -5,10 +5,39 @@ const app = new appClient();
 const simpleGit = require('simple-git');
 const git = simpleGit();
 const {exec} = require("child_process");
-const config = require("../config")
+const config = require("../config");
 const lang = getString('app');
 
-Sparky({	
+// --- 1000+ DYNAMIC STYLES HELPER FUNCTION ---
+function getDynamicStyle() {
+    const edgeBorders = [
+      ['╔', '╗', '╚', '╝', '═', '║'],
+      ['╭', '╮', '╰', '╯', '─', '│'],
+      ['┏', '┓', '┗', '┛', '━', '┃'],
+      ['┌', '┐', '└', '┘', '─', '│'],
+      ['🚀', '🚀', '🚀', '🚀', '✨', '🔥'],
+      ['⚙️', '⚙️', '⚙️', '⚙️', '✨', '🔥']
+    ];
+    
+    const themeColors = [
+      ['🔴', '🔵'], ['🟢', '🟡'], ['🟣', '🟠'], 
+      ['💖', '💙'], ['💚', '💜'], ['⚡', '🔥'], 
+      ['💎', '🔮'], ['🌟', '💫'], ['🌈', '✨']
+    ];
+
+    const glowEffects = ['💠 [SYSTEM-LED]', '⚡ [RGB-SYNC]', '🔥 [HD-PANEL]', '✨ [NEON-CONTROL]', '💫 [PULSE-SYS]'];
+
+    const randB = edgeBorders[Math.floor(Math.random() * edgeBorders.length)];
+    const randC = themeColors[Math.floor(Math.random() * themeColors.length)];
+    const randomGlow = glowEffects[Math.floor(Math.random() * glowEffects.length)];
+    const uniqueStyleId = Math.floor(Math.random() * 90000) + 10000;
+
+    return {
+        tl: randB[0], tr: randB[1], bl: randB[2], br: randB[3], hz: randB[4], vt: randB[5],
+        c1: randC[0], c2: randC[1], randomGlow, uniqueStyleId
+    };
+}
+
 Sparky({
       name: "update",
       fromMe: true,
@@ -17,39 +46,7 @@ Sparky({
   },
   async ({ args, m }) => {
       try {
-          // --- 1000+ DYNAMIC AUTO-CHANGING STYLES GENERATOR ---
-          const edgeBorders = [
-            ['╔', '╗', '╚', '╝', '═', '║'],
-            ['╭', '╮', '╰', '╯', '─', '│'],
-            ['┏', '┓', '┗', '┛', '━', '┃'],
-            ['┌', '┐', '└', '┘', '─', '│'],
-            ['🚀', '🚀', '🚀', '🚀', '✨', '🔥']
-          ];
-          
-          const themeColors = [
-            ['🔴', '🔵'], ['🟢', '🟡'], ['🟣', '🟠'], 
-            ['💖', '💙'], ['💚', '💜'], ['⚡', '🔥'], 
-            ['💎', '🔮'], ['🌟', '💫'], ['🌈', '✨']
-          ];
-
-          const glowEffects = ['💠 [UPDATE-LED]', '⚡ [RGB-SYNC]', '🔥 [HD-PATCH]', '✨ [NEON-GIT]', '💫 [PULSE-SYS]'];
-
-          // Random selection to achieve 1000+ unique styles automatically
-          const randB = edgeBorders[Math.floor(Math.random() * edgeBorders.length)];
-          const randC = themeColors[Math.floor(Math.random() * themeColors.length)];
-          const randomGlow = glowEffects[Math.floor(Math.random() * glowEffects.length)];
-          const uniqueStyleId = Math.floor(Math.random() * 90000) + 10000;
-
-          // Completely safe variables mapping (Zero Destructuring Errors)
-          const tl = randB[0];
-          const tr = randB[1];
-          const bl = randB[2];
-          const br = randB[3];
-          const hz = randB[4];
-          const vt = randB[5];
-          
-          const c1 = randC[0];
-          const c2 = randC[1];
+          const { tl, tr, bl, br, hz, vt, c1, c2, randomGlow, uniqueStyleId } = getDynamicStyle();
 
           await git.fetch();
           var commits = await git.log(['main' + "..origin/" + 'main']);
@@ -59,7 +56,6 @@ Sparky({
               commitsMsg += `${vt} *${i + 1}.* ${e.message}\n` + `${vt}    📅 \`[${e.date.substring(0, 10)}]\`\n`
           );
 
-          // Handle arguments (update now)
           if (args) {
                 switch (args) {
                             case 'now': {
@@ -100,7 +96,6 @@ Sparky({
                 return;
           }
 
-          // If updates are available or up-to-date
           if (commits.total !== 0) {
               const edgeLightingUpdateUI = 
                 `${tl}${hz.repeat(22)}${tr}\n` +
@@ -138,11 +133,19 @@ Sparky({
       desc: lang.RESTART_DESC,
       category: "app",
   },
-  async ( {
-        m
-  }) => {
-      const _0x3471ce=_0x4c73;function _0x5149(){const _0x99704b=['HEROKU','PITCHER_API_BASE_URL','PWD','codesandbox','1460490jcYrnC','DIGITALOCEAN','REPLIT','13089848qhFTfM','CLOUDFLARE','GITHUB','TERMUX_VERSION','REPLIT_USER','env','32199750KLjfkJ','18wOomgQ','5701444PXyScu','AZURE','7366gnnTKS','846315zOxTke','RAILWAY','NETLIFY','VPS','AWS','GITHUB_SERVER_URL','DYNO','1131GsaKWJ','SPACE_ID','HUGGINGFACE','KOYEB','CODESANDBOX','RENDER','FLY_IO','5671732abHOue','AZURE_HTTP_FUNCTIONS','DIGITALOCEAN_APP_NAME','CF_PAGES','VERCEL','LINUX','userland'];_0x5149=function(){return _0x99704b;};return _0x5149();}(function(_0x14bc52,_0x9e047e){const _0x5ac994=_0x4c73,_0x256c17=_0x14bc52();while(!![]){try{const _0x1155d4=parseInt(_0x5ac994(0x14a))/0x1+parseInt(_0x5ac994(0x130))/0x2*(-parseInt(_0x5ac994(0x138))/0x3)+parseInt(_0x5ac994(0x13f))/0x4+parseInt(_0x5ac994(0x131))/0x5*(parseInt(_0x5ac994(0x12d))/0x6)+parseInt(_0x5ac994(0x12e))/0x7+parseInt(_0x5ac994(0x126))/0x8+-parseInt(_0x5ac994(0x12c))/0x9;if(_0x1155d4===_0x9e047e)break;else _0x256c17['push'](_0x256c17['shift']());}catch(_0x5dbaeb){_0x256c17['push'](_0x256c17['shift']());}}}(_0x5149,0xd4926));function _0x4c73(_0x3c6eb7,_0x511653){const _0x514924=_0x5149();return _0x4c73=function(_0x4c737c,_0x3e9250){_0x4c737c=_0x4c737c-0x125;let _0x40d9b6=_0x514924[_0x4c737c];return _0x40d9b6;},_0x4c73(_0x3c6eb7,_0x511653);}let SERVER=process[_0x3471ce(0x12b)][_0x3471ce(0x148)]?.['includes'](_0x3471ce(0x145))?_0x3471ce(0x144):process[_0x3471ce(0x12b)][_0x3471ce(0x147)]?.['includes'](_0x3471ce(0x149))?_0x3471ce(0x13c):process['env'][_0x3471ce(0x12a)]?_0x3471ce(0x125):process[_0x3471ce(0x12b)]['AWS_REGION']?_0x3471ce(0x135):process['env'][_0x3471ce(0x129)]?'TERMUX':process['env'][_0x3471ce(0x137)]?_0x3471ce(0x146):process[_0x3471ce(0x12b)]['KOYEB_APP_ID']?_0x3471ce(0x13b):process[_0x3471ce(0x12b)][_0x3471ce(0x136)]?_0x3471ce(0x128):process['env']['RENDER']?_0x3471ce(0x13d):process[_0x3471ce(0x12b)]['RAILWAY_SERVICE_NAME']?_0x3471ce(0x132):process[_0x3471ce(0x12b)][_0x3471ce(0x143)]?_0x3471ce(0x143):process[_0x3471ce(0x12b)][_0x3471ce(0x141)]?_0x3471ce(0x14b):process['env'][_0x3471ce(0x140)]?_0x3471ce(0x12f):process[_0x3471ce(0x12b)][_0x3471ce(0x133)]?_0x3471ce(0x133):process[_0x3471ce(0x12b)]['FLY_IO']?_0x3471ce(0x13e):process['env'][_0x3471ce(0x142)]?_0x3471ce(0x127):process[_0x3471ce(0x12b)][_0x3471ce(0x139)]?_0x3471ce(0x13a):_0x3471ce(0x134);
-      return await m.reply(`*Platform Information*\n\n_*Server: ${SERVER}*_`);
+  async ({ m }) => {
+      const { tl, tr, bl, br, hz, vt, c1, c2, randomGlow, uniqueStyleId } = getDynamicStyle();
+      const _0x3471ce=_0x4c73;function _0x5149(){const _0x99704b=['HEROKU','PITCHER_API_BASE_URL','PWD','codesandbox','1460490jcYrnC','DIGITALOCEAN','REPLIT','13089848qhFTfM','CLOUDFLARE','GITHUB','TERMUX_VERSION','REPLIT_USER','env','32199750KLjfkJ','18wOomgQ','5701444PXyScu','AZURE','7366gnnTKS','846315zOxTke','RAILWAY','NETLIFY','VPS','AWS','GITHUB_SERVER_URL','DYNO','1131GsaKWJ','SPACE_ID','HUGGINGFACE','KOYEB','CODESANDBOX','RENDER','FLY_IO','5671732abHOue','AZURE_HTTP_FUNCTIONS','DIGITALOCEAN_APP_NAME','CF_PAGES','VERCEL','LINUX','userland'];_0x5149=function(){return _0x99704b;};return _0x5149();}(function(_0x14bc52,_0x9e047e){const _0x5ac994=_0x4c73,_0x256c17=_0x14bc52();while(!![]){try{const _0x1155d4=parseInt(_0x5ac994(0x14a))/0x1+parseInt(_0x5ac994(0x130))/0x2*(-parseInt(_0x5ac994(0x138))/0x3)+parseInt(_0x5ac994(0x13f))/0x4+parseInt(_0x5ac994(0x131))/0x5*(parseInt(_0x5ac994(0x12d))/0x6)+parseInt(_0x5ac994(0x12e))/0x7+parseInt(_0x5ac994(0x126))/0x8+-parseInt(_0x5ac994(0x12c))/0x9;if(_0x1155d4===_0x9e047e)break;else _0x256c17['push'](_0x256c17['shift']());}catch(_0x5dbaeb){_0x256c17['push'](_0x256c17['shift']());}}}(_0x5149,0xd4926));function _0x4c73(_0x3c6eb7,_0x511653){const _0x514924=_0x5149();return _0x4c73=function(_0x4c737c,_0x3e9250){_0x4c737c=_0x4c737c-0x125;let _0x40d9b6=_0x514924[_0x4c737c];return _0x40d9b6;},_0x4c73(_0x3c6eb7,_0x511653);}let SERVER=process[_0x3471ce(0x12b)][_0x3471ce(0x148)]?.['includes'](_0x3471ce(0x145))?_0x3471ce(0x144):process[_0x3471ce(0x12b)][_0x3471ce(0x147)]?.['includes'](_0x3471ce(0x149))?_0x3471ce(0x13c):process['env'][_0x3471ce(0x12a)]?_0x3471ce(0x125):process[_0x3471ce(0x12b)]['AWS_REGION']?_0x3471ce(0x135):process['env'][_0x3471ce(0x129)]?'TERMUX':process['env'][_0x3471ce(0x137)]?_0x3471ce(0x146):process[_0x3471ce(0x12b)]['KOYEB_APP_ID']?_0x3471ce(0x13b):process[_0x3471ce(0x12b)][_0x3471ce(0x136)]?_0x3471ce(0x128):process['env']['RENDER']?_0x3471ce(0x13d):process[_0x3471ce(0x12b)]['RAILWAY_SERVICE_NAME']?_0x3471ce(0x132):process[_0x3471ce(0x12b)][_0x3471ce(0x143)]?_0x3471ce(0x143):process[_0x3471ce(0x12b)][_0x3471ce(0x141)]?_0x3471ce(0x14b):process['env'][_0x3471ce(0x140)]?_0x3471ce(0x12f):process[_0x3471ce(0x12b)][_0x3471ce(0x133)]?_0x3471ce(0x133):process[_0x3471ce(0x12b)][_0x3471ce(0x13e)]?_0x3471ce(0x13e):process['env'][_0x3471ce(0x142)]?_0x3471ce(0x127):process[_0x3471ce(0x12b)][_0x3471ce(0x139)]?_0x3471ce(0x13a):_0x3471ce(0x134);
+      
+      const platformUI = 
+        `${tl}${hz.repeat(22)}${tr}\n` +
+        `${vt} ${c1} **PLATFORM INFO** ${c2} ${vt}\n` +
+        `${vt}${hz.repeat(22)}${vt}\n` +
+        `${vt} 🔮 *Style:* #${uniqueStyleId} ${randomGlow} ${vt}\n` +
+        `${vt} 🖥️ *Server:* \`${SERVER}\` ${vt}\n` +
+        `${bl}${hz.repeat(22)}${br}`;
+
+      return await m.reply(platformUI);
  });
 
 Sparky({
@@ -151,10 +154,17 @@ Sparky({
       desc: lang.RESTART_DESC,
       category: "app",
   },
-  async ( {
-        m
-  }) => {
-      await m.reply(lang.RESTARTING);
+  async ({ m }) => {
+      const { tl, tr, bl, br, hz, vt, c1, c2, randomGlow, uniqueStyleId } = getDynamicStyle();
+      const restartUI = 
+        `${tl}${hz.repeat(22)}${tr}\n` +
+        `${vt} ${c1} **SYSTEM RESTART** ${c2} ${vt}\n` +
+        `${vt}${hz.repeat(22)}${vt}\n` +
+        `${vt} 🔮 *Style:* #${uniqueStyleId} ${randomGlow} ${vt}\n` +
+        `${vt} 🔄 ${lang.RESTARTING} ${vt}\n` +
+        `${bl}${hz.repeat(22)}${br}`;
+
+      await m.reply(restartUI);
       exec("pm2 restart X-BOT-MD", async (error, stdout, stderr) => {
       if (error) {
             return await m.reply(`Error: ${error}`);
@@ -163,23 +173,18 @@ Sparky({
     });
  });
 
-
 Sparky({
 		name: "setvar",
 		fromMe: true,
 		desc: lang.SETVAR_DESC,
 		category: "app",
 	},
-	async ({
-		m,
-		args
-	}) => {
+	async ({ m, args }) => {
 		if (!args) return await m.reply(lang.SETVAR_ALERT.replace("{}", m.prefix));
 		const [key, value] = args.split("=");
 		const setVariable = await app.setVar(key.trim().toUpperCase(), value.trim());
 		return await m.reply(setVariable ? lang.SETVAR_SUCCESS.replace("{}", key.trim().toUpperCase()).replace("{}", value.trim()) : lang.SETVAR_FAILED);
 	});
-
 
 Sparky({
 		name: "delvar",
@@ -187,15 +192,11 @@ Sparky({
 		desc: lang.DELVAR_DESC,
 		category: "app",
 	},
-	async ({
-		m,
-		args
-	}) => {
+	async ({ m, args }) => {
 		if (!args) return await m.reply(lang.DELVAR_ALERT.replace("{}", m.prefix));
 		const delVariable = await app.deleteVar(args.trim().toUpperCase());
 		return await m.reply(delVariable ? lang.DELVAR_SUCCESS.replace("{}", args.trim().toUpperCase()) : lang.DELVAR_NOTFOUND.replace("{}", args.trim().toUpperCase()));
 	});
-
 
 Sparky({
 		name: "getvar",
@@ -203,16 +204,12 @@ Sparky({
 		desc: lang.GETVAR_DESC,
 		category: "app",
 	},
-	async ({
-		m,
-		args
-	}) => {
+	async ({ m, args }) => {
 		if (!args) return await m.reply(lang.GETVAR_ALERT.replace("{}", m.prefix));
 		const getVariables = await app.getVars();
 		const vars = getVariables.find(i => i.key === args.toUpperCase());
 		return await m.reply(`_${vars.key}: ${vars.value}_`);
 	});
-	
 	
 Sparky({
 		name: "getallvars",
@@ -220,14 +217,11 @@ Sparky({
 		desc: lang.GETALLVARS_DESC,
 		category: "app",
 	},
-	async ({
-		m
-	}) => {
+	async ({ m }) => {
 		const getVariables = await app.getVars();
 		const vars = getVariables.map((e, i)=> `\`\`\`${i + 1}. ${e.key}: ${e.value}\`\`\``).join('\n');
 		return await m.reply(vars);
 	});
-
 
 Sparky({
 	name: "mode",
@@ -235,18 +229,14 @@ Sparky({
 	desc: "hu",
 	category: "app",
 },
-async ( {
-	  m, args
-}) => {
+async ({ m, args }) => {
 	if (args?.toLowerCase() == "public" || args?.toLowerCase() == "private"){
-		await app.setVar("WORK_TYPE",args,m)
-		return m.reply(`_Mode Sucessfuly Changed To: ${args}_`);
+		await app.setVar("WORK_TYPE", args, m);
+		return m.reply(`_Mode Successfully Changed To: ${args}_`);
 	} else {
-		return await m.reply(`_*Mode manager*_\n_Current mode: ${config.WORK_TYPE}_\n_Use .mode public/private_`)
-}
-}
-);
-
+		return await m.reply(`_*Mode manager*_\n_Current mode: ${config.WORK_TYPE}_\n_Use .mode public/private_`);
+	}
+});
 
 const settingsMenu = [
     { title: "Auto read all messages", env_var: "READ_MESSAGES" },
@@ -268,44 +258,9 @@ Sparky({
     category: "app",
 }, async ({ m }) => {
     try {
-        // --- 1000+ DYNAMIC AUTO-CHANGING STYLES GENERATOR ---
-        const edgeBorders = [
-          ['╔', '╗', '╚', '╝', '═', '║'],
-          ['╭', '╮', '╰', '╯', '─', '│'],
-          ['┏', '┓', '┗', '┛', '━', '┃'],
-          ['┌', '┐', '└', '┘', '─', '│'],
-          ['⚙️', '⚙️', '⚙️', '⚙️', '✨', '🔥']
-        ];
-        
-        const themeColors = [
-          ['🔴', '🔵'], ['🟢', '🟡'], ['🟣', '🟠'], 
-          ['💖', '💙'], ['💚', '💜'], ['⚡', '🔥'], 
-          ['💎', '🔮'], ['🌟', '💫'], ['🌈', '✨']
-        ];
-
-        const glowEffects = ['💠 [CONFIG-LED]', '⚡ [RGB-SETTINGS]', '🔥 [HD-PANEL]', '✨ [NEON-CONTROL]', '💫 [PULSE-SYS]'];
-
-        // Random selection to achieve 1000+ unique styles automatically
-        const randomBorder = edgeBorders[Math.floor(Math.random() * edgeBorders.length)];
-        const randomColor = themeColors[Math.floor(Math.random() * themeColors.length)];
-        const randomGlow = glowEffects[Math.floor(Math.random() * glowEffects.length)];
-        const uniqueStyleId = Math.floor(Math.random() * 90000) + 10000; // 5-digit unique style code
-
-        // Safe variables mapping (No Destructuring Error)
-        const tl = randomBorder[0];
-        const tr = randomBorder[1];
-        const bl = randomBorder[2];
-        const br = randomBorder[3];
-        const hz = randomBorder[4];
-        const vt = randomBorder[5];
-        
-        const c1 = randomColor[0];
-        const c2 = randomColor[1];
-
-        // Map settings menu items safely
+        const { tl, tr, bl, br, hz, vt, c1, c2, randomGlow, uniqueStyleId } = getDynamicStyle();
         const menuItems = settingsMenu.map((e, i) => `${vt}   *${i + 1}.* ${e.title}`).join("\n");
 
-        // --- EDGE LIGHTING ANIMATION UI ---
         const edgeLightingSettingsUI = 
           `${tl}${hz.repeat(22)}${tr}\n` +
           `${vt} ${c1} **SETTINGS CONFIGURATION** ${c2} ${vt}\n` +
@@ -350,9 +305,7 @@ Sparky({
         if (!status) return;
 
         await app.setVar(settingsContext.env_var, status === "on" ? "true" : "false");
-
         await m.reply(`_${settingsContext.title} ${status === "on" ? "enabled." : "disabled."}_`);
-
         settingsContext = null;
     }
 });
