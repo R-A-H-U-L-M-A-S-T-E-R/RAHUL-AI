@@ -28,8 +28,24 @@ function ASWINSPARKY_0x137d(_0x202d70, _0x4a25ab) {
     }, ASWINSPARKY_0x137d(_0x202d70, _0x4a25ab);
 }
 
+// 1. सर्वात आधी Express Server चालू करा जेणेकरून Koyeb ला लगेच Healthy सिग्नल मिळेल
+const _0x328400 = ASWINSPARKY_0x2fc2b5;
+const _0x205293 = require(_0x328400(222));
+const _0x407d39 = require(_0x328400(267));
+const _0x264cf0 = _0x205293();
+const _0x1a8f9a = process.env.PORT || 8000;
+
+_0x264cf0.get('/', function(req, res) {
+    res.status(200).json({ 'status': 'Active', 'message': 'RAHUL-AI Bot is Healthy & Running!' });
+});
+
+const _0x467b3b = _0x407d39.createServer(_0x264cf0);
+_0x467b3b.listen(_0x1a8f9a, () => {
+    console.log('Server is running on port:', _0x1a8f9a);
+});
+
 (async function ASWINSPARKY_Sparky() {
-    const _0x328400 = ASWINSPARKY_0x2fc2b5,
+    const 
         { makeWASocket: _0x1c3567, useMultiFileAuthState: _0xb8f787, DisconnectReason: _0x5e164b, Browsers: _0x4effa4, makeInMemoryStore: _0x157992, makeCacheableSignalKeyStore: _0x862c8e, fetchLatestBaileysVersion: _0x22bcc4 } = require(_0x328400(182)),
         { default: _0x20db66 } = require(_0x328400(204)),
         _0x25214d = require('node-cron'),
@@ -42,28 +58,10 @@ function ASWINSPARKY_0x137d(_0x202d70, _0x4a25ab) {
         { serialize: _0x41277a, commands: _0x3b1092, whatsappAutomation: _0x40b83b, callAutomation: _0x1447d7, externalPlugins: _0x5388bc } = require(_0x328400(174)),
         _0x40480d = require(_0x328400(187)),
         _0x2aba30 = _0x7e38f8 => new Promise(_0x11d4b4 => setTimeout(_0x11d4b4, _0x7e38f8)),
-        _0x205293 = require(_0x328400(222)),
-        _0x407d39 = require(_0x328400(267)),
-        _0x264cf0 = _0x205293(),
-        _0x1a8f9a = process[_0x328400(229)][_0x328400(271)] || 8000,
         _0x3fdab0 = require(_0x328400(270)),
         _0x4d8f65 = new _0x3fdab0({ 'stdTTL': 3600, 'checkperiod': 600, 'useClones': ![], 'deleteOnExpire': !![], 'maxKeys': 500 }),
         _0x4fe38b = _0x26a43d({ 'level': _0x328400(291) });
 
-    let _0x2370f0 = process[_0x328400(229)][_0x328400(167)]?.['includes'](_0x328400(212)) ? _0x328400(305) : process[_0x328400(229)]['PITCHER_API_BASE_URL']?.[_0x328400(163)]('codesandbox') ? 'CODESANDBOX' : process['env'][_0x328400(255)] ? _0x328400(230) : process[_0x328400(229)][_0x328400(244)] ? '10a' : process[_0x328400(229)][_0x328400(221)] ? 'TERMUX' : process[_0x328400(229)][_0x328400(204)] ? 'KOYEB' : process['env']['GITHUB_SERVER_URL'] ? 'GITHUB' : process['env'][_0x328400(178)] ? 'RENDER' : process['env'][_0x328400(263)] ? 'RAILWAY' : process['env'][_0x328400(188)] ? _0x328400(188) : process[_0x328400(229)][_0x328400(235)] ? _0x328400(304) : process[_0x328400(229)][_0x328400(192)] ? 'cd' : process[_0x328400(229)][_0x328400(207)] ? _0x328400(207) : process[_0x328400(229)][_0x328400(206)] ? 'FLY_IO' : process[_0x328400(229)][_0x328400(210)] ? _0x328400(301) : process[_0x328400(229)][_0x328400(257)] ? _0x328400(194) : 'VPS';
-
-    // Health check endpoint
-    _0x264cf0['get']('/', function(_0x1e6c7e, _0x3e14a4) {
-        _0x3e14a4.status(200).json({ 'status': 'Active', 'message': 'RAHUL-AI Bot is Healthy & Running!' });
-    });
-
-    const _0x467b3b = _0x407d39[_0x328400(280)](_0x264cf0);
-    _0x467b3b[_0x328400(160)](_0x1a8f9a, () => {
-        const _0x590337 = _0x328400;
-        console[_0x590337(179)](_0x590337(292), _0x1a8f9a);
-    });
-
-    console['log'](_0x328400(253) + _0x2370f0);
     if (!_0x14500f[_0x328400(200)]('./lib/session')) _0x14500f[_0x328400(293)](_0x328400(172), { 'recursive': !![] });
 
     try {
