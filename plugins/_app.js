@@ -9,8 +9,7 @@ const config = require("../config")
 const lang = getString('app');
 
 
-Sparky({
-	
+Sparky({	
 Sparky({
       name: "update",
       fromMe: true,
