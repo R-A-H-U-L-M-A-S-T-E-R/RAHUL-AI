@@ -6,6 +6,9 @@ const lang = getString('converters');
 const axios = require('axios');
 const FormData = require('form-data');
 
+const axios = require('axios');
+const FormData = require('form-data');
+
 Sparky({
     name: "url",
     fromMe: true,
@@ -21,19 +24,20 @@ Sparky({
         // Media buffer download karun ghetla
         const mediaBuffer = await m.quoted.download();
         
-        // Telegra.ph la pathvnyasathi form-data banvla
+        // Catbox la pathvnyasathi form-data (reqtype: 'fileupload')
         const form = new FormData();
-        form.append('file', mediaBuffer, { filename: 'media.jpg' });
+        form.append('reqtype', 'fileupload');
+        form.append('fileToUpload', mediaBuffer, { filename: 'media.bin' });
 
-        const response = await axios.post('https://telegra.ph/upload', form, {
+        const response = await axios.post('https://catbox.moe/user/api.php', form, {
             headers: form.getHeaders(),
         });
 
-        if (!response.data || !response.data[0] || !response.data[0].src) {
+        if (!response.data) {
             throw new Error('Upload failed');
         }
 
-        const mediaUrl = 'https://telegra.ph' + response.data[0].src;
+        const mediaUrl = response.data.trim();
         
         await m.react('✅');
         return m.reply(mediaUrl);
