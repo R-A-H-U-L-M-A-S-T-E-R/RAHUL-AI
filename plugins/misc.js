@@ -145,7 +145,7 @@ async ({
           `${vt} 🌐 *Status:* \`Active & Online\` ${vt}\n` +
           `${vt} 👑 *Owner:* \`Rahul Master\` ${vt}\n` +
           `${bl}${hz.repeat(22)}${br}\n` +
-          `⚡ *Powered by Sparky Bot* 🚀`;
+          `⚡ *ᴩᴏᴡᴇʀᴀᴅ ʙʏ ʀᴀʜᴜʟ ᴍᴀꜱᴛᴇʀ* 🚀`;
 
         // Edit or send the final response
         return await m.sendMsg(m.jid, edgeLightingPingUI, {
