@@ -27,6 +27,17 @@ Before deployment, you must fork this repository to your GitHub account!
 
 ---
 
+### 🔌 EXTERNAL PLUGINS & CUSTOM MODULES
+Explore and install custom external plugins for RAHUL-AI instantly!
+
+<div align="center">
+  <a href="https://gist.github.com/Rahul-Bot-Master/006a539c2881d556e03fa5ad53a8c7db" target="_blank">
+    <img src="https://img.shields.io/badge/✨_INSTALL_EXTERNAL_PLUGIN-ff0055?style=for-the-badge&logo=javascript&logoColor=00f3ff&color=00f3ff&labelColor=ff0055" alt="External Plugin Gist">
+  </a>
+</div>
+
+---
+
 ### 📲 GET SESSION ID (SCAN QR)
 Scan the QR code using your WhatsApp linked devices to generate your session string.
 
