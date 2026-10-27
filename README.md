@@ -1,40 +1,77 @@
-# RAHUL-AI BOT NEW
-
-
-### FORK THIS REPO
-
-1. Must Fork This Repo Before Deployment !
-   <br> 
-<a href="https://github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI/fork"><img title="FORK REPO" src="https://img.shields.io/badge/FORK REPO-h?color=black&style=for-the-badge&logo=stackshare"></a>
-
-
-
-### SCAN QR
-
-1. Scan the QR and get the SESSION ID
-   <br>
-   
-**Server 1**  
-<a href='https://x-bot-md-qr.koyeb.app' target="_blank">
-    <img alt='SCAN QR' src='https://img.shields.io/badge/Scan_qr-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/>
-</a>
-
-
-2. Get [Koyeb api key](https://app.koyeb.com/settings/api)
-
-4. Now Deploy
-    <br>
-<a href='https://app.koyeb.com/services/deploy?type=git&repository=github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI&branch=main&name=xbotmd&builder=dockerfile&env[SESSION_ID]=&env[WORK_TYPE]=public&env[HANDLERS]=false&env[BOT_INFO]=𝚁𝙰𝙷𝚄𝙻-𝙰𝙸;ʀᴀʜᴜʟ%20ᴍᴀSᴛᴇʀ;https://i.ibb.co/qF79Bmcf/upload-1778259536127-6fe18ade-jpg.jpg&env[SUDO]=918149730236&env[STICKER_DATA]=RAHUL-AI&env[DATABASE_URL]=postgresql://aswin:D6dq0vk1xoQx_OO-Iv4ESQ@rough-doxle-2360.7s5.aws-ap-south-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&env[KOYEB_SERVICE_NAME]=rahul-ai&env[KOYEB_API_KEY]=w2ht3tzt9m9482ckk4zxks85cxuh0pbe8j4jss282c7wxocxrgf7fygen8lna5xm'
-target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=koyeb'/></a>
-
-
-#### Thanks To
-
-<details close>
-<summary>Read More</summary>
+<div align="center">
 
 <br>
-Beta tester & Debug
 
-* [`R-A-H-U-L-M-A-S-T-E-R`](https://github.com/R-A-H-U-L-M-A-S-T-E-R)
- </details>
+<!-- Glowing Neon Vertical LED Line Effect Header -->
+<table border="0" width="100%">
+  <tr>
+    <td align="center" bgcolor="#000000" style="border-left: 5px solid #00f3ff; border-right: 5px solid #ff0055; padding: 20px;">
+      
+      <!-- Animated Neon Logo Banner -->
+      <img src="https://i.ibb.co/qF79Bmcf/upload-1778259536127-6fe18ade-jpg.jpg" width="280px" height="280px" style="border-radius: 50%; border: 4px solid #00f3ff; box-shadow: 0px 0px 25px #ff0055, inset 0px 0px 15px #00f3ff;" alt="RAHUL-AI Logo">
+      
+      <h1 style="color: #00f3ff; text-shadow: 0px 0px 10px #00f3ff, 0px 0px 20px #ff0055; font-family: monospace; letter-spacing: 2px;">⚡ RAHUL-AI WHATSAPP BOT ⚡</h1>
+      <p style="color: #ff0055; font-weight: bold; font-family: monospace;"><i>Advanced WhatsApp Automation & Media Bot Engineered by Rahul Master</i></p>
+
+      <p>
+        <img src="https://img.shields.io/badge/NODE.JS-18%2B-black?style=for-the-badge&logo=nodedotjs&logoColor=green&color=black&labelColor=111111" />
+        <img src="https://img.shields.io/badge/BAILEYS-MULTI--DEVICE-black?style=for-the-badge&logo=whatsapp&logoColor=00f3ff&color=black&labelColor=111111" />
+        <img src="https://img.shields.io/badge/KOYEB-DEPLOYED-black?style=for-the-badge&logo=koyeb&logoColor=ff0055&color=black&labelColor=111111" />
+      </p>
+
+    </td>
+  </tr>
+</table>
+
+</div>
+
+---
+
+### 🚀 FORK REPO
+Before deployment, you must fork this repository to your GitHub account!
+
+<div align="center">
+  <a href="https://github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI/fork">
+    <img src="https://img.shields.io/badge/⚡_FORK_RAHUL_AI_REPO-00f3ff?style=for-the-badge&logo=github&logoColor=black&labelColor=ff0055" alt="Fork Repo">
+  </a>
+</div>
+
+---
+
+### 📲 GET SESSION ID (SCAN QR)
+Scan the QR code using your WhatsApp linked devices to generate your session string.
+
+<div align="center">
+  <a href="https://x-bot-md-qr.koyeb.app" target="_blank">
+    <img src="https://img.shields.io/badge/🔥_SCAN_QR_SERVER_1-ff0055?style=for-the-badge&logo=scan&logoColor=white&labelColor=00f3ff" alt="Scan QR">
+  </a>
+</div>
+
+---
+
+### ⚙️ DEPLOYMENT SETUP
+1. Get your **Koyeb API Key** from [Koyeb Settings](https://app.koyeb.com/settings/api).
+2. Click the Deploy button below and fill in your environment variables (`SESSION_ID`, `KOYEB_API_KEY`, etc.).
+
+<div align="center">
+  <a href="https://app.koyeb.com/services/deploy?type=git&repository=github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI&branch=main&name=rahul-ai&builder=dockerfile&env[SESSION_ID]=&env[WORK_TYPE]=public&env[HANDLERS]=false&env[BOT_INFO]=𝚁𝙰𝙷𝚄𝙻-𝙰𝙸;ʀᴀʜᴜʟ%20ᴍᴀSᴛᴇʀ;https://i.ibb.co/qF79Bmcf/upload-1778259536127-6fe18ade-jpg.jpg&env[SUDO]=918149730236&env[STICKER_DATA]=RAHUL-AI&env[DATABASE_URL]=postgresql://aswin:D6dq0vk1xoQx_OO-Iv4ESQ@rough-doxle-2360.7s5.aws-ap-south-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&env[KOYEB_SERVICE_NAME]=rahul-ai&env[KOYEB_API_KEY]=" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_DEPLOY_TO_KOYEB-00f3ff?style=for-the-badge&logo=koyeb&logoColor=black&labelColor=ff0055" alt="Deploy To Koyeb">
+  </a>
+</div>
+
+---
+
+### 👑 CREDITS & DEVELOPER
+
+<div align="center">
+
+| Developer | Role | GitHub Profile |
+| :---: | :---: | :---: |
+| **Rahul Master** | Creator & Lead Developer | [`@R-A-H-U-L-M-A-S-T-E-R`](https://github.com/R-A-H-U-L-M-A-S-T-E-R) |
+
+</div>
+
+<br>
+<div align="center">
+  <p style="color: #00f3ff; font-family: monospace;">© 2026 RAHUL-AI | Built with Passion & Cyber Neon Aesthetics ⚡</p>
+</div>
