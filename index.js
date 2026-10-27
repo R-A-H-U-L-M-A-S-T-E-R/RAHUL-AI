@@ -128,27 +128,31 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             const menuType = config.MENU_TYPE || 'image';
             const botLang = config.LANGUAGE || 'english';
 
-            var startMessage = '*RAHUL AI BOT STARTED!*\n\n' +
-                '_Mode: ' + botWorkType + '_\n' +
-                '_Prefix: ' + botPrefix + '_\n' +
-                '_Version: ' + botVersion + '_\n' +
-                '_Menu Type: ' + menuType + '_\n' +
-                '_Language: ' + botLang + '_\n\n' +
-                '*Extra Configurations*\n\n' +
-                '```Always online: ' + (config.ALWAYS_ONLINE ? '✅' : '❌') + '\n' +
-                'Auto status view: ' + (config.AUTO_STATUS_VIEW ? '✅' : '❌') + '\n' +
-                'Auto status reply: ' + (config.STATUS_REPLY ? '✅' : '❌') + '\n' +
-                'Auto status reaction: ' + (config.STATUS_REACTION ? '✅' : '❌') + '\n' +
-                'Auto call blocker: ' + (config.REJECT_CALLS ? '✅' : '❌') + '\n' +
-                'PM Disabler: ' + (config.DISABLE_PM ? '✅' : '❌') + '```';
+            // Navin stylish start message design
+            var startMessage = '╔══════════════════════╗\n' +
+                '║   ✨ **RAHUL AI BOT** ✨   ║\n' +
+                '╚══════════════════════╝\n\n' +
+                '🚀 *Status:* Online & Active\n' +
+                '👑 *Owner Mode:* Secured\n\n' +
+                '📌 *Configurations:*\n' +
+                '┏ Z Mode: ' + botWorkType + '\n' +
+                '┣ Z Prefix: ' + botPrefix + '\n' +
+                '┣ Z Version: ' + botVersion + '\n' +
+                '┣ Z Menu: ' + menuType + '\n' +
+                '┗ Z Lang: ' + botLang + '\n\n' +
+                '⚡ *Extra Features:*\n' +
+                '• Always Online: ' + (config.ALWAYS_ONLINE ? '✔️' : '❌') + '\n' +
+                '• Auto Status View: ' + (config.AUTO_STATUS_VIEW ? '✔️' : '❌') + '\n' +
+                '• Auto Call Blocker: ' + (config.REJECT_CALLS ? '✔️' : '❌') + '\n\n' +
+                '_Bot has been deployed successfully!_';
             
             if (config.START_MSG !== false) {
                 return await client.sendMessage(ownerJid, { 
                     text: startMessage,
                     contextInfo: {
                         externalAdReply: {
-                            title: 'RAHUL AI BOT',
-                            body: '',
+                            title: 'RAHUL AI BOT IS LIVE',
+                            body: 'Tap to open dashboard',
                             sourceUrl: '',
                             mediaUrl: '',
                             mediaType: 1,
@@ -184,8 +188,8 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
         if (!msg.body) return;
 
-        // Without prefix command execution logic
-        commands.map(async cmd => {
+        // Without-prefix command execution handler
+        commands.forEach(async cmd => {
             if (cmd.sudo && !msg.fromMe) return;
 
             let text = msg.body.trim();
@@ -194,7 +198,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 if (typeof cmd.on === 'function') {
                     cmd.on({ 'm': msg, 'args': text, 'client': client });
                 } else if (cmd.pattern) {
-                    // Check if pattern matches directly without prefix requirement
+                    // Match command pattern directly without requiring any prefix
                     let cleanPattern = new RegExp(cmd.pattern.source.replace(/^[\\\/\\^]+/, ''), 'i');
                     if (cleanPattern.test(text) || cmd.pattern.test(text)) {
                         args = text.replace(cmd.pattern, '$1').trim();
