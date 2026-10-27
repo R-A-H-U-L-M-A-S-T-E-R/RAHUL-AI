@@ -21,8 +21,6 @@ Sparky({
         const mime = m.quoted.mimetype || 'image/jpeg';
         let ext = mime.split('/')[1] || 'bin';
 
-        // Native Blob/FormData la bypass karun direct Axios kinva boundary fetch vapru shakto.
-        // Jar bot madhye axios asel tr ha sarvat best way ahe:
         const FormData = require('form-data');
         const form = new FormData();
         form.append('reqtype', 'fileupload');
@@ -37,12 +35,22 @@ Sparky({
         const resText = await response.text();
         console.log("API Response:", resText);
 
-        if (!response.ok || !resText || !resText.startsWith('http')) {
+        let mediaUrl = "";
+        try {
+            const json = JSON.parse(resText);
+            // JSON madhun url extract karne
+            mediaUrl = json.url || (json.upload && json.upload.url);
+        } catch (e) {
+            // Jar JSON nasel tr direct text check karu
+            mediaUrl = resText.startsWith('http') ? resText.trim() : "";
+        }
+
+        if (!mediaUrl || !mediaUrl.startsWith('http')) {
             throw new Error(`Upload failed: ${resText}`);
         }
         
         await m.react('✅');
-        return m.reply(resText.trim());
+        return m.reply(mediaUrl.trim());
     } catch (error) {
         console.error("URL Command Error:", error);
         await m.react('❌');
