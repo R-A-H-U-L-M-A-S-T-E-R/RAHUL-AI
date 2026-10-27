@@ -183,9 +183,6 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             return;
         }
 
-        async function loadExternalPlugins() {
-        }
-
         await whatsappAutomation(client, msg, m);
 
         if (config.ALWAYS_ONLINE && !msg.fromMe) return;
