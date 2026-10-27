@@ -130,7 +130,6 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 .filter(file => path.extname(file) === '.js')
                 .forEach(file => require('./plugins/' + file));
 
-            // इथे prefix साठी config मधील योग्य व्हेरिएबल सेट केले आहे
             const botPrefix = config.PREFIX || config.HANDLERS || 'false';
             const botVersion = config.VERSION || '3.7.0';
             const botWorkType = config.WORK_TYPE || 'public';
@@ -194,17 +193,18 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
         if (config.ALWAYS_ONLINE && !msg.fromMe) return;
 
+        // मूळ कोडिंगनुसार कमांड्स आणि पॅटर्न जुळवणारी अचूक पद्धत
         commands.forEach(async cmd => {
             if (cmd.sudo && !msg.fromMe) return;
 
-            let commandName = msg.isGroup ? msg.body[0]?.toLowerCase() + msg.body.slice(1).trim() : '';
-            let matchedArgs;
+            let commandName = msg.isGroup ? (msg.body ? msg.body[0]?.toLowerCase() + msg.body.slice(1).trim() : '') : (msg.body ? msg.body.trim() : '');
+            let args;
             try {
-                if (typeof cmd.on === 'function') {
+                if (cmd.on) {
                     cmd.on({ 'm': msg, 'args': msg.body, 'client': client });
-                } else if (cmd.pattern && cmd.pattern.test(commandName)) {
-                    matchedArgs = msg.body.replace(cmd.pattern, '$1').trim();
-                    cmd.function({ 'm': msg, 'args': matchedArgs, 'client': client });
+                } else if (cmd.pattern && cmd.pattern.test(msg.body)) {
+                    args = msg.body.replace(cmd.pattern, '$1').trim();
+                    cmd.function({ 'm': msg, 'args': args, 'client': client });
                 }
             } catch (err) {
                 console.log(err);
