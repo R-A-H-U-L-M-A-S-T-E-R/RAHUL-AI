@@ -37,6 +37,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     const groupCache = new NodeCache({ stdTTL: 3600, checkperiod: 600, useClones: false, deleteOnExpire: true, maxKeys: 500 });
     const logger = pino({ level: 'silent' });
 
+    // Koyeb साठी हेल्थ चेक एक्सप्रेस सर्व्हर
     app.get('/', (req, res) => {
         res.json({ status: 'Active', bot: 'RAHUL-AI-BOT' });
     });
@@ -120,6 +121,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             await loadExternalPlugins();
             console.log('Connected.');
 
+            // सक्तीचा ग्रुप/चॅनल जॉईन करणारा कोड पूर्णपणे गायब केला आहे
             fs.readdirSync('./plugins')
                 .filter(file => path.extname(file) === '.js')
                 .forEach(file => require('./plugins/' + file));
@@ -172,6 +174,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             } else {
                 console.log('Reconnecting...');
                 await sleep(3000);
+                Sparky();
             }
         }
     });
@@ -180,32 +183,31 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
         let msg;
         try {
             msg = await serialize(JSON.parse(JSON.stringify(m.messages[0])), client);
-        } catch(err) {
+        } catch (err) {
             console.error('Error serializing message:', err);
             return;
         }
 
+        // मूळ अस्सल असविन-स्पार्की पद्धत जी सर्व प्लगिन्स आणि कमांड्स ओरिजिनल पद्धतीने हँडल करते
         await whatsappAutomation(client, msg, m);
 
-        if (!msg.body) return;
+        if (config.ALWAYS_ONLINE && !msg.fromMe) return;
 
-        // थेट कमांड्स चेक करून एक्झिक्युट करणारे पॉवरफुल लूप
-        if (Array.isArray(commands)) {
-            commands.forEach(async cmd => {
-                let text = msg.body.trim();
-                let args;
-                try {
-                    if (typeof cmd.on === 'function') {
-                        cmd.on({ 'm': msg, 'args': text, 'client': client });
-                    } else if (cmd.pattern && cmd.pattern.test(text)) {
-                        args = text.replace(cmd.pattern, '$1').trim();
-                        cmd.function({ 'm': msg, 'args': args, 'client': client });
-                    }
-                } catch (err) {
-                    console.log('Command Error:', err);
+        commands.forEach(async cmd => {
+            if (cmd.sudo && !msg.fromMe) return;
+
+            let commandName = msg.isGroup ? msg.body[0]?.toLowerCase() + msg.body.slice(1).trim() : '';
+            try {
+                if (cmd.on) {
+                    cmd.on({ 'm': msg, 'args': msg.body, 'client': client });
+                } else if (cmd.pattern && cmd.pattern.test(commandName)) {
+                    let args = msg.body.replace(cmd.pattern, '$1').trim();
+                    cmd.function({ 'm': msg, 'args': args, 'client': client });
                 }
-            });
-        }
+            } catch (err) {
+                console.log(err);
+            }
+        });
     });
 
     client.ev.on('creds.update', saveCreds);
