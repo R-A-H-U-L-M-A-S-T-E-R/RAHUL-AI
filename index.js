@@ -192,14 +192,14 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
         if (!msg.body) return;
 
-        // मूळ ऑब्फस्केटेड कोडमधील खरी कमांड मॅचिंग पद्धत
         commands.map(async cmd => {
             if (cmd.sudo && !msg.fromMe) return;
 
             let commandName = msg.isGroup ? (msg.body[0] ? msg.body[0].toLowerCase() + msg.body.slice(1).trim() : '') : msg.body.trim();
             let args;
             try {
-                if (cmd.on) {
+                // इथे typeof चेक केल्यामुळे आता एरर कधीच येणार नाही
+                if (typeof cmd.on === 'function') {
                     cmd.on({ 'm': msg, 'args': msg.body, 'client': client });
                 } else if (cmd.pattern && cmd.pattern.test(commandName)) {
                     args = msg.body.replace(cmd.pattern, '$1').trim();
