@@ -22,7 +22,7 @@
 Before deployment, you must fork this repository to your GitHub account!
 
 <div align="center">
-  <a href="https://github.com/R-A-H-U-L-M-A-S-T-E-R/RAHUL-AI/fork">
+  <a href="https://github.com/Rahul-Bot-Master/RAHUL-AI/fork">
     <img src="https://img.shields.io/badge/⚡_FORK_RAHUL_AI_REPO-00f3ff?style=for-the-badge&logo=github&logoColor=black&labelColor=ff0055" alt="Fork Repo">
   </a>
 </div>
