@@ -55,12 +55,14 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     try {
         if (!config.SESSION_ID) throw new Error('Session ID missing');
-        const sessionData = await axios.get('https://gist.github.com/ESWIN-SPERKY/' + config.SESSION_ID.split(':')[1] + '/raw');
+        const sessionData = axios.get ? await axios.get('https://gist.github.com/ESWIN-SPERKY/' + config.SESSION_ID.split(':')[1] + '/raw') : null;
         
-        Object.keys(sessionData.data).forEach(filename => {
-            fs.writeFileSync('./lib/session/' + filename, sessionData.data[filename], 'utf8');
-        });
-        console.log('Session connected and session files saved.');
+        if (sessionData && sessionData.data) {
+            Object.keys(sessionData.data).forEach(filename => {
+                fs.writeFileSync('./lib/session/' + filename, sessionData.data[filename], 'utf8');
+            });
+            console.log('Session connected and session files saved.');
+        }
     } catch (err) {
         console.error('Error:', err.message);
     }
@@ -86,8 +88,10 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     const ownerJid = (config.SUDO !== '' ? config.SUDO.split(',')[0] : client.user.id.split(':')[0]) + '@s.whatsapp.net';
 
     try {
-        await config.DATABASE.sync;
-        console.log('Database synced.');
+        if (config.DATABASE && config.DATABASE.sync) {
+            await config.DATABASE.sync;
+            console.log('Database synced.');
+        }
     } catch (err) {
         console.error('Error while syncing database:', err);
     }
@@ -183,33 +187,8 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             return;
         }
 
+        // लायब्ररीमधील मूळ ऑटोमेशन आणि कमांड हँडलर याद्वारे सर्व कमांड्स चालतील
         await whatsappAutomation(client, msg, m);
-
-        if (!msg.body) return;
-
-        commands.forEach(async cmd => {
-            if (cmd.sudo && !msg.fromMe) return;
-
-            let text = msg.body.trim();
-            let args;
-            try {
-                if (typeof cmd.on === 'function') {
-                    cmd.on({ 'm': msg, 'args': text, 'client': client });
-                } else if (cmd.pattern) {
-                    // Support both prefix and prefix-less command triggering
-                    let patternStr = cmd.pattern.source;
-                    let cleanPatternStr = patternStr.replace(/^[\\\/\\^]+/, '').replace(/\\b/g, '');
-                    let matchedWithoutPrefix = new RegExp('^' + cleanPatternStr, 'i').test(text);
-                    
-                    if (cmd.pattern.test(text) || matchedWithoutPrefix) {
-                        args = text.replace(cmd.pattern, '$1').trim();
-                        cmd.function({ 'm': msg, 'args': args, 'client': client });
-                    }
-                }
-            } catch (err) {
-                console.log(err);
-            }
-        });
     });
 
     client.ev.on('creds.update', saveCreds);
