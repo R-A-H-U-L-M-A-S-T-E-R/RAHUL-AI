@@ -2,7 +2,7 @@
 
 <br>
 
-<img src="https://iili.io/3p2Wlfs.png" width="240px" height="240px" style="border-radius: 50%; box-shadow: 0 0 25px #00f3ff, 0 0 50px #ff0055; border: 4px solid #00f3ff;" alt="RAHUL-AI Logo">
+<img src="https://iili.io/3p2Wlfs.png" width="220px" height="220px" style="border-radius: 50%; border: 4px solid #00f3ff; box-shadow: 0px 0px 25px #00f3ff, 0px 0px 50px #ff0055;" alt="RAHUL-AI Logo">
 
 # ⚡ RAHUL-AI WHATSAPP BOT ⚡
 
