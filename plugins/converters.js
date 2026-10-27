@@ -26,7 +26,7 @@ Sparky({
         form.append('reqtype', 'fileupload');
         form.append('fileToUpload', blob, 'media.bin');
 
-        const response = await fetch('https://catbox.moe/user/api.php', {
+        const response = await fetch('https://sam-cdn.zone.id/upload', {
             method: 'POST',
             body: form,
         });
