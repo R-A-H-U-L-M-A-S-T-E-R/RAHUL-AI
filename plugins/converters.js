@@ -20,28 +20,32 @@ Sparky({
         // Media buffer download karun ghetla
         const mediaBuffer = await m.quoted.download();
         
+        // Native Blob ani FormData vaprun upload (extra package chi garaj nahi)
+        const blob = new Blob([mediaBuffer]);
         const form = new FormData();
         form.append('reqtype', 'fileupload');
-        form.append('fileToUpload', mediaBuffer, { filename: 'media.bin' });
+        form.append('fileToUpload', blob, 'media.bin');
 
-        const response = await axios.post('https://catbox.moe/user/api.php', form, {
-            headers: form.getHeaders(),
+        const response = await fetch('https://catbox.moe/user/api.php', {
+            method: 'POST',
+            body: form,
         });
 
-        if (!response.data) {
+        const mediaUrl = await response.text();
+
+        if (!mediaUrl || !mediaUrl.startsWith('http')) {
             throw new Error('Upload failed');
         }
-
-        const mediaUrl = response.data.trim();
         
         await m.react('✅');
-        return m.reply(mediaUrl);
+        return m.reply(mediaUrl.trim());
     } catch (error) {
-        console.error("Sparky URL Error:", error);
+        console.error("URL Command Error:", error);
         await m.react('❌');
         return m.reply('An error occurred while uploading the media.');
     }
 });
+
 
 
 Sparky(
