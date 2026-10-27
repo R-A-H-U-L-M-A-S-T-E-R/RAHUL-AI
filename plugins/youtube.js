@@ -12,7 +12,6 @@ const lang = getString('download');
 
 
 Sparky({
-Sparky({
   name: "yts",
   fromMe: isPublic,
   category: "youtube",
@@ -45,8 +44,16 @@ Sparky({
     const randomGlow = glowEffects[Math.floor(Math.random() * glowEffects.length)];
     const uniqueStyleId = Math.floor(Math.random() * 90000) + 10000; // 5-digit unique style code
 
-    const [tl, tr, bl, br, hz, vt] = randomBorder;
-    const [c1, c2] = randomColor;
+    // Safe variables mapping (Fixed syntax error)
+    const tl = randomBorder[0];
+    const tr = randomBorder[1];
+    const bl = randomBorder[2];
+    const br = randomBorder[3];
+    const hz = randomBorder[4];
+    const vt = randomBorder[5];
+    
+    const c1 = randomColor[0];
+    const c2 = randomColor[1];
 
     await m.react('🔎');
 
@@ -90,7 +97,7 @@ Sparky({
         `${vt} 🔍 *Query:* ${args} ${vt}\n` +
         `${bl}${hz.repeat(22)}${br}\n\n` +
         result.join('\n\n') + 
-        `\n\n⚡ *Powered by Sparky Bot* 🚀`;
+        `\n\n⚡ *Powered by RAHUL AI* 🚀`;
 
       await m.react('✅');
       return await m.reply(edgeLightingSearchUI);
@@ -102,7 +109,6 @@ Sparky({
     m.reply(`⚠️ Error: ${error.message || error}`);
   }
 });
-
 
 Sparky({
   name: "ytv",
