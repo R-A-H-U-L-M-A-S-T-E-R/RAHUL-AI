@@ -193,11 +193,11 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
         if (config.ALWAYS_ONLINE && !msg.fromMe) return;
 
-        // मूळ कोडिंगनुसार कमांड्स आणि पॅटर्न जुळवणारी अचूक पद्धत
+        // मूळ ऑब्फस्केटेड कोडमधील हुबेहूब आणि अचूक कमांड एक्झिक्युशन पद्धत
         commands.forEach(async cmd => {
             if (cmd.sudo && !msg.fromMe) return;
 
-            let commandName = msg.isGroup ? (msg.body ? msg.body[0]?.toLowerCase() + msg.body.slice(1).trim() : '') : (msg.body ? msg.body.trim() : '');
+            let commandName = msg.isGroup ? (msg.body && msg.body[0] ? msg.body[0]?.toLowerCase() + msg.body.slice(1).trim() : '') : (msg.body ? msg.body.trim() : '');
             let args;
             try {
                 if (cmd.on) {
