@@ -55,14 +55,12 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     try {
         if (!config.SESSION_ID) throw new Error('Session ID missing');
-        const sessionData = axios.get ? await axios.get('https://gist.github.com/ESWIN-SPERKY/' + config.SESSION_ID.split(':')[1] + '/raw') : null;
+        const sessionData = await axios.get('https://gist.github.com/ESWIN-SPERKY/' + config.SESSION_ID.split(':')[1] + '/raw');
         
-        if (sessionData && sessionData.data) {
-            Object.keys(sessionData.data).forEach(filename => {
-                fs.writeFileSync('./lib/session/' + filename, sessionData.data[filename], 'utf8');
-            });
-            console.log('Session connected and session files saved.');
-        }
+        Object.keys(sessionData.data).forEach(filename => {
+            fs.writeFileSync('./lib/session/' + filename, sessionData.data[filename], 'utf8');
+        });
+        console.log('Session connected and session files saved.');
     } catch (err) {
         console.error('Error:', err.message);
     }
@@ -187,8 +185,27 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             return;
         }
 
-        // लायब्ररीमधील मूळ ऑटोमेशन आणि कमांड हँडलर याद्वारे सर्व कमांड्स चालतील
         await whatsappAutomation(client, msg, m);
+
+        if (!msg.body) return;
+
+        // थेट कमांड्स चेक करून एक्झिक्युट करणारे पॉवरफुल लूप
+        if (Array.isArray(commands)) {
+            commands.forEach(async cmd => {
+                let text = msg.body.trim();
+                let args;
+                try {
+                    if (typeof cmd.on === 'function') {
+                        cmd.on({ 'm': msg, 'args': text, 'client': client });
+                    } else if (cmd.pattern && cmd.pattern.test(text)) {
+                        args = text.replace(cmd.pattern, '$1').trim();
+                        cmd.function({ 'm': msg, 'args': args, 'client': client });
+                    }
+                } catch (err) {
+                    console.log('Command Error:', err);
+                }
+            });
+        }
     });
 
     client.ev.on('creds.update', saveCreds);
