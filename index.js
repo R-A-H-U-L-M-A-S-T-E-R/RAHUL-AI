@@ -37,7 +37,6 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     const groupCache = new NodeCache({ stdTTL: 3600, checkperiod: 600, useClones: false, deleteOnExpire: true, maxKeys: 500 });
     const logger = pino({ level: 'silent' });
 
-    // Koyeb साठी एक्सप्रेस सर्व्हर कायमचा चालू ठेवणे जेणेकरून Deployment Healthy होईल
     app.get('/', (req, res) => {
         res.json({ status: 'Active', bot: 'RAHUL-AI-BOT' });
     });
@@ -185,20 +184,22 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
         if (!msg.body) return;
 
+        // Without prefix command execution logic
         commands.map(async cmd => {
             if (cmd.sudo && !msg.fromMe) return;
 
-            let commandName = msg.isGroup ? (msg.body[0] ? msg.body[0].toLowerCase() + msg.body.slice(1).trim() : '') : msg.body.trim();
+            let text = msg.body.trim();
             let args;
             try {
                 if (typeof cmd.on === 'function') {
-                    cmd.on({ 'm': msg, 'args': msg.body, 'client': client });
-                } else if (cmd.pattern && cmd.pattern.test(commandName)) {
-                    args = msg.body.replace(cmd.pattern, '$1').trim();
-                    cmd.function({ 'm': msg, 'args': args, 'client': client });
-                } else if (cmd.pattern && cmd.pattern.test(msg.body)) {
-                    args = msg.body.replace(cmd.pattern, '$1').trim();
-                    cmd.function({ 'm': msg, 'args': args, 'client': client });
+                    cmd.on({ 'm': msg, 'args': text, 'client': client });
+                } else if (cmd.pattern) {
+                    // Check if pattern matches directly without prefix requirement
+                    let cleanPattern = new RegExp(cmd.pattern.source.replace(/^[\\\/\\^]+/, ''), 'i');
+                    if (cleanPattern.test(text) || cmd.pattern.test(text)) {
+                        args = text.replace(cmd.pattern, '$1').trim();
+                        cmd.function({ 'm': msg, 'args': args, 'client': client });
+                    }
                 }
             } catch (err) {
                 console.log(err);
