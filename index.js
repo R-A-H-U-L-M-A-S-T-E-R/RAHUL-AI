@@ -28,22 +28,29 @@ function ASWINSPARKY_0x137d(_0x202d70, _0x4a25ab) {
     }, ASWINSPARKY_0x137d(_0x202d70, _0x4a25ab);
 }
 
-// 1. सर्वात आधी Express Server चालू करा जेणेकरून Koyeb ला लगेच Healthy सिग्नल मिळेल
+// ==========================================
+// KOTYEB / SERVER HEALTH CHECK FIX (EXPRESS)
+// ==========================================
 const _0x328400 = ASWINSPARKY_0x2fc2b5;
-const _0x205293 = require(_0x328400(222));
+const express = require(_0x328400(270) === 'node-cache' ? 'express' : _0x328400(270)); // safe require fallback or direct
+const _0x205293 = require('express');
 const _0x407d39 = require(_0x328400(267));
 const _0x264cf0 = _0x205293();
 const _0x1a8f9a = process.env.PORT || 8000;
 
+// Koyeb साठी अत्यंत महत्त्वाचा Health Check Route
 _0x264cf0.get('/', function(req, res) {
-    res.status(200).json({ 'status': 'Active', 'message': 'RAHUL-AI Bot is Healthy & Running!' });
+    res.status(200).send('RAHUL-AI Bot is Active and Healthy!');
 });
 
 const _0x467b3b = _0x407d39.createServer(_0x264cf0);
 _0x467b3b.listen(_0x1a8f9a, () => {
-    console.log('Server is running on port:', _0x1a8f9a);
+    console.log('HTTP Server listening on port:', _0x1a8f9a);
 });
 
+// ==========================================
+// WHATSAPP BOT MAIN CORE FUNCTION
+// ==========================================
 (async function ASWINSPARKY_Sparky() {
     const 
         { makeWASocket: _0x1c3567, useMultiFileAuthState: _0xb8f787, DisconnectReason: _0x5e164b, Browsers: _0x4effa4, makeInMemoryStore: _0x157992, makeCacheableSignalKeyStore: _0x862c8e, fetchLatestBaileysVersion: _0x22bcc4 } = require(_0x328400(182)),
