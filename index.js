@@ -130,12 +130,19 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 .filter(file => path.extname(file) === '.js')
                 .forEach(file => require('./plugins/' + file));
 
+            // इथे prefix साठी config मधील योग्य व्हेरिएबल सेट केले आहे
+            const botPrefix = config.PREFIX || config.HANDLERS || 'false';
+            const botVersion = config.VERSION || '3.7.0';
+            const botWorkType = config.WORK_TYPE || 'public';
+            const menuType = config.MENU_TYPE || 'image';
+            const botLang = config.LANGUAGE || 'english';
+
             var startMessage = '*RAHUL AI BOT STARTED!*\n\n' +
-                '_Mode: ' + config.WORK_TYPE + '_\n' +
-                '_Prefix: ' + config.PREFIX + '_\n' +
-                '_Version: ' + config.VERSION + '_\n' +
-                '_Menu Type: ' + config.MENU_TYPE + '_\n' +
-                '_Language: ' + config.LANGUAGE + '_\n\n' +
+                '_Mode: ' + botWorkType + '_\n' +
+                '_Prefix: ' + botPrefix + '_\n' +
+                '_Version: ' + botVersion + '_\n' +
+                '_Menu Type: ' + menuType + '_\n' +
+                '_Language: ' + botLang + '_\n\n' +
                 '*Extra Configurations*\n\n' +
                 '```Always online: ' + (config.ALWAYS_ONLINE ? '✅' : '❌') + '\n' +
                 'Auto status view: ' + (config.AUTO_STATUS_VIEW ? '✅' : '❌') + '\n' +
@@ -144,7 +151,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 'Auto call blocker: ' + (config.REJECT_CALLS ? '✅' : '❌') + '\n' +
                 'PM Disabler: ' + (config.DISABLE_PM ? '✅' : '❌') + '```';
             
-            if (config.START_MSG) {
+            if (config.START_MSG !== false) {
                 return await client.sendMessage(ownerJid, { 
                     text: startMessage,
                     contextInfo: {
@@ -191,12 +198,13 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             if (cmd.sudo && !msg.fromMe) return;
 
             let commandName = msg.isGroup ? msg.body[0]?.toLowerCase() + msg.body.slice(1).trim() : '';
+            let matchedArgs;
             try {
-                if (cmd.on) {
+                if (typeof cmd.on === 'function') {
                     cmd.on({ 'm': msg, 'args': msg.body, 'client': client });
                 } else if (cmd.pattern && cmd.pattern.test(commandName)) {
-                    let args = msg.body.replace(cmd.pattern, '$1').trim();
-                    cmd.function({ 'm': msg, 'args': args, 'client': client });
+                    matchedArgs = msg.body.replace(cmd.pattern, '$1').trim();
+                    cmd.function({ 'm': msg, 'args': matchedArgs, 'client': client });
                 }
             } catch (err) {
                 console.log(err);
