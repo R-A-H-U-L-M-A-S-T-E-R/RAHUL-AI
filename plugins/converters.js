@@ -7,23 +7,28 @@ const lang = getString('converters');
 Sparky({
     name: "url",
     fromMe: true,
-    desc: "",
+    desc: "Upload media and get a URL",
     category: "converters",
   }, async ({ args, m }) => {
     if (!m.quoted) {
       return m.reply('Reply to an Image/Video/Audio');
     }
     try {
-        await m.react('⏫');
+      await m.react('⏫');
       const mediaBuffer = await m.quoted.download();
-      const mediaUrl = await handleMediaUpload(mediaBuffer);
+      
+      // Try using uploadMedia if handleMediaUpload fails, or ensure handleMediaUpload is working correctly
+      const mediaUrl = await uploadMedia(mediaBuffer); // Alternatively: handleMediaUpload(mediaBuffer)
+      
       await m.react('✅');
-      m.reply(mediaUrl);
+      return m.reply(mediaUrl);
     } catch (error) {
-        await m.react('❌');
-      m.reply('An error occurred while uploading the media.');
+      console.error("URL Command Error:", error); // This will print the exact error in your terminal
+      await m.react('❌');
+      return m.reply('An error occurred while uploading the media.');
     }
   });
+
 
 Sparky(
   {
