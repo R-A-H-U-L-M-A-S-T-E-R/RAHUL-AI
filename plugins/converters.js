@@ -6,24 +6,34 @@ const lang = getString('converters');
 
 Sparky({
     name: "url",
-    fromMe: true,
-    desc: "",
-    category: "converters",
-  }, async ({ args, m }) => {
-    if (!m.quoted) {
-      return m.reply('Reply to an Image/Video/Audio');
-    }
-    try {
-        await m.react('⏫');
-      const mediaBuffer = await m.quoted.download();
-      const mediaUrl = await handleMediaUpload(mediaBuffer);
-      await m.react('✅');
-      m.reply(mediaUrl);
-    } catch (error) {
-        await m.react('❌');
-      m.reply('An error occurred while uploading the media.');
-    }
-  });
+    Name: "url",
+fromMe: true,
+desc: "",
+category: "converters",
+}, async ({ args, m }) => {
+  if (!m.quoted) {
+    return m.reply('Reply to an Image/Video/Audio');
+  }
+  try {
+    await m.react('⏫');
+    
+    // Download media buffer
+    const mediaBuffer = await m.quoted.download();
+    
+    // Optional: Get mimetype if your bot framework supports it (e.g., m.quoted.mimetype)
+    // Pass both buffer and mimetype to your upload function if needed:
+    // const mediaUrl = await handleMediaUpload(mediaBuffer, m.quoted.mimetype);
+    
+    const mediaUrl = await handleMediaUpload(mediaBuffer);
+    
+    await m.react('✅');
+    m.reply(mediaUrl);
+  } catch (error) {
+    console.error(error); // Check your console for the exact error reason
+    await m.react('❌');
+    m.reply('An error occurred while uploading the media.');
+  }
+});
 
 Sparky(
   {
