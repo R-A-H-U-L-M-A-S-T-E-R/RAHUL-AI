@@ -122,15 +122,14 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 .filter(file => path.extname(file) === '.js')
                 .forEach(file => require('./plugins/' + file));
 
-            const botPrefix = config.PREFIX || config.HANDLERS || 'false';
+            const botPrefix = config.PREFIX || config.HANDLERS || '.';
             const botVersion = config.VERSION || '3.7.0';
             const botWorkType = config.WORK_TYPE || 'public';
             const menuType = config.MENU_TYPE || 'image';
             const botLang = config.LANGUAGE || 'english';
 
-            // Navin stylish start message design
             var startMessage = '╔══════════════════════╗\n' +
-                '║   ✨ **RAHUL AI BOT** ✨   ║\n' +
+                '║   ✨ *RAHUL AI BOT* ✨   ║\n' +
                 '╚══════════════════════╝\n\n' +
                 '🚀 *Status:* Online & Active\n' +
                 '👑 *Owner Mode:* Secured\n\n' +
@@ -188,7 +187,6 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
         if (!msg.body) return;
 
-        // Without-prefix command execution handler
         commands.forEach(async cmd => {
             if (cmd.sudo && !msg.fromMe) return;
 
@@ -198,9 +196,12 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 if (typeof cmd.on === 'function') {
                     cmd.on({ 'm': msg, 'args': text, 'client': client });
                 } else if (cmd.pattern) {
-                    // Match command pattern directly without requiring any prefix
-                    let cleanPattern = new RegExp(cmd.pattern.source.replace(/^[\\\/\\^]+/, ''), 'i');
-                    if (cleanPattern.test(text) || cmd.pattern.test(text)) {
+                    // Support both prefix and prefix-less command triggering
+                    let patternStr = cmd.pattern.source;
+                    let cleanPatternStr = patternStr.replace(/^[\\\/\\^]+/, '').replace(/\\b/g, '');
+                    let matchedWithoutPrefix = new RegExp('^' + cleanPatternStr, 'i').test(text);
+                    
+                    if (cmd.pattern.test(text) || matchedWithoutPrefix) {
                         args = text.replace(cmd.pattern, '$1').trim();
                         cmd.function({ 'm': msg, 'args': args, 'client': client });
                     }
