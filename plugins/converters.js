@@ -4,7 +4,8 @@ const googleTTS = require('google-tts-api');
 const config = require('../config.js');
 const lang = getString('converters');
 
-Sparky({
+Sparky(
+	{
     name: "url",
     fromMe: true,
     desc: "Upload media and get a URL",
