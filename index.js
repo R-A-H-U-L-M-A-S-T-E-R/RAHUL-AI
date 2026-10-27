@@ -37,24 +37,17 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     const groupCache = new NodeCache({ stdTTL: 3600, checkperiod: 600, useClones: false, deleteOnExpire: true, maxKeys: 500 });
     const logger = pino({ level: 'silent' });
 
+    // Koyeb साठी एक्सप्रेस सर्व्हर कायमचा चालू ठेवणे जेणेकरून Deployment Healthy होईल
+    app.get('/', (req, res) => {
+        res.json({ status: 'Active', bot: 'RAHUL-AI-BOT' });
+    });
+
+    const server = http.createServer(app);
+    server.listen(PORT, () => {
+        console.log('Web server running on port: ', PORT);
+    });
+
     let platform = process.env.RENDER ? 'RENDER' : process.env.HEROKU ? 'HEROKU' : process.env.KOYEB_APP_ID ? 'KOYEB' : 'VPS';
-
-    if (platform === 'RENDER' || platform === 'VERCEL') {
-        let deployedUrl = '';
-        app.get('/', (req, res) => {
-            if (!deployedUrl) {
-                deployedUrl = req.protocol + '://' + req.get('host');
-                console.log('Detected Deployed URL: ', deployedUrl);
-            }
-            res.json({ status: 'Active', deployedUrl });
-        });
-        
-        const server = http.createServer(app);
-        server.listen(PORT, () => {
-            console.log('Running on port: ', PORT);
-        });
-    }
-
     console.log('Running on platform: ', platform);
 
     if (!fs.existsSync('./lib/session')) {
@@ -183,7 +176,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
         let msg;
         try {
             msg = await serialize(JSON.parse(JSON.stringify(m.messages[0])), client);
-        } catch (err) {
+        } catch(err) {
             console.error('Error serializing message:', err);
             return;
         }
@@ -198,7 +191,6 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             let commandName = msg.isGroup ? (msg.body[0] ? msg.body[0].toLowerCase() + msg.body.slice(1).trim() : '') : msg.body.trim();
             let args;
             try {
-                // इथे typeof चेक केल्यामुळे आता एरर कधीच येणार नाही
                 if (typeof cmd.on === 'function') {
                     cmd.on({ 'm': msg, 'args': msg.body, 'client': client });
                 } else if (cmd.pattern && cmd.pattern.test(commandName)) {
