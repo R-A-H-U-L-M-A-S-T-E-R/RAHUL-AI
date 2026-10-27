@@ -193,14 +193,14 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
         if (config.ALWAYS_ONLINE && !msg.fromMe) return;
 
-        // मूळ ऑब्फस्केटेड कोडमधील हुबेहूब आणि अचूक कमांड एक्झिक्युशन पद्धत
         commands.forEach(async cmd => {
             if (cmd.sudo && !msg.fromMe) return;
 
             let commandName = msg.isGroup ? (msg.body && msg.body[0] ? msg.body[0]?.toLowerCase() + msg.body.slice(1).trim() : '') : (msg.body ? msg.body.trim() : '');
             let args;
             try {
-                if (cmd.on) {
+                // इथे typeof तपासून एरर कायमचा काढून टाकला आहे
+                if (typeof cmd.on === 'function') {
                     cmd.on({ 'm': msg, 'args': msg.body, 'client': client });
                 } else if (cmd.pattern && cmd.pattern.test(msg.body)) {
                     args = msg.body.replace(cmd.pattern, '$1').trim();
