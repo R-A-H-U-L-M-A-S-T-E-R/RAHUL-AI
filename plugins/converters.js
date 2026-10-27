@@ -21,10 +21,8 @@ Sparky({
     try {
         await m.react('⏫');
         
-        // Media buffer download karun ghetla
         const mediaBuffer = await m.quoted.download();
         
-        // Catbox la pathvnyasathi form-data (reqtype: 'fileupload')
         const form = new FormData();
         form.append('reqtype', 'fileupload');
         form.append('fileToUpload', mediaBuffer, { filename: 'media.bin' });
@@ -47,6 +45,7 @@ Sparky({
         return m.reply('An error occurred while uploading the media.');
     }
 });
+
 
 
 Sparky(
