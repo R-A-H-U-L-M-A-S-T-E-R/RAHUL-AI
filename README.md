@@ -2,11 +2,9 @@
 
 <br>
 
-<img src="https://iili.io/3p2Wlfs.png" width="220px" height="220px" style="border-radius: 50%; border: 4px solid #00f3ff; box-shadow: 0px 0px 25px #00f3ff, 0px 0px 50px #ff0055;" alt="RAHUL-AI Logo">
-
 # ⚡ RAHUL-AI WHATSAPP BOT ⚡
 
-<p style="color: #00f3ff; font-weight: bold; font-family: monospace;"><i>Advanced WhatsApp Automation & Media Bot Engineered by Rahul Master</i></p>
+<p><i>Advanced WhatsApp Automation & Media Bot Engineered by Rahul Master</i></p>
 
 <p>
   <img src="https://img.shields.io/badge/NODE.JS-18%2B-black?style=for-the-badge&logo=nodedotjs&logoColor=green&color=black&labelColor=111111" />
