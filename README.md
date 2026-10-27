@@ -2,11 +2,11 @@
 
 <br>
 
-<img src="https://i.ibb.co/qF79Bmcf/upload-1778259536127-6fe18ade-jpg.jpg" width="240px" height="240px" style="border-radius: 50%; box-shadow: 0 0 30px #00f3ff, 0 0 60px #ff0055;" alt="RAHUL-AI Logo">
+<img src="https://iili.io/3p2Wlfs.png" width="240px" height="240px" style="border-radius: 50%; box-shadow: 0 0 25px #00f3ff, 0 0 50px #ff0055; border: 4px solid #00f3ff;" alt="RAHUL-AI Logo">
 
 # ⚡ RAHUL-AI WHATSAPP BOT ⚡
 
-<p style="color: #00f3ff; font-weight: bold;"><i>Advanced WhatsApp Automation & Media Bot Engineered by Rahul Master</i></p>
+<p style="color: #00f3ff; font-weight: bold; font-family: monospace;"><i>Advanced WhatsApp Automation & Media Bot Engineered by Rahul Master</i></p>
 
 <p>
   <img src="https://img.shields.io/badge/NODE.JS-18%2B-black?style=for-the-badge&logo=nodedotjs&logoColor=green&color=black&labelColor=111111" />
@@ -45,7 +45,7 @@ Scan the QR code using your WhatsApp linked devices to generate your session str
 2. Click the Deploy button below and fill in your environment variables.
 
 <div align="center">
-  <a href="https://app.koyeb.com/services/deploy?type=git&repository=github.com/Rahul-Bot-Master/RAHUL-AI&branch=main&name=rahul-ai&builder=dockerfile&env[SESSION_ID]=&env[WORK_TYPE]=public&env[HANDLERS]=false&env[BOT_INFO]=𝚁𝙰𝙷𝚄𝙻-𝙰𝙸;ʀᴀʜᴜʟ%20ᴍᴀSᴛᴇʀ;https://i.ibb.co/qF79Bmcf/upload-1778259536127-6fe18ade-jpg.jpg&env[SUDO]=918149730236&env[STICKER_DATA]=RAHUL-AI&env[DATABASE_URL]=postgresql://aswin:D6dq0vk1xoQx_OO-Iv4ESQ@rough-doxle-2360.7s5.aws-ap-south-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&env[KOYEB_SERVICE_NAME]=rahul-ai&env[KOYEB_API_KEY]=" target="_blank">
+  <a href="https://app.koyeb.com/services/deploy?type=git&repository=github.com/Rahul-Bot-Master/RAHUL-AI&branch=main&name=rahul-ai&builder=dockerfile&env[SESSION_ID]=&env[WORK_TYPE]=public&env[HANDLERS]=false&env[BOT_INFO]=𝚁𝙰𝙷𝚄𝙻-𝙰𝙸;ʀᴀʜᴜʟ%20ᴍᴀSᴛᴇʀ;https://iili.io/3p2Wlfs.png&env[SUDO]=918149730236&env[STICKER_DATA]=RAHUL-AI&env[DATABASE_URL]=postgresql://aswin:D6dq0vk1xoQx_OO-Iv4ESQ@rough-doxle-2360.7s5.aws-ap-south-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&env[KOYEB_SERVICE_NAME]=rahul-ai&env[KOYEB_API_KEY]=" target="_blank">
     <img src="https://img.shields.io/badge/🚀_DEPLOY_TO_KOYEB-00f3ff?style=for-the-badge&logo=koyeb&logoColor=black&labelColor=ff0055" alt="Deploy To Koyeb">
   </a>
 </div>
