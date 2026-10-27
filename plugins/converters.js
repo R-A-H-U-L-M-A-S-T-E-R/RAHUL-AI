@@ -3,34 +3,45 @@ const {getString, appendMp3Data, convertToMp3, addExifToWebP, getBuffer, getJson
 const googleTTS = require('google-tts-api');
 const config = require('../config.js');
 const lang = getString('converters');
+const axios = require('axios');
+const FormData = require('form-data');
+
 Sparky({
     name: "url",
     fromMe: true,
     desc: "",
     category: "converters",
 }, async ({ args, m }) => {
-  if (!m.quoted) {
-    return m.reply('Reply to an Image/Video/Audio');
-  }
-  try {
-    await m.react('⏫');
-    
-    // Download media buffer
-    const mediaBuffer = await m.quoted.download();
-    
-    // Optional: Get mimetype if your bot framework supports it (e.g., m.quoted.mimetype)
-    // Pass both buffer and mimetype to your upload function if needed:
-    // const mediaUrl = await handleMediaUpload(mediaBuffer, m.quoted.mimetype);
-    
-    const mediaUrl = await handleMediaUpload(mediaBuffer);
-    
-    await m.react('✅');
-    m.reply(mediaUrl);
-  } catch (error) {
-    console.error(error); // Check your console for the exact error reason
-    await m.react('❌');
-    m.reply('An error occurred while uploading the media.');
-  }
+    if (!m.quoted) {
+        return m.reply('Reply to an Image/Video/Audio');
+    }
+    try {
+        await m.react('⏫');
+        
+        // Media buffer download karun ghetla
+        const mediaBuffer = await m.quoted.download();
+        
+        // Telegra.ph la pathvnyasathi form-data banvla
+        const form = new FormData();
+        form.append('file', mediaBuffer, { filename: 'media.jpg' });
+
+        const response = await axios.post('https://telegra.ph/upload', form, {
+            headers: form.getHeaders(),
+        });
+
+        if (!response.data || !response.data[0] || !response.data[0].src) {
+            throw new Error('Upload failed');
+        }
+
+        const mediaUrl = 'https://telegra.ph' + response.data[0].src;
+        
+        await m.react('✅');
+        return m.reply(mediaUrl);
+    } catch (error) {
+        console.error("Sparky URL Error:", error);
+        await m.react('❌');
+        return m.reply('An error occurred while uploading the media.');
+    }
 });
 
 
