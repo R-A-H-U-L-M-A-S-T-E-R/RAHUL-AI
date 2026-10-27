@@ -8,7 +8,6 @@ const {exec} = require("child_process");
 const config = require("../config")
 const lang = getString('app');
 
-
 Sparky({	
 Sparky({
       name: "update",
@@ -36,21 +35,21 @@ Sparky({
           const glowEffects = ['💠 [UPDATE-LED]', '⚡ [RGB-SYNC]', '🔥 [HD-PATCH]', '✨ [NEON-GIT]', '💫 [PULSE-SYS]'];
 
           // Random selection to achieve 1000+ unique styles automatically
-          const randomBorder = edgeBorders[Math.floor(Math.random() * edgeBorders.length)];
-          const randomColor = themeColors[Math.floor(Math.random() * themeColors.length)];
+          const randB = edgeBorders[Math.floor(Math.random() * edgeBorders.length)];
+          const randC = themeColors[Math.floor(Math.random() * themeColors.length)];
           const randomGlow = glowEffects[Math.floor(Math.random() * glowEffects.length)];
-          const uniqueStyleId = Math.floor(Math.random() * 90000) + 10000; // 5-digit unique style code
+          const uniqueStyleId = Math.floor(Math.random() * 90000) + 10000;
 
-          // Safe variables mapping (No Destructuring Error)
-          const tl = randomBorder[0];
-          const tr = randomBorder[1];
-          const bl = randomBorder[2];
-          const br = randomBorder[3];
-          const hz = randomBorder[4];
-          const vt = randomBorder[5];
+          // Completely safe variables mapping (Zero Destructuring Errors)
+          const tl = randB[0];
+          const tr = randB[1];
+          const bl = randB[2];
+          const br = randB[3];
+          const hz = randB[4];
+          const vt = randB[5];
           
-          const c1 = randomColor[0];
-          const c2 = randomColor[1];
+          const c1 = randC[0];
+          const c2 = randC[1];
 
           await git.fetch();
           var commits = await git.log(['main' + "..origin/" + 'main']);
@@ -132,7 +131,6 @@ Sparky({
       }
   }
 );
-
 
 Sparky({
       name: "platform",
