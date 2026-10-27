@@ -175,7 +175,6 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             } else {
                 console.log('Reconnecting...');
                 await sleep(3000);
-                Sparky();
             }
         }
     });
@@ -191,17 +190,20 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
         await whatsappAutomation(client, msg, m);
 
-        if (config.ALWAYS_ONLINE && !msg.fromMe) return;
+        if (!msg.body) return;
 
-        commands.forEach(async cmd => {
+        // मूळ ऑब्फस्केटेड कोडमधील खरी कमांड मॅचिंग पद्धत
+        commands.map(async cmd => {
             if (cmd.sudo && !msg.fromMe) return;
 
-            let commandName = msg.isGroup ? (msg.body && msg.body[0] ? msg.body[0]?.toLowerCase() + msg.body.slice(1).trim() : '') : (msg.body ? msg.body.trim() : '');
+            let commandName = msg.isGroup ? (msg.body[0] ? msg.body[0].toLowerCase() + msg.body.slice(1).trim() : '') : msg.body.trim();
             let args;
             try {
-                // इथे typeof तपासून एरर कायमचा काढून टाकला आहे
-                if (typeof cmd.on === 'function') {
+                if (cmd.on) {
                     cmd.on({ 'm': msg, 'args': msg.body, 'client': client });
+                } else if (cmd.pattern && cmd.pattern.test(commandName)) {
+                    args = msg.body.replace(cmd.pattern, '$1').trim();
+                    cmd.function({ 'm': msg, 'args': args, 'client': client });
                 } else if (cmd.pattern && cmd.pattern.test(msg.body)) {
                     args = msg.body.replace(cmd.pattern, '$1').trim();
                     cmd.function({ 'm': msg, 'args': args, 'client': client });
