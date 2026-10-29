@@ -3,8 +3,7 @@ const {
     commands,
     isPublic,
     ytv,
-    yta,
-    isUrl
+    yta
 } = require("../lib");
 const {
     getBuffer
@@ -53,7 +52,6 @@ Sparky({
             let workType = config.WORK_TYPE.toLowerCase();
             let uptimeVal = await m.uptime();
 
-            // STEP 1: Process and Collect all Commands First
             let cmnd = [];
             let type = [];
 
@@ -71,10 +69,8 @@ Sparky({
             cmnd.sort();
             type.sort();
 
-            // STEP 2: 1000 Animation Edge-Lighting & Neon Matrix Styles Generator
             const generate1000LEDStyles = () => {
                 let stylesArray = [];
-                
                 const ledTopFrames = [
                     "🟥🟧🟨🟩🟦🟪 ⟨ LED_CORE ⟩ 🟪🟦🟩🟨🟧🟥",
                     "╔═🔴═🟠═🟡═🟢═🔵═🟣══╗",
@@ -82,9 +78,7 @@ Sparky({
                     "┏━━🔴━━━━━━━━━━━━━━━━━━━━🔴┓",
                     "⚡ ── [ 🔥 CYBER_MATRIX 🔥 ] ── ⚡"
                 ];
-
                 const ledMidFrames = ["█▓▒░", "║🔥║", "│⚡│", "┃✨┃", "║💎║"];
-
                 const ledBotFrames = [
                     "🟥🟧🟨🟩🟦🟪 ╚═══════════╝ 🟪🟦🟩🟨🟧🟥",
                     "╚═🟣═🔵═🟢═🟡═🟠═🔴══╝",
@@ -92,19 +86,16 @@ Sparky({
                     "┗━━🔴━━━━━━━━━━━━━━━━━━━━🔴┛",
                     "⚡ ── [ 🔥 MATRIX_END 🔥 ] ── ⚡"
                 ];
-
                 const neonCategoryHeaders = [
                     (c) => `\n🟥 ┏━━━❮ *${c.toUpperCase()}* ❯━━━┓ 🟥\n`,
                     (c) => `\n⚡ ─── 🌟 *${c.toUpperCase()}* 🌟 ─── ⚡\n`,
                     (c) => `\n🟦 ┌───「 *${c.toUpperCase()}* 」 🟦\n`
                 ];
-
                 const neonItemBullets = [
                     (cmd) => `┃ 🔴 ➔ ${cmd}\n`,
                     (cmd) => `┃ 🟠 ⚡ ${cmd}\n`,
                     (cmd) => `┃ 🟡 ◈ ${cmd}\n`
                 ];
-
                 const neonFooters = [
                     () => `┗━━━━━━━━━━━━━━━━━━━━━━┛\n`,
                     () => `╰──────────────────────╯\n`
@@ -187,7 +178,6 @@ Sparky({
                     }, { quoted: m });
                 }
                 case 'image': {
-                    // Fixed Image Type to use standard client.sendMessage with image object safely
                     let imageUrl = config.BOT_INFO.split(";")[2] || 'https://i.ibb.co/pnPNhMZ/2843ad26fd25.jpg';
                     return await client.sendMessage(m.jid, {
                         image: { url: imageUrl },
@@ -281,14 +271,18 @@ Sparky({
     const text = m.body || m.text || "";
     if (!text) return;
 
-    const words = text.split(" ");
-    const ytUrl = words.find(word => isUrl(word) && (word.includes("youtube.com") || word.includes("youtu.be")));
+    // Standard Regex to check URL safely without isUrl dependency
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const matchUrls = text.match(urlRegex);
     
-    if (ytUrl) {
-      await m.react('⬇️');
-      const url = await ytv(ytUrl);
-      await m.sendMsg(m.jid, url, { quoted: m }, "video");
-      await m.react('✅');
+    if (matchUrls) {
+      const ytUrl = matchUrls.find(word => word.includes("youtube.com") || word.includes("youtu.be"));
+      if (ytUrl) {
+        await m.react('⬇️');
+        const url = await ytv(ytUrl);
+        await m.sendMsg(m.jid, url, { quoted: m }, "video");
+        await m.react('✅');
+      }
     }
   } catch (error) {
     console.error("AutoDL Error:", error);
