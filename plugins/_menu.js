@@ -462,11 +462,11 @@ Sparky({
   }
 });
 
-// --- AUTOMATIC YOUTUBE LINK LISTENER (AUTODL) ---
+// --- AUTOMATIC TEXT LISTENER (AUTO-VOICE & AUTODL) ---
 Sparky({
   on: "text",
-  fromMe: false
-}, async ({ m }) => {
+  fromMe: true // Self messages pan detect karayla true kele ahe
+}, async ({ m, client }) => {
   try {
     // 1. Auto-Voice Trigger Handler
     if (autoVoiceEnabled) {
@@ -476,21 +476,22 @@ Sparky({
         const isMatched = triggerWords.some(word => text === word || text.startsWith(word + " "));
 
         if (isMatched) {
-          await m.react('👶');
+          try { await m.react('👶'); } catch (e) {}
+
           const babyVoices = [
             "https://raw.githubusercontent.com/Rahul-Bot-Master/RAILWAY-DB/main/media/baby_hi.mp3",
             "https://cdn.jsdelivr.net/gh/Rahul-Bot-Master/RAILWAY-DB/main/media/baby_hello.mp3"
           ];
           const randomVoice = babyVoices[Math.floor(Math.random() * babyVoices.length)];
 
-          await m.client.sendMessage(m.jid, {
+          await client.sendMessage(m.jid, {
             audio: { url: randomVoice },
-            mimetype: 'audio/mp4',
+            mimetype: 'audio/mpeg',
             ptt: true
           }, { quoted: m });
 
-          await m.react('✅');
-          return; // Voice reply gelyavar pudhe autodl la janyachi garaj nahi
+          try { await m.react('✅'); } catch (e) {}
+          return;
         }
       }
     }
@@ -507,10 +508,10 @@ Sparky({
     if (matchUrls) {
       const ytUrl = matchUrls.find(word => word.includes("youtube.com") || word.includes("youtu.be"));
       if (ytUrl) {
-        await m.react('⬇️');
+        try { await m.react('⬇️'); } catch (e) {}
         const url = await ytv(ytUrl);
         await m.sendMsg(m.jid, url, { quoted: m }, "video");
-        await m.react('✅');
+        try { await m.react('✅'); } catch (e) {}
       }
     }
   } catch (error) {
