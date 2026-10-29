@@ -464,8 +464,8 @@ Sparky({
 
 // --- AUTOMATIC TEXT LISTENER (AUTO-VOICE & AUTODL) ---
 Sparky({
-  on: "text",
-  fromMe: false // Self messages ignore karun other messages varti active hoil
+  on: "text"
+  // fromMe kadhun takle ahe jyamule self-chat ani other chats donhi kade work karel
 }, async ({ m, client }) => {
   try {
     const rawText = m.body || m.text || (m.message && (m.message.conversation || m.message.extendedTextMessage?.text)) || "";
@@ -486,7 +486,7 @@ Sparky({
         ];
         const randomVoice = babyVoices[Math.floor(Math.random() * babyVoices.length)];
 
-        // GetBuffer vaprun audio buffer madhe convert karun pathavne (100% voice note play hoil)
+        // GetBuffer vaprun audio buffer madhe convert karun pathavne
         const audioBuffer = await getBuffer(randomVoice);
         if (audioBuffer) {
           await client.sendMessage(m.jid, {
