@@ -28,11 +28,9 @@ async function startBot() {
 
     try {
         if (config.SESSION_ID && config.SESSION_ID !== '') {
-            console.log("Processing Session ID...");
             let rawSession = config.SESSION_ID.trim();
             if (rawSession.includes(':')) {
                 const parts = rawSession.split(':');
-                console.log("Fetching session from Gist ID: " + parts[1]);
                 const gistUrl = `https://gist.github.com/ESWIN-SPERKY/${parts[1]}/raw`;
                 const sessionRes = await axios.get(gistUrl);
                 let sessionData = sessionRes.data;
@@ -42,17 +40,15 @@ async function startBot() {
                 const credsKey = Object.keys(sessionData).find(k => k.includes('creds'));
                 if (credsKey) {
                     fs.writeFileSync('./lib/session/creds.json', JSON.stringify(sessionData[credsKey], null, 2), 'utf8');
-                    console.log("creds.json saved successfully.");
                 } else {
                     Object.keys(sessionData).forEach(filename => {
                         fs.writeFileSync('./lib/session/' + filename, JSON.stringify(sessionData[filename], null, 2), 'utf8');
                     });
-                    console.log("All session files saved successfully.");
                 }
             }
         }
     } catch (err) {
-        console.error("Session download error details:", err.message);
+        console.error("Session load error:", err.message);
     }
 
     const { state, saveCreds } = await useMultiFileAuthState('./lib/session');
@@ -107,7 +103,6 @@ async function startBot() {
             
             try {
                 await client.sendMessage(ownerNumber, { text: startMessage });
-                console.log("Start message sent successfully to owner!");
             } catch (e) {
                 console.error("Failed to send start message:", e);
             }
@@ -122,12 +117,9 @@ async function startBot() {
 
         } else if (connection === 'close') {
             const reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
-            console.log(`Connection closed with reason code:`, reason);
             if (reason === DisconnectReason.connectionReplaced) {
-                console.log('Connection replaced. Logout current session first.');
                 await client.logout();
             } else {
-                console.log('Reconnecting in 5 seconds...');
                 setTimeout(startBot, 5000);
             }
         }
