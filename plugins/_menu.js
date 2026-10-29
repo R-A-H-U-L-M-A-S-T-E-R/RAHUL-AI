@@ -16,8 +16,9 @@ const style = font[menust];
 const more = String.fromCharCode(8206);
 const readMore = more.repeat(4001);
 
-// --- AUTO-DOWNLOAD SETTING (Default: ON) ---
+// --- AUTO-DOWNLOAD & AUTO-VOICE SETTINGS (Default: ON) ---
 let autoDownloadEnabled = true;
+let autoVoiceEnabled = true;
 
 const _0x3471ce=_0x4c73;function _0x5149(){const _0x99704b=['HEROKU','PITCHER_API_BASE_URL','PWD','codesandbox','1460490jcYrnC','DIGITALOCEAN','REPLIT','13089848qhFTfM','CLOUDFLARE','GITHUB','TERMUX_VERSION','REPLIT_USER','env','32199750KLjfkJ','18wOomgQ','5701444PXyScu','AZURE','7366gnnTKS','846315zOxTke','RAILWAY','NETLIFY','VPS','AWS','GITHUB_SERVER_URL','DYNO','1131GsaKWJ','SPACE_ID','HUGGINGFACE','KOYEB','CODESANDBOX','RENDER','FLY_IO','5671732abHOue','AZURE_HTTP_FUNCTIONS','DIGITALOCEAN_APP_NAME','CF_PAGES','VERCEL','LINUX','userland'];_0x5149=function(){return _0x99704b;};return _0x5149();}(function(_0x14bc52,_0x9e047e){const _0x5ac994=_0x4c73,_0x256c17=_0x14bc52();while(!![]){try{const _0x1155d4=parseInt(_0x5ac994(0x14a))/0x1+parseInt(_0x5ac994(0x130))/0x2*(-parseInt(_0x5ac994(0x138))/0x3)+parseInt(_0x5ac994(0x13f))/0x4+parseInt(_0x5ac994(0x131))/0x5*(parseInt(_0x5ac994(0x12d))/0x6)+parseInt(_0x5ac994(0x12e))/0x7+parseInt(_0x5ac994(0x126))/0x8+-parseInt(_0x5ac994(0x12c))/0x9;if(_0x1155d4===_0x9e047e)break;else _0x256c17['push'](_0x256c17['shift']());}catch(_0x5dbaeb){_0x256c17['push'](_0x256c17['shift']());}}}(_0x5149,0xd4926));function _0x4c73(_0x3c6eb7,_0x511653){const _0x514924=_0x5149();return _0x4c73=function(_0x4c737c,_0x3e9250){_0x4c737c=_0x4c737c-0x125;let _0x40d9b6=_0x514924[_0x4c737c];return _0x40d9b6;},_0x4c73(_0x3c6eb7,_0x511653);}let SERVER=process[_0x3471ce(0x12b)][_0x3471ce(0x148)]?.['includes'](_0x3471ce(0x145))?_0x3471ce(0x144):process[_0x3471ce(0x12b)][_0x3471ce(0x147)]?.['includes'](_0x3471ce(0x149))?_0x3471ce(0x13c):process['env'][_0x3471ce(0x12a)]?_0x3471ce(0x125):process[_0x3471ce(0x12b)][_0x3471ce(0x135)]?_0x3471ce(0x135):process['env'][_0x3471ce(0x129)]?'TERMUX':process['env'][_0x3471ce(0x137)]?_0x3471ce(0x146):process[_0x3471ce(0x12b)][_0x3471ce(0x13b)]?_0x3471ce(0x13b):process[_0x3471ce(0x12b)][_0x3471ce(0x136)]?_0x3471ce(0x128):process['env']['RENDER']?_0x3471ce(0x13d):process[_0x3471ce(0x12b)][_0x3471ce(0x132)]?_0x3471ce(0x132):process[_0x3471ce(0x12b)][_0x3471ce(0x143)]?_0x3471ce(0x143):process[_0x3471ce(0x12b)][_0x3471ce(0x141)]?_0x3471ce(0x14b):process['env'][_0x3471ce(0x140)]?_0x3471ce(0x12f):process[_0x3471ce(0x12b)][_0x3471ce(0x133)]?_0x3471ce(0x133):process[_0x3471ce(0x12b)][_0x3471ce(0x13e)]?_0x3471ce(0x13e):process['env'][_0x3471ce(0x142)]?_0x3471ce(0x127):process[_0x3471ce(0x12b)][_0x3471ce(0x139)]?_0x3471ce(0x13a):_0x3471ce(0x134);
 
@@ -63,9 +64,9 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
         const generate10MenuStyles = () => {
             let stylesArray = [];
 
-            // MENU 1: ⚡ NEW NEON CYBERPUNK BOX (Replaced old cyber led)
+            // MENU 1: ⚡ NEW NEON CYBERPUNK BOX
             stylesArray.push((prefixVal) => {
-                let header = `┏━━━✦ ⟨ *MENU 1: 𝗥𝗔𝗛𝗨𝗟 𝗔𝗜* ⟩ ✦━━━┓\n` +
+                let header = `┏━━━✦ ⟨ *MENU 1: NEON CYBER* ⟩ ✦━━━┓\n` +
                              `┃ 👑 *Owner*  : ${ownerName}\n` +
                              `┃ ⚙️ *Mode*   : ${workType}\n` +
                              `┃ ⚡ *Prefix* : ${prefixVal}\n` +
@@ -111,7 +112,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 3: 💎 Diamond Glow Style
             stylesArray.push((prefixVal) => {
-                let header = `╭──⚡ [ 🌟 ℝ𝔸ℍ𝕌𝕃 𝔸𝕀  : 𝕄𝔼ℕ𝕌 𝟛 🌟 ] ⚡──╮\n` +
+                let header = `╭──⚡ [ 🌟 MENU 3: DIAMOND 🌟 ] ⚡──╮\n` +
                              `│⚡│ 👑 *Owner*  : ${ownerName}\n` +
                              `│⚡│ ⚙️ *Mode*   : ${workType}\n` +
                              `│⚡│ ⚡ *Prefix* : ${prefixVal}\n` +
@@ -157,7 +158,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 5: 👑 Royal Crown Style
             stylesArray.push((prefixVal) => {
-                let header = `⚡ ── [ 🔥 ʀᴀʜᴜʟ ᴀɪ: ᴍᴇɴᴜ 5 🔥 ] ── ⚡\n` +
+                let header = `⚡ ── [ 🔥 MENU 5: ROYAL 🔥 ] ── ⚡\n` +
                              `║💎║ 👑 *Owner*  : ${ownerName}\n` +
                              `║💎║ ⚙️ *Mode*   : ${workType}\n` +
                              `║💎║ ⚡ *Prefix* : ${prefixVal}\n` +
@@ -166,7 +167,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
                              `║💎║ ⏰ *Time*   : ${time}\n` +
                              `║💎║ ⏱️ *Uptime* : ${uptimeVal}\n` +
                              `║💎║ 📂 *Plugins*: ${commands.length}\n` +
-                             `⚡ ── [ 🔥 ʀᴀʜᴜʟ_ᴍᴀꜱᴛᴇʀ 🔥 ] ── ⚡\n${readMore}\n\n`;
+                             `⚡ ── [ 🔥 MATRIX_END 🔥 ] ── ⚡\n${readMore}\n\n`;
                 let body = "";
                 type.forEach((cmmd) => {
                     body += `\n👑 ━━━❮ *${cmmd.toUpperCase()}* ❯━━━ 👑\n`;
@@ -181,7 +182,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
             // MENU 6: 💎 Crystal Grid Style
             stylesArray.push((prefixVal) => {
                 let header = `┌──────────────────────────┐\n` +
-                             `│ 💎 *𝚁𝙰𝙷𝚄𝙻 𝙰𝙸 : 𝙼𝙴𝙽𝚄 𝟼*     │\n` +
+                             `│ 💎 *MENU 6: CRYSTAL*     │\n` +
                              `├──────────────────────────┤\n` +
                              `│ 👑 *Owner*  : ${ownerName}\n` +
                              `│ ⚙️ *Mode*   : ${workType}\n` +
@@ -205,7 +206,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 7: 🔮 Neon Magic Style
             stylesArray.push((prefixVal) => {
-                let header = `🔮 ═════ [ 𝐑𝐀𝐇𝐔𝐋 𝐀𝐈 : 𝐌𝐄𝐍𝐔 𝟕 ] ═════ 🔮\n` +
+                let header = `🔮 ═════ [ MENU 7: MAGIC ] ═════ 🔮\n` +
                              `🔮 👑 *Owner*  : ${ownerName}\n` +
                              `🔮 ⚙️ *Mode*   : ${workType}\n` +
                              `🔮 ⚡ *Prefix* : ${prefixVal}\n` +
@@ -226,10 +227,10 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
                 return header + body;
             });
 
-            // MENU 8: 🌀 HACKER MATRIX CORE (Replaced old cyberpunk matrix)
+            // MENU 8: 🌀 HACKER MATRIX CORE
             stylesArray.push((prefixVal) => {
                 let header = `╔══════════════════════════╗\n` +
-                             `║   🛡️ RAHUL AI : MENU 8 🛡️  ║\n` +
+                             `║   🛡️ MENU 8: MATRIX CORE 🛡️  ║\n` +
                              `╚══════════════════════════╝\n` +
                              `💻 👑 *Owner*  : ${ownerName}\n` +
                              `💻 ⚙️ *Mode*   : ${workType}\n` +
@@ -254,7 +255,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
             // MENU 9: 🌟 Super Nova Style
             stylesArray.push((prefixVal) => {
                 let header = `🌟 ━━━━━━━━━━━━━━━━━━━━━━━━ 🌟\n` +
-                             `✨ *rαhul αí : mєnu 9* ✨\n` +
+                             `✨ *MENU 9: SUPER NOVA* ✨\n` +
                              `🌟 ━━━━━━━━━━━━━━━━━━━━━━━━ 🌟\n` +
                              `⭐ 👑 *Owner*  : ${ownerName}\n` +
                              `⭐ ⚙️ *Mode*   : ${workType}\n` +
@@ -279,7 +280,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
             // MENU 10: 💎 Ultimate Matrix Gold Style
             stylesArray.push((prefixVal) => {
                 let header = `╔══════════════════════════╗\n` +
-                             `║     👑 R̲A̲H̲U̲L̲ A̲I̲ : M̲E̲N̲U̲ 1̲0̲ 👑    ║\n` +
+                             `║     👑 MENU 10: GOLD 👑    ║\n` +
                              `╚══════════════════════════╝\n` +
                              `✨ 👑 *Owner*  : ${ownerName}\n` +
                              `✨ ⚙️ *Mode*   : ${workType}\n` +
@@ -442,12 +443,59 @@ Sparky({
   }
 });
 
+// --- AUTO-VOICE ON/OFF COMMAND ---
+Sparky({
+  name: "autovoice",
+  fromMe: isPublic,
+  category: "misc",
+  desc: "Toggle auto voice messages for greeting words on or off"
+}, async ({ m, args }) => {
+  const status = (args || "").toLowerCase().trim();
+  if (status === "on") {
+    autoVoiceEnabled = true;
+    return await m.reply("✅ Auto-Voice successfully ON kela ahe! (Cute Baby Voice active)");
+  } else if (status === "off") {
+    autoVoiceEnabled = false;
+    return await m.reply("✅ Auto-Voice successfully OFF kela ahe!");
+  } else {
+    return await m.reply(`*Auto-Voice Status:* ${autoVoiceEnabled ? "ON 🟢" : "OFF 🔴"}\nVapra: _.autovoice on_ kinva _.autovoice off_`);
+  }
+});
+
 // --- AUTOMATIC YOUTUBE LINK LISTENER (AUTODL) ---
 Sparky({
   on: "text",
   fromMe: false
 }, async ({ m }) => {
   try {
+    // 1. Auto-Voice Trigger Handler
+    if (autoVoiceEnabled) {
+      const text = (m.body || m.text || "").toLowerCase().trim();
+      if (text) {
+        const triggerWords = ["hi", "hello", "good morning", "good night", "hey"];
+        const isMatched = triggerWords.some(word => text === word || text.startsWith(word + " "));
+
+        if (isMatched) {
+          await m.react('👶');
+          const babyVoices = [
+            "https://raw.githubusercontent.com/Rahul-Bot-Master/RAILWAY-DB/main/media/baby_hi.mp3",
+            "https://cdn.jsdelivr.net/gh/Rahul-Bot-Master/RAILWAY-DB/main/media/baby_hello.mp3"
+          ];
+          const randomVoice = babyVoices[Math.floor(Math.random() * babyVoices.length)];
+
+          await m.client.sendMessage(m.jid, {
+            audio: { url: randomVoice },
+            mimetype: 'audio/mp4',
+            ptt: true
+          }, { quoted: m });
+
+          await m.react('✅');
+          return; // Voice reply gelyavar pudhe autodl la janyachi garaj nahi
+        }
+      }
+    }
+
+    // 2. Auto-Download Trigger Handler
     if (!autoDownloadEnabled) return;
     
     const text = m.body || m.text || "";
@@ -466,7 +514,7 @@ Sparky({
       }
     }
   } catch (error) {
-    console.error("AutoDL Error:", error);
+    console.error("Listener Error:", error);
     try {
       await m.react('❌');
     } catch (e) {}
