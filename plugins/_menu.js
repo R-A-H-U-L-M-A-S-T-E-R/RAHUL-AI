@@ -190,8 +190,8 @@ Sparky({
                             externalAdReply: {
                                 title: style(`Hey ${m.pushName}!`),
                                 body: style(`${config.BOT_INFO.split(";")[0]}`),
-                                sourceUrl: "https://aswinsparky.qzz.io",
-                                mediaUrl: "https://aswinsparky.qzz.io",
+                                sourceUrl: "",
+                                mediaUrl: "",
                                 mediaType: 1,
                                 showAdAttribution: true,
                                 renderLargerThumbnail: false,
@@ -211,7 +211,7 @@ Sparky({
                             externalAdReply: {
                                 title: style(`Hey ${m.pushName}!`),
                                 body: style(`${config.BOT_INFO.split(";")[0]}`),
-                                sourceUrl: "https://aswinsparky.qzz.io",
+                                sourceUrl: "",
                                 mediaType: 1,
                                 showAdAttribution: true,
                                 renderLargerThumbnail: true,
