@@ -6,9 +6,10 @@ const lang = getString('converters');
 const axios = require('axios');
 const FormData = require('form-data');
 Sparky({
+Sparky({
     name: "url",
     fromMe: true,
-    desc: "Uploads quoted media to Telegra.ph and returns direct URL",
+    desc: "Uploads quoted media and returns direct URL",
     category: "converters",
 }, async ({ args, m }) => {
     if (!m.quoted) {
@@ -17,42 +18,21 @@ Sparky({
     try {
         await m.react('⏫');
         
+        // Media buffer download karne
         const mediaBuffer = await m.quoted.download();
-        const mime = m.quoted.mimetype || 'image/jpeg';
-        let ext = mime.split('/')[1] || 'jpg';
-        if (ext === 'jpeg') ext = 'jpg';
-        if (ext === 'quicktime') ext = 'mov';
-
-        const FormData = require('form-data');
-        const form = new FormData();
-        form.append('file', mediaBuffer, { filename: `media.${ext}`, contentType: mime });
-
-        const response = await fetch('https://telegra.ph/upload', {
-            method: 'POST',
-            body: form,
-            headers: {
-                ...form.getHeaders()
-            }
-        });
-
-        const resText = await response.text();
-        console.log("Telegra.ph Raw Response:", resText);
-
-        let resJson;
-        try {
-            resJson = JSON.parse(resText);
-        } catch (e) {
-            throw new Error(`Server returned non-JSON: ${resText}`);
+        if (!mediaBuffer) {
+            throw new Error('Failed to download media buffer.');
         }
 
-        if (!resJson || !resJson[0] || !resJson[0].src) {
-            throw new Error(`Upload failed: ${resText}`);
-        }
-
-        const mediaUrl = `https://telegra.ph${resJson[0].src}`;
+        // Built-in uploadMedia function vaprun upload karne
+        let mediaUrl = await uploadMedia(mediaBuffer);
         
+        if (!mediaUrl || typeof mediaUrl !== 'string' || !mediaUrl.startsWith('http')) {
+            throw new Error('Upload failed: Invalid URL received');
+        }
+
         await m.react('✅');
-        return m.reply(mediaUrl);
+        return m.reply(mediaUrl.trim());
     } catch (error) {
         console.error("URL Command Error:", error);
         await m.react('❌');
