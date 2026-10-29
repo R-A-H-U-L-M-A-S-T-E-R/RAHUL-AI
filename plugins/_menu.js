@@ -66,7 +66,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 1: ⚡ NEW NEON CYBERPUNK BOX
             stylesArray.push((prefixVal) => {
-                let header = `┏━━━✦ ⟨ *RAHUL AI :  MENU 1* ⟩ ✦━━━┓\n` +
+                let header = `┏━━━✦ ⟨ *RAHUL AI : MENU 1* ⟩ ✦━━━┓\n` +
                              `┃ 👑 *Owner*  : ${ownerName}\n` +
                              `┃ ⚙️ *Mode*   : ${workType}\n` +
                              `┃ ⚡ *Prefix* : ${prefixVal}\n` +
@@ -485,26 +485,12 @@ Sparky({
         ];
         const randomVoice = babyVoices[Math.floor(Math.random() * babyVoices.length)];
 
-        try {
-          const audioBuffer = await getBuffer(randomVoice);
-          if (audioBuffer) {
-            await client.sendMessage(m.jid, {
-              audio: audioBuffer,
-              mimetype: 'audio/mp4',
-              ptt: true
-            }, { quoted: m });
-          } else {
-            // Fallback jar buffer milala nahi tr direct URL pathavne
-            await client.sendMessage(m.jid, {
-              audio: { url: randomVoice },
-              mimetype: 'audio/mp4',
-              ptt: true
-            }, { quoted: m });
-          }
-        } catch (err) {
-          // Fallback jar audio send hot nase tr cute text reply deun error avoid karne
-          await m.reply("👶 *Hieee!* (Cute baby voice)");
-        }
+        // Direct URL pass keli ahe ptt: true sobat jyamule 100% voice note send hoil
+        await client.sendMessage(m.jid, {
+          audio: { url: randomVoice },
+          mimetype: 'audio/mpeg',
+          ptt: true
+        }, { quoted: m });
 
         try { await m.react('✅'); } catch (e) {}
         return;
