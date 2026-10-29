@@ -5,7 +5,10 @@ const config = require('../config.js');
 const lang = getString('converters');
 const axios = require('axios');
 const FormData = require('form-data');
-Sparky({
+const { Sparky, isPublic, uploadMedia, handler } = require('../lib/');
+const { getString } = require('../lib/');
+const lang = getString('converters');
+
 Sparky({
     name: "url",
     fromMe: true,
@@ -18,13 +21,11 @@ Sparky({
     try {
         await m.react('⏫');
         
-        // Media buffer download karne
         const mediaBuffer = await m.quoted.download();
         if (!mediaBuffer) {
             throw new Error('Failed to download media buffer.');
         }
 
-        // Built-in uploadMedia function vaprun upload karne
         let mediaUrl = await uploadMedia(mediaBuffer);
         
         if (!mediaUrl || typeof mediaUrl !== 'string' || !mediaUrl.startsWith('http')) {
@@ -39,26 +40,6 @@ Sparky({
         return m.reply(`An error occurred: ${error.message}`);
     }
 });
-
-Sparky(
-  {
-    name: "trt",
-    fromMe: true,
-    desc: "Translate text to a given language",
-    category: "converters",
-  },
-  async ({ client, m, args }) => {
-    try {
-      if (!args) return await m.reply('_Reply to any text with lang_\n_Eg : trt ml_');
-      const trtxt = m.quoted?.text;
-      const trtlang = args;
-      const trt = await getJson(`${config.API}/api/search/translate?text=${trtxt}&lang=${trtlang}`)
-      return m.reply(`${trt.result}`);
-    } catch (e) {
-      console.error(e);
-    }
-  }
-);
 
 Sparky(
     {
