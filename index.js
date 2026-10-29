@@ -23,6 +23,7 @@ const ASWINSPARKY_0x2fc2b5=ASWINSPARKY_0x137d;(function(_0x229836,_0x58551e){con
         '│ 💾 *Status Save*      : ' + (_0x40480d[_0x28e39f(0xb0)] ? '🟢 Active' : '🔴 Disabled') + '\n' +
         '│ 💬 *Status Reply*     : ' + (_0x40480d[_0x28e39f(0xd5)] ? '🟢 Active' : '🔴 Disabled') + '\n' +
         '│ ✨ *Status Reaction*  : ' + (_0x40480d[_0x28e39f(0x9b)] ? '🟢 Active' : '🔴 Disabled') + '\n' +
+        '│ 📥 *Auto DL*          : ' + (_0x40480d['AUTODL'] ? '🟢 Active' : '🔴 Disabled') + '\n' +
         '│ 📋 *Logs*             : ' + (_0x40480d[_0x28e39f(0xf0)] ? '🟢 Active' : '🔴 Disabled') + '\n' +
         '│ 🚷 *PM Blocker*       : ' + (_0x40480d[_0x28e39f(0xc9)] ? '🟢 Active' : '🔴 Disabled') + '\n' +
         '│ 🔕 *PM Disabler*      : ' + (_0x40480d['DISABLE_PM'] ? '🟢 Active' : '🔴 Disabled') + '\n' +
