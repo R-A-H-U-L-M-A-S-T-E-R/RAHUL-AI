@@ -58,7 +58,7 @@ Sparky({
           );
 
           if (args) {
-                switch (args) {
+                switch (args.toLowerCase()) {
                             case 'now': {
                                   if(commits.total === 0) return await m.reply("```Bot is up-to-date!```");
                                   
@@ -72,8 +72,8 @@ Sparky({
 
                                   await m.reply(updatingUI);
 
-                                  // 100% Fix: Git pull execute karne jyamule commits clear hotiil
-                                  git.pull(async (err, update) => {
+                                  // 100% Fix: Explicitly branch sangun pull karne (detaching head issue fixed)
+                                  git.pull('origin', 'main', async (err, update) => {
                                       if (err) {
                                           return await m.reply(`⚠️ Update Failed: ${err.message}`);
                                       }
@@ -88,7 +88,6 @@ Sparky({
 
                                       await m.reply(restartUI);
                                       
-                                      // Optional: app.update() call karne jar cloud hosting sathi lagat asel
                                       try { await app.update(); } catch (e) {}
                                       
                                       // Bot restart execution
