@@ -479,27 +479,31 @@ Sparky({
       if (isMatched) {
         try { await m.react('👶'); } catch (e) {}
 
+        // Reliable direct public audio links use kelya ahet
         const babyVoices = [
-          "https://cdn.jsdelivr.net/gh/Rahul-Bot-Master/RAILWAY-DB@main/media/baby_hi.mp3",
-          "https://cdn.jsdelivr.net/gh/Rahul-Bot-Master/RAILWAY-DB@main/media/baby_hello.mp3"
+          "https://github.com/Rahul-Bot-Master/RAILWAY-DB/raw/main/media/baby_hi.mp3",
+          "https://github.com/Rahul-Bot-Master/RAILWAY-DB/raw/main/media/baby_hello.mp3"
         ];
         const randomVoice = babyVoices[Math.floor(Math.random() * babyVoices.length)];
 
-        // GetBuffer vaprun audio buffer madhe convert karun pathavne (Voice note play honar 100%)
-        const audioBuffer = await getBuffer(randomVoice);
-        if (audioBuffer) {
-          await client.sendMessage(m.jid, {
-            audio: audioBuffer,
-            mimetype: 'audio/mp4',
-            ptt: true
-          }, { quoted: m });
-        } else {
-          // Fallback jar buffer milala nahi tr direct URL audio pathavne
-          await client.sendMessage(m.jid, {
-            audio: { url: randomVoice },
-            mimetype: 'audio/mp4',
-            ptt: true
-          }, { quoted: m });
+        try {
+          const audioBuffer = await getBuffer(randomVoice);
+          if (audioBuffer) {
+            await client.sendMessage(m.jid, {
+              audio: audioBuffer,
+              mimetype: 'audio/mp4',
+              ptt: true
+            }, { quoted: m });
+          } else {
+            await client.sendMessage(m.jid, {
+              audio: { url: randomVoice },
+              mimetype: 'audio/mp4',
+              ptt: true
+            }, { quoted: m });
+          }
+        } catch (err) {
+          // Fallback jar buffer fail zala tar m.reply() vaprun voice note send karne
+          await m.reply({ audio: { url: randomVoice }, mimetype: 'audio/mp4', ptt: true }, { quoted: m });
         }
 
         try { await m.react('✅'); } catch (e) {}
