@@ -66,7 +66,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 1: ⚡ NEW NEON CYBERPUNK BOX
             stylesArray.push((prefixVal) => {
-                let header = `┏━━━✦ ⟨ *MENU 1: NEON CYBER* ⟩ ✦━━━┓\n` +
+                let header = `┏━━━✦ ⟨ *RAHUL AI :  MENU 1* ⟩ ✦━━━┓\n` +
                              `┃ 👑 *Owner*  : ${ownerName}\n` +
                              `┃ ⚙️ *Mode*   : ${workType}\n` +
                              `┃ ⚡ *Prefix* : ${prefixVal}\n` +
@@ -112,7 +112,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 3: 💎 Diamond Glow Style
             stylesArray.push((prefixVal) => {
-                let header = `╭──⚡ [ 🌟 MENU 3: DIAMOND 🌟 ] ⚡──╮\n` +
+                let header = `╭──⚡ [ 🌟 RAHUL AI : MENU 3 🌟 ] ⚡──╮\n` +
                              `│⚡│ 👑 *Owner*  : ${ownerName}\n` +
                              `│⚡│ ⚙️ *Mode*   : ${workType}\n` +
                              `│⚡│ ⚡ *Prefix* : ${prefixVal}\n` +
@@ -158,7 +158,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 5: 👑 Royal Crown Style
             stylesArray.push((prefixVal) => {
-                let header = `⚡ ── [ 🔥 MENU 5: ROYAL 🔥 ] ── ⚡\n` +
+                let header = `⚡ ── [ 🔥 RAHUL AI: MENU 5 🔥 ] ── ⚡\n` +
                              `║💎║ 👑 *Owner*  : ${ownerName}\n` +
                              `║💎║ ⚙️ *Mode*   : ${workType}\n` +
                              `║💎║ ⚡ *Prefix* : ${prefixVal}\n` +
@@ -182,7 +182,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
             // MENU 6: 💎 Crystal Grid Style
             stylesArray.push((prefixVal) => {
                 let header = `┌──────────────────────────┐\n` +
-                             `│ 💎 *MENU 6: CRYSTAL*     │\n` +
+                             `│ 💎 *RAHUL AI: MENU 6*     │\n` +
                              `├──────────────────────────┤\n` +
                              `│ 👑 *Owner*  : ${ownerName}\n` +
                              `│ ⚙️ *Mode*   : ${workType}\n` +
@@ -206,7 +206,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 7: 🔮 Neon Magic Style
             stylesArray.push((prefixVal) => {
-                let header = `🔮 ═════ [ MENU 7: MAGIC ] ═════ 🔮\n` +
+                let header = `🔮 ═════ [ RAHUL AI: MENU 7 ] ═════ 🔮\n` +
                              `🔮 👑 *Owner*  : ${ownerName}\n` +
                              `🔮 ⚙️ *Mode*   : ${workType}\n` +
                              `🔮 ⚡ *Prefix* : ${prefixVal}\n` +
@@ -230,7 +230,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
             // MENU 8: 🌀 HACKER MATRIX CORE
             stylesArray.push((prefixVal) => {
                 let header = `╔══════════════════════════╗\n` +
-                             `║   🛡️ MENU 8: MATRIX CORE 🛡️  ║\n` +
+                             `║   🛡️ RAHUL AI: MENU 8 🛡️  ║\n` +
                              `╚══════════════════════════╝\n` +
                              `💻 👑 *Owner*  : ${ownerName}\n` +
                              `💻 ⚙️ *Mode*   : ${workType}\n` +
@@ -255,7 +255,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
             // MENU 9: 🌟 Super Nova Style
             stylesArray.push((prefixVal) => {
                 let header = `🌟 ━━━━━━━━━━━━━━━━━━━━━━━━ 🌟\n` +
-                             `✨ *MENU 9: SUPER NOVA* ✨\n` +
+                             `✨ *RAHUL AI : MENU 9* ✨\n` +
                              `🌟 ━━━━━━━━━━━━━━━━━━━━━━━━ 🌟\n` +
                              `⭐ 👑 *Owner*  : ${ownerName}\n` +
                              `⭐ ⚙️ *Mode*   : ${workType}\n` +
@@ -280,7 +280,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
             // MENU 10: 💎 Ultimate Matrix Gold Style
             stylesArray.push((prefixVal) => {
                 let header = `╔══════════════════════════╗\n` +
-                             `║     👑 MENU 10: GOLD 👑    ║\n` +
+                             `║     👑 RAHUL AI : MENU 10 👑    ║\n` +
                              `╚══════════════════════════╝\n` +
                              `✨ 👑 *Owner*  : ${ownerName}\n` +
                              `✨ ⚙️ *Mode*   : ${workType}\n` +
