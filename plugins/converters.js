@@ -8,7 +8,7 @@ const FormData = require('form-data');
 Sparky({
     name: "url",
     fromMe: true,
-    desc: "Uploads quoted media to Catbox CDN and returns direct URL",
+    desc: "Uploads quoted media to Telegra.ph and returns direct URL",
     category: "converters",
 }, async ({ args, m }) => {
     if (!m.quoted) {
@@ -24,22 +24,24 @@ Sparky({
 
         const FormData = require('form-data');
         const form = new FormData();
-        form.append('reqtype', 'fileupload');
-        form.append('fileToUpload', mediaBuffer, { filename: `media.${ext}`, contentType: mime });
+        // Telegra.ph sathi 'file' he field name aste
+        form.append('file', mediaBuffer, { filename: `media.${ext}`, contentType: mime });
 
-        // Catbox.moe API vaparli ahe ji direct media URL dete
-        const response = await fetch('https://catbox.moe/user/api.php', {
+        const response = await fetch('https://telegra.ph/upload', {
             method: 'POST',
             body: form,
             headers: form.getHeaders ? form.getHeaders() : {}
         });
 
-        const mediaUrl = (await response.text()).trim();
-        console.log("Catbox Response URL:", mediaUrl);
+        const resJson = await response.json();
+        console.log("Telegra.ph Response:", resJson);
 
-        if (!mediaUrl || !mediaUrl.startsWith('http')) {
-            throw new Error(`Upload failed: ${mediaUrl}`);
+        if (!resJson || !resJson[0] || !resJson[0].src) {
+            throw new Error('Upload failed: Invalid response from server');
         }
+
+        // Telegra.ph half-link deto, mhanun 'https://telegra.ph' judavne garjeche ahe
+        const mediaUrl = `https://telegra.ph${resJson[0].src}`;
         
         await m.react('✅');
         return m.reply(mediaUrl);
