@@ -38,10 +38,10 @@ Sparky({
         let mediaUrl = "";
         try {
             const json = JSON.parse(resText);
-            // JSON madhun url extract karne
-            mediaUrl = json.url || (json.upload && json.upload.url);
+            // Jar API ne JSON format madhe URL dili asel
+            mediaUrl = json.url || json.link || json.file || (json.upload && json.upload.url);
         } catch (e) {
-            // Jar JSON nasel tr direct text check karu
+            // Jar text direct URL asel
             mediaUrl = resText.startsWith('http') ? resText.trim() : "";
         }
 
@@ -57,7 +57,6 @@ Sparky({
         return m.reply(`An error occurred: ${error.message}`);
     }
 });
-
 
 Sparky(
   {
