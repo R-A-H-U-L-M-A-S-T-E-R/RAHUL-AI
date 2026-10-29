@@ -1,13 +1,8 @@
-const {Sparky, isPublic,uploadMedia,handleMediaUpload} = require("../lib");
-const {getString, appendMp3Data, convertToMp3, addExifToWebP, getBuffer, getJson} = require('./pluginsCore');
-const googleTTS = require('google-tts-api');
-const config = require('../config.js');
-const lang = getString('converters');
-const axios = require('axios');
-const FormData = require('form-data');
+// Asegúrate de que estas declaraciones estén una sola vez en todo el archivo (elimina las repeticiones arriba)
 const { Sparky, isPublic, uploadMedia, handler } = require('../lib/');
 const { getString } = require('../lib/');
 const lang = getString('converters');
+
 Sparky({
     name: "url",
     fromMe: true,
