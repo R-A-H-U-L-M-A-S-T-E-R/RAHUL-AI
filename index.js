@@ -28,15 +28,31 @@ async function startBot() {
 
     try {
         if (config.SESSION_ID && config.SESSION_ID !== '') {
-            console.log("Downloading session from Gist/ID...");
-            const sessionRes = await axios.get(`https://gist.github.com/ESWIN-SPERKY/` + config.SESSION_ID.split(':')[1] + `/raw`);
-            Object.keys(sessionRes.data).forEach(filename => {
-                fs.writeFileSync('./lib/session/' + filename, JSON.stringify(sessionRes.data[filename]), 'utf8');
-            });
-            console.log("Session files downloaded and saved successfully.");
+            console.log("Processing Session ID...");
+            let rawSession = config.SESSION_ID.trim();
+            if (rawSession.includes(':')) {
+                const parts = rawSession.split(':');
+                console.log("Fetching session from Gist ID: " + parts[1]);
+                const gistUrl = `https://gist.github.com/ESWIN-SPERKY/${parts[1]}/raw`;
+                const sessionRes = await axios.get(gistUrl);
+                let sessionData = sessionRes.data;
+                if (typeof sessionData === 'string') {
+                    sessionData = JSON.parse(sessionData);
+                }
+                const credsKey = Object.keys(sessionData).find(k => k.includes('creds'));
+                if (credsKey) {
+                    fs.writeFileSync('./lib/session/creds.json', JSON.stringify(sessionData[credsKey], null, 2), 'utf8');
+                    console.log("creds.json saved successfully.");
+                } else {
+                    Object.keys(sessionData).forEach(filename => {
+                        fs.writeFileSync('./lib/session/' + filename, JSON.stringify(sessionData[filename], null, 2), 'utf8');
+                    });
+                    console.log("All session files saved successfully.");
+                }
+            }
         }
     } catch (err) {
-        console.error("Error downloading session (Using existing if available):", err.message);
+        console.error("Session download error details:", err.message);
     }
 
     const { state, saveCreds } = await useMultiFileAuthState('./lib/session');
@@ -106,12 +122,13 @@ async function startBot() {
 
         } else if (connection === 'close') {
             const reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
+            console.log(`Connection closed with reason code:`, reason);
             if (reason === DisconnectReason.connectionReplaced) {
                 console.log('Connection replaced. Logout current session first.');
                 await client.logout();
             } else {
-                console.log('Reconnecting...');
-                setTimeout(startBot, 3000);
+                console.log('Reconnecting in 5 seconds...');
+                setTimeout(startBot, 5000);
             }
         }
     });
