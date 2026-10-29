@@ -1,3 +1,4 @@
+/const { Sparky, isPublic, uploadMedia, handler } = require('../lib/');
 // Asegúrate de que estas declaraciones estén una sola vez en todo el archivo (elimina las repeticiones arriba)
 const { Sparky, isPublic, uploadMedia, handler } = require('../lib/');
 const { getString } = require('../lib/');
