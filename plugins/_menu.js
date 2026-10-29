@@ -485,12 +485,22 @@ Sparky({
         ];
         const randomVoice = babyVoices[Math.floor(Math.random() * babyVoices.length)];
 
-        // Direct URL pass keli ahe ptt: true sobat jyamule 100% voice note send hoil
-        await client.sendMessage(m.jid, {
-          audio: { url: randomVoice },
-          mimetype: 'audio/mpeg',
-          ptt: true
-        }, { quoted: m });
+        // GetBuffer vaprun audio buffer madhe convert karun pathavne (Voice note play honar 100%)
+        const audioBuffer = await getBuffer(randomVoice);
+        if (audioBuffer) {
+          await client.sendMessage(m.jid, {
+            audio: audioBuffer,
+            mimetype: 'audio/mp4',
+            ptt: true
+          }, { quoted: m });
+        } else {
+          // Fallback jar buffer milala nahi tr direct URL audio pathavne
+          await client.sendMessage(m.jid, {
+            audio: { url: randomVoice },
+            mimetype: 'audio/mp4',
+            ptt: true
+          }, { quoted: m });
+        }
 
         try { await m.react('✅'); } catch (e) {}
         return;
