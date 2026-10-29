@@ -8,7 +8,7 @@ const FormData = require('form-data');
 Sparky({
     name: "url",
     fromMe: true,
-    desc: "Uploads quoted media to CDN and returns URL",
+    desc: "Uploads quoted media to Catbox CDN and returns direct URL",
     category: "converters",
 }, async ({ args, m }) => {
     if (!m.quoted) {
@@ -27,32 +27,22 @@ Sparky({
         form.append('reqtype', 'fileupload');
         form.append('fileToUpload', mediaBuffer, { filename: `media.${ext}`, contentType: mime });
 
-        // Jar sam-cdn error det asel, tar aapan catbox ya telegra.ph use karu shakto. 
-        // Sathyala sam-cdn ch thevun response check karu:
-        const response = await fetch('https://sam-cdn.zone.id/upload', {
+        // Catbox.moe API vaparli ahe ji direct media URL dete
+        const response = await fetch('https://catbox.moe/user/api.php', {
             method: 'POST',
             body: form,
             headers: form.getHeaders ? form.getHeaders() : {}
         });
 
-        const resText = await response.text();
-        console.log("Raw API Response:", resText);
-
-        let mediaUrl = "";
-        try {
-            const json = JSON.parse(resText);
-            // Check all common json response structures
-            mediaUrl = json.url || json.link || json.file || json.files?.[0]?.url || (json.upload && json.upload.url);
-        } catch (e) {
-            mediaUrl = resText.startsWith('http') ? resText.trim() : "";
-        }
+        const mediaUrl = (await response.text()).trim();
+        console.log("Catbox Response URL:", mediaUrl);
 
         if (!mediaUrl || !mediaUrl.startsWith('http')) {
-            throw new Error(`Invalid URL received: ${resText}`);
+            throw new Error(`Upload failed: ${mediaUrl}`);
         }
         
         await m.react('✅');
-        return m.reply(mediaUrl.trim());
+        return m.reply(mediaUrl);
     } catch (error) {
         console.error("URL Command Error:", error);
         await m.react('❌');
