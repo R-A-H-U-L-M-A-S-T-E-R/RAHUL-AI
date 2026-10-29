@@ -465,45 +465,47 @@ Sparky({
 // --- AUTOMATIC TEXT LISTENER (AUTO-VOICE & AUTODL) ---
 Sparky({
   on: "text",
-  fromMe: true // Self messages pan detect karayla true kele ahe
+  fromMe: false // Self messages ignore karun other messages varti active hoil
 }, async ({ m, client }) => {
   try {
+    const rawText = m.body || m.text || (m.message && (m.message.conversation || m.message.extendedTextMessage?.text)) || "";
+    const text = rawText.toLowerCase().trim();
+    if (!text) return;
+
     // 1. Auto-Voice Trigger Handler
     if (autoVoiceEnabled) {
-      const text = (m.body || m.text || "").toLowerCase().trim();
-      if (text) {
-        const triggerWords = ["hi", "hello", "good morning", "good night", "hey"];
-        const isMatched = triggerWords.some(word => text === word || text.startsWith(word + " "));
+      const triggerWords = ["hi", "hello", "good morning", "good night", "hey"];
+      const isMatched = triggerWords.some(word => text === word || text.startsWith(word + " "));
 
-        if (isMatched) {
-          try { await m.react('👶'); } catch (e) {}
+      if (isMatched) {
+        try { await m.react('👶'); } catch (e) {}
 
-          const babyVoices = [
-            "https://raw.githubusercontent.com/Rahul-Bot-Master/RAILWAY-DB/main/media/baby_hi.mp3",
-            "https://cdn.jsdelivr.net/gh/Rahul-Bot-Master/RAILWAY-DB/main/media/baby_hello.mp3"
-          ];
-          const randomVoice = babyVoices[Math.floor(Math.random() * babyVoices.length)];
+        const babyVoices = [
+          "https://raw.githubusercontent.com/Rahul-Bot-Master/RAILWAY-DB/main/media/baby_hi.mp3",
+          "https://cdn.jsdelivr.net/gh/Rahul-Bot-Master/RAILWAY-DB/main/media/baby_hello.mp3"
+        ];
+        const randomVoice = babyVoices[Math.floor(Math.random() * babyVoices.length)];
 
+        // GetBuffer vaprun audio buffer madhe convert karun pathavne (100% voice note play hoil)
+        const audioBuffer = await getBuffer(randomVoice);
+        if (audioBuffer) {
           await client.sendMessage(m.jid, {
-            audio: { url: randomVoice },
-            mimetype: 'audio/mpeg',
+            audio: audioBuffer,
+            mimetype: 'audio/mp4',
             ptt: true
           }, { quoted: m });
-
-          try { await m.react('✅'); } catch (e) {}
-          return;
         }
+
+        try { await m.react('✅'); } catch (e) {}
+        return;
       }
     }
 
     // 2. Auto-Download Trigger Handler
     if (!autoDownloadEnabled) return;
-    
-    const text = m.body || m.text || "";
-    if (!text) return;
 
     const urlRegex = /(https?:\/\/[^\s]+)/g;
-    const matchUrls = text.match(urlRegex);
+    const matchUrls = rawText.match(urlRegex);
     
     if (matchUrls) {
       const ytUrl = matchUrls.find(word => word.includes("youtube.com") || word.includes("youtu.be"));
