@@ -16,9 +16,8 @@ const style = font[menust];
 const more = String.fromCharCode(8206);
 const readMore = more.repeat(4001);
 
-// --- AUTO-DOWNLOAD & AUTO-VOICE SETTINGS (Default: ON) ---
+// --- AUTO-DOWNLOAD SETTING (Default: ON) ---
 let autoDownloadEnabled = true;
-let autoVoiceEnabled = true;
 
 const _0x3471ce=_0x4c73;function _0x5149(){const _0x99704b=['HEROKU','PITCHER_API_BASE_URL','PWD','codesandbox','1460490jcYrnC','DIGITALOCEAN','REPLIT','13089848qhFTfM','CLOUDFLARE','GITHUB','TERMUX_VERSION','REPLIT_USER','env','32199750KLjfkJ','18wOomgQ','5701444PXyScu','AZURE','7366gnnTKS','846315zOxTke','RAILWAY','NETLIFY','VPS','AWS','GITHUB_SERVER_URL','DYNO','1131GsaKWJ','SPACE_ID','HUGGINGFACE','KOYEB','CODESANDBOX','RENDER','FLY_IO','5671732abHOue','AZURE_HTTP_FUNCTIONS','DIGITALOCEAN_APP_NAME','CF_PAGES','VERCEL','LINUX','userland'];_0x5149=function(){return _0x99704b;};return _0x5149();}(function(_0x14bc52,_0x9e047e){const _0x5ac994=_0x4c73,_0x256c17=_0x14bc52();while(!![]){try{const _0x1155d4=parseInt(_0x5ac994(0x14a))/0x1+parseInt(_0x5ac994(0x130))/0x2*(-parseInt(_0x5ac994(0x138))/0x3)+parseInt(_0x5ac994(0x13f))/0x4+parseInt(_0x5ac994(0x131))/0x5*(parseInt(_0x5ac994(0x12d))/0x6)+parseInt(_0x5ac994(0x12e))/0x7+parseInt(_0x5ac994(0x126))/0x8+-parseInt(_0x5ac994(0x12c))/0x9;if(_0x1155d4===_0x9e047e)break;else _0x256c17['push'](_0x256c17['shift']());}catch(_0x5dbaeb){_0x256c17['push'](_0x256c17['shift']());}}}(_0x5149,0xd4926));function _0x4c73(_0x3c6eb7,_0x511653){const _0x514924=_0x5149();return _0x4c73=function(_0x4c737c,_0x3e9250){_0x4c737c=_0x4c737c-0x125;let _0x40d9b6=_0x514924[_0x4c737c];return _0x40d9b6;},_0x4c73(_0x3c6eb7,_0x511653);}let SERVER=process[_0x3471ce(0x12b)][_0x3471ce(0x148)]?.['includes'](_0x3471ce(0x145))?_0x3471ce(0x144):process[_0x3471ce(0x12b)][_0x3471ce(0x147)]?.['includes'](_0x3471ce(0x149))?_0x3471ce(0x13c):process['env'][_0x3471ce(0x12a)]?_0x3471ce(0x125):process[_0x3471ce(0x12b)][_0x3471ce(0x135)]?_0x3471ce(0x135):process['env'][_0x3471ce(0x129)]?'TERMUX':process['env'][_0x3471ce(0x137)]?_0x3471ce(0x146):process[_0x3471ce(0x12b)][_0x3471ce(0x13b)]?_0x3471ce(0x13b):process[_0x3471ce(0x12b)][_0x3471ce(0x136)]?_0x3471ce(0x128):process['env']['RENDER']?_0x3471ce(0x13d):process[_0x3471ce(0x12b)][_0x3471ce(0x132)]?_0x3471ce(0x132):process[_0x3471ce(0x12b)][_0x3471ce(0x143)]?_0x3471ce(0x143):process[_0x3471ce(0x12b)][_0x3471ce(0x141)]?_0x3471ce(0x14b):process['env'][_0x3471ce(0x140)]?_0x3471ce(0x12f):process[_0x3471ce(0x12b)][_0x3471ce(0x133)]?_0x3471ce(0x133):process[_0x3471ce(0x12b)][_0x3471ce(0x13e)]?_0x3471ce(0x13e):process['env'][_0x3471ce(0x142)]?_0x3471ce(0x127):process[_0x3471ce(0x12b)][_0x3471ce(0x139)]?_0x3471ce(0x13a):_0x3471ce(0x134);
 
@@ -443,79 +442,17 @@ Sparky({
   }
 });
 
-// --- AUTO-VOICE ON/OFF COMMAND ---
-Sparky({
-  name: "autovoice",
-  fromMe: isPublic,
-  category: "misc",
-  desc: "Toggle auto voice messages for greeting words on or off"
-}, async ({ m, args }) => {
-  const status = (args || "").toLowerCase().trim();
-  if (status === "on") {
-    autoVoiceEnabled = true;
-    return await m.reply("✅ Auto-Voice successfully ON kela ahe! (Cute Baby Voice active)");
-  } else if (status === "off") {
-    autoVoiceEnabled = false;
-    return await m.reply("✅ Auto-Voice successfully OFF kela ahe!");
-  } else {
-    return await m.reply(`*Auto-Voice Status:* ${autoVoiceEnabled ? "ON 🟢" : "OFF 🔴"}\nVapra: _.autovoice on_ kinva _.autovoice off_`);
-  }
-});
-
-// --- AUTOMATIC TEXT LISTENER (AUTO-VOICE & AUTODL) ---
+// --- AUTOMATIC YOUTUBE DOWNLOAD LISTENER ---
 Sparky({
   on: "text",
   dontAddCommandList: true
 }, async ({ m, client }) => {
   try {
+    if (!autoDownloadEnabled) return;
+
     const rawText = m.body || m.text || (m.message && (m.message.conversation || m.message.extendedTextMessage?.text)) || "";
     const text = rawText.toLowerCase().trim();
     if (!text) return;
-
-    // 1. Auto-Voice Trigger Handler (Self-chat ani other chats donhi kade work karel)
-    if (autoVoiceEnabled) {
-      const triggerWords = ["hi", "hello", "good morning", "good night", "hey"];
-      const isMatched = triggerWords.some(word => text === word || text.startsWith(word + " "));
-
-      if (isMatched) {
-        try { await m.react('👶'); } catch (e) {}
-
-        const babyVoices = [
-          "https://github.com/Rahul-Bot-Master/RAILWAY-DB/raw/main/media/baby_hi.mp3",
-          "https://github.com/Rahul-Bot-Master/RAILWAY-DB/raw/main/media/baby_hello.mp3"
-        ];
-        const randomVoice = babyVoices[Math.floor(Math.random() * babyVoices.length)];
-
-        try {
-          const audioBuffer = await getBuffer(randomVoice);
-          if (audioBuffer) {
-            await client.sendMessage(m.jid, {
-              audio: audioBuffer,
-              mimetype: 'audio/mp4',
-              ptt: true
-            }, { quoted: m });
-          } else {
-            await client.sendMessage(m.jid, {
-              audio: { url: randomVoice },
-              mimetype: 'audio/mp4',
-              ptt: true
-            }, { quoted: m });
-          }
-        } catch (err) {
-          await client.sendMessage(m.jid, {
-            audio: { url: randomVoice },
-            mimetype: 'audio/mp4',
-            ptt: true
-          }, { quoted: m });
-        }
-
-        try { await m.react('✅'); } catch (e) {}
-        return;
-      }
-    }
-
-    // 2. Auto-Download Trigger Handler
-    if (!autoDownloadEnabled) return;
 
     const urlRegex = /(https?:\/\/[^\s]+)/g;
     const matchUrls = rawText.match(urlRegex);
@@ -530,9 +467,6 @@ Sparky({
       }
     }
   } catch (error) {
-    console.error("Listener Error:", error);
-    try {
-      await m.react('❌');
-    } catch (e) {}
+    console.error("AutoDL Listener Error:", error);
   }
 });
