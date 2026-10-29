@@ -52,13 +52,16 @@ async function startBot() {
         logger: pino({ level: 'silent' })
     });
 
+    let isStarted = false;
+
     client.ev.on('connection.update', async (update) => {
         const { connection, lastDisconnect } = update;
         
         if (connection === 'open') {
+            if (isStarted) return;
+            isStarted = true;
             console.log("Connected to WhatsApp successfully!");
 
-            // Styled Bot Start Message with Auto DL & Configurations
             const startMessage = `━━━━━━━━━━━━━━━━━━\n` +
                 `✨ *RAHUL AI BOT ACTIVATED* ✨\n` +
                 `━━━━━━━━━━━━━━━━━━\n\n` +
@@ -93,10 +96,13 @@ async function startBot() {
                 console.error("Failed to send start message:", e);
             }
 
-            // Load Plugins after sending start message
-            fs.readdirSync('./plugins').filter(file => path.extname(file) === '.js').forEach(file => {
-                require('./plugins/' + file);
-            });
+            try {
+                fs.readdirSync('./plugins').filter(file => path.extname(file) === '.js').forEach(file => {
+                    require('./plugins/' + file);
+                });
+            } catch (pluginErr) {
+                console.log("Plugins load error:", pluginErr);
+            }
 
         } else if (connection === 'close') {
             const reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
