@@ -22,25 +22,42 @@ Sparky({
         let ext = mime.split('/')[1] || 'jpg';
         if (ext === 'jpeg') ext = 'jpg';
 
-        const FormData = require('form-data');
-        const form = new FormData();
-        // Telegra.ph sathi 'file' he field name aste
-        form.append('file', mediaBuffer, { filename: `media.${ext}`, contentType: mime });
+        // Base64 madhe convert karun direct payload pathvat ahot, tyamule form-data cha error yenar nahi
+        const base64Data = mediaBuffer.toString('base64');
+        const dataUri = `data:${mime};base64,${base64Data}`;
 
         const response = await fetch('https://telegra.ph/upload', {
             method: 'POST',
-            body: form,
-            headers: form.getHeaders ? form.getHeaders() : {}
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                file: dataUri // Kiva jar form-data lagt asel tar standard fetch method vaparli ahe
+            })
         });
 
-        const resJson = await response.json();
-        console.log("Telegra.ph Response:", resJson);
+        // Jar telegra.ph multipart formach magat asel, tar direct URL fetcher vapru:
+        const FormData = require('form-data');
+        const form = new FormData();
+        form.append('file', mediaBuffer, { filename: `image.${ext}`, contentType: mime });
+
+        const res = await fetch('https://telegra.ph/upload', {
+            method: 'POST',
+            body: form
+        });
+
+        const resText = await res.text();
+        let resJson;
+        try {
+            resJson = JSON.parse(resText);
+        } catch (e) {
+            throw new Error(`Server Response: ${resText}`);
+        }
 
         if (!resJson || !resJson[0] || !resJson[0].src) {
             throw new Error('Upload failed: Invalid response from server');
         }
 
-        // Telegra.ph half-link deto, mhanun 'https://telegra.ph' judavne garjeche ahe
         const mediaUrl = `https://telegra.ph${resJson[0].src}`;
         
         await m.react('✅');
