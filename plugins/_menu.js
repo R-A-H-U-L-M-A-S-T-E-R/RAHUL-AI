@@ -187,7 +187,12 @@ Sparky({
                     }, { quoted: m });
                 }
                 case 'image': {
-                    return await m.sendFromUrl(config.BOT_INFO.split(";")[2], { caption: style(menu) });
+                    // Fixed Image Type to use standard client.sendMessage with image object safely
+                    let imageUrl = config.BOT_INFO.split(";")[2] || 'https://i.ibb.co/pnPNhMZ/2843ad26fd25.jpg';
+                    return await client.sendMessage(m.jid, {
+                        image: { url: imageUrl },
+                        caption: style(menu)
+                    }, { quoted: sperky });
                 }
                 case 'small': {
                     return await client.sendMessage(m.jid, {
