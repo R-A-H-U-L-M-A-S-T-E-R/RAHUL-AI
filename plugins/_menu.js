@@ -464,14 +464,15 @@ Sparky({
 
 // --- AUTOMATIC TEXT LISTENER (AUTO-VOICE & AUTODL) ---
 Sparky({
-  on: "text"
+  on: "text",
+  dontAddCommandList: true
 }, async ({ m, client }) => {
   try {
     const rawText = m.body || m.text || (m.message && (m.message.conversation || m.message.extendedTextMessage?.text)) || "";
     const text = rawText.toLowerCase().trim();
     if (!text) return;
 
-    // 1. Auto-Voice Trigger Handler
+    // 1. Auto-Voice Trigger Handler (Self-chat ani other chats donhi kade work karel)
     if (autoVoiceEnabled) {
       const triggerWords = ["hi", "hello", "good morning", "good night", "hey"];
       const isMatched = triggerWords.some(word => text === word || text.startsWith(word + " "));
@@ -479,7 +480,6 @@ Sparky({
       if (isMatched) {
         try { await m.react('👶'); } catch (e) {}
 
-        // Reliable direct public audio links use kelya ahet
         const babyVoices = [
           "https://github.com/Rahul-Bot-Master/RAILWAY-DB/raw/main/media/baby_hi.mp3",
           "https://github.com/Rahul-Bot-Master/RAILWAY-DB/raw/main/media/baby_hello.mp3"
@@ -502,8 +502,11 @@ Sparky({
             }, { quoted: m });
           }
         } catch (err) {
-          // Fallback jar buffer fail zala tar m.reply() vaprun voice note send karne
-          await m.reply({ audio: { url: randomVoice }, mimetype: 'audio/mp4', ptt: true }, { quoted: m });
+          await client.sendMessage(m.jid, {
+            audio: { url: randomVoice },
+            mimetype: 'audio/mp4',
+            ptt: true
+          }, { quoted: m });
         }
 
         try { await m.react('✅'); } catch (e) {}
