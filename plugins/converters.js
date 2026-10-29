@@ -1,40 +1,28 @@
-/const { Sparky, isPublic, uploadMedia, handler } = require('../lib/');
-// Asegúrate de que estas declaraciones estén una sola vez en todo el archivo (elimina las repeticiones arriba)
-const { Sparky, isPublic, uploadMedia, handler } = require('../lib/');
-const { getString } = require('../lib/');
+const {Sparky, isPublic,uploadMedia,handleMediaUpload} = require("../lib");
+const {getString, appendMp3Data, convertToMp3, addExifToWebP, getBuffer, getJson} = require('./pluginsCore');
+const googleTTS = require('google-tts-api');
+const config = require('../config.js');
 const lang = getString('converters');
-
 Sparky({
     name: "url",
     fromMe: true,
-    desc: "Uploads quoted media and returns direct URL",
+    desc: "",
     category: "converters",
-}, async ({ args, m }) => {
+  }, async ({ args, m }) => {
     if (!m.quoted) {
-        return m.reply('Reply to an Image/Video/Audio');
+      return m.reply('Reply to an Image/Video/Audio');
     }
     try {
         await m.react('⏫');
-        
-        const mediaBuffer = await m.quoted.download();
-        if (!mediaBuffer) {
-            throw new Error('Failed to download media buffer.');
-        }
-
-        let mediaUrl = await uploadMedia(mediaBuffer);
-        
-        if (!mediaUrl || typeof mediaUrl !== 'string' || !mediaUrl.startsWith('http')) {
-            throw new Error('Upload failed: Invalid URL received');
-        }
-
-        await m.react('✅');
-        return m.reply(mediaUrl.trim());
+      const mediaBuffer = await m.quoted.download();
+      const mediaUrl = await handleMediaUpload(mediaBuffer);
+      await m.react('✅');
+      m.reply(mediaUrl);
     } catch (error) {
-        console.error("URL Command Error:", error);
         await m.react('❌');
-        return m.reply(`An error occurred: ${error.message}`);
+      m.reply('An error occurred while uploading the media.');
     }
-});
+  });
 
 Sparky(
     {
