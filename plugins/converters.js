@@ -8,7 +8,6 @@ const FormData = require('form-data');
 const { Sparky, isPublic, uploadMedia, handler } = require('../lib/');
 const { getString } = require('../lib/');
 const lang = getString('converters');
-
 Sparky({
     name: "url",
     fromMe: true,
