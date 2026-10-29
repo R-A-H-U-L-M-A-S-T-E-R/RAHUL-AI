@@ -26,7 +26,6 @@ async function startBot() {
         fs.mkdirSync('./lib/session', { recursive: true });
     }
 
-    // Check if session ID exists in config
     try {
         if (config.SESSION_ID && config.SESSION_ID !== '') {
             console.log("Downloading session from Gist/ID...");
@@ -59,11 +58,6 @@ async function startBot() {
         if (connection === 'open') {
             console.log("Connected to WhatsApp successfully!");
 
-            // Load Plugins
-            fs.readdirSync('./plugins').filter(file => path.extname(file) === '.js').forEach(file => {
-                require('./plugins/' + file);
-            });
-
             // Styled Bot Start Message with Auto DL & Configurations
             const startMessage = `━━━━━━━━━━━━━━━━━━\n` +
                 `✨ *RAHUL AI BOT ACTIVATED* ✨\n` +
@@ -92,9 +86,18 @@ async function startBot() {
 
             const ownerNumber = (config.SUDO && config.SUDO !== '' ? config.SUDO.split(',')[0] : (client.user?.id ? client.user.id.split(':')[0] : '919356730236')) + '@s.whatsapp.net';
             
-            if (config.START_MSG !== 'false') {
+            try {
                 await client.sendMessage(ownerNumber, { text: startMessage });
+                console.log("Start message sent successfully to owner!");
+            } catch (e) {
+                console.error("Failed to send start message:", e);
             }
+
+            // Load Plugins after sending start message
+            fs.readdirSync('./plugins').filter(file => path.extname(file) === '.js').forEach(file => {
+                require('./plugins/' + file);
+            });
+
         } else if (connection === 'close') {
             const reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
             if (reason === DisconnectReason.connectionReplaced) {
