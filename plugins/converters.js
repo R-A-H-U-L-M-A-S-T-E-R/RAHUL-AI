@@ -8,7 +8,7 @@ const FormData = require('form-data');
 Sparky({
     name: "url",
     fromMe: true,
-    desc: "",
+    desc: "Uploads quoted media to CDN and returns URL",
     category: "converters",
 }, async ({ args, m }) => {
     if (!m.quoted) {
@@ -19,13 +19,16 @@ Sparky({
         
         const mediaBuffer = await m.quoted.download();
         const mime = m.quoted.mimetype || 'image/jpeg';
-        let ext = mime.split('/')[1] || 'bin';
+        let ext = mime.split('/')[1] || 'jpg';
+        if (ext === 'jpeg') ext = 'jpg';
 
         const FormData = require('form-data');
         const form = new FormData();
         form.append('reqtype', 'fileupload');
         form.append('fileToUpload', mediaBuffer, { filename: `media.${ext}`, contentType: mime });
 
+        // Jar sam-cdn error det asel, tar aapan catbox ya telegra.ph use karu shakto. 
+        // Sathyala sam-cdn ch thevun response check karu:
         const response = await fetch('https://sam-cdn.zone.id/upload', {
             method: 'POST',
             body: form,
@@ -33,20 +36,19 @@ Sparky({
         });
 
         const resText = await response.text();
-        console.log("API Response:", resText);
+        console.log("Raw API Response:", resText);
 
         let mediaUrl = "";
         try {
             const json = JSON.parse(resText);
-            // Jar API ne JSON format madhe URL dili asel
-            mediaUrl = json.url || json.link || json.file || (json.upload && json.upload.url);
+            // Check all common json response structures
+            mediaUrl = json.url || json.link || json.file || json.files?.[0]?.url || (json.upload && json.upload.url);
         } catch (e) {
-            // Jar text direct URL asel
             mediaUrl = resText.startsWith('http') ? resText.trim() : "";
         }
 
         if (!mediaUrl || !mediaUrl.startsWith('http')) {
-            throw new Error(`Upload failed: ${resText}`);
+            throw new Error(`Invalid URL received: ${resText}`);
         }
         
         await m.react('✅');
