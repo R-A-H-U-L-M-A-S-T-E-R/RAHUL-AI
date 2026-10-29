@@ -2,26 +2,30 @@ const ASWINSPARKY_0x2fc2b5=ASWINSPARKY_0x137d;(function(_0x229836,_0x58551e){con
     
     _0x14500f['readdirSync'](_0x28e39f(0x121))['filter'](_0x462a1a=>_0x274d54[_0x28e39f(0x116)](_0x462a1a)==='.js')['forEach'](_0x406e9a=>require(_0x28e39f(0x11c)+_0x406e9a));
     
-    var _0x52f7b6 = '🌟 *RAHUL AI BOT* 🌟\n\n' +
-        '📌 *Mode:* ' + _0x40480d[_0x28e39f(0x133)] + '\n' +
-        '⚙️ *Prefix:* ' + _0x40480d[_0x28e39f(0xf6)] + '\n' +
-        '📦 *Version:* ' + _0x40480d[_0x28e39f(0x9c)] + '\n' +
-        '🛠️ *Menu Type:* ' + _0x40480d['MENU_TYPE'] + '\n' +
-        '🌐 *Language:* ' + _0x40480d['LANGUAGE'] + '\n\n' +
-        '──────────────────\n' +
-        '⚡ *EXTRA CONFIGURATIONS* ⚡\n' +
-        '──────────────────\n' +
-        '• Always Online: ' + (_0x40480d[_0x28e39f(0xec)] ? '✅' : '❌') + '\n' +
-        '• Auto Status View: ' + (_0x40480d[_0x28e39f(0xad)] ? '✅' : '❌') + '\n' +
-        '• Auto Reject Calls: ' + (_0x40480d['REJECT_CALLS'] ? '✅' : '❌') + '\n' +
-        '• Auto Read Messages: ' + (_0x40480d[_0x28e39f(0x119)] ? '✅' : '❌') + '\n' +
-        '• Auto Call Blocker: ' + (_0x40480d[_0x28e39f(0x11b)] ? '✅' : '❌') + '\n' +
-        '• Auto Status Save: ' + (_0x40480d[_0x28e39f(0xb0)] ? '✅' : '❌') + '\n' +
-        '• Auto Status Reply: ' + (_0x40480d[_0x28e39f(0xd5)] ? '✅' : '❌') + '\n' +
-        '• Auto Status Reaction: ' + (_0x40480d[_0x28e39f(0x9b)] ? '✅' : '❌') + '\n' +
-        '• Logs: ' + (_0x40480d[_0x28e39f(0xf0)] ? '✅' : '❌') + '\n' +
-        '• PM Blocker: ' + (_0x40480d[_0x28e39f(0xc9)] ? '✅' : '❌') + '\n' +
-        '• PM Disabler: ' + (_0x40480d['DISABLE_PM'] ? '✅' : '❌');
+    var _0x52f7b6 = '╭───────────────◆\n' +
+        '│  🚀 *RAHUL AI BOT* 🚀\n' +
+        '╰───────────────◆\n\n' +
+        '╭────────────────\n' +
+        '│ ◈ *Mode* : ' + _0x40480d[_0x28e39f(0x133)] + '\n' +
+        '│ ◈ *Prefix* : ' + _0x40480d[_0x28e39f(0xf6)] + '\n' +
+        '│ ◈ *Version* : ' + _0x40480d[_0x28e39f(0x9c)] + '\n' +
+        '│ ◈ *Menu* : ' + _0x40480d['MENU_TYPE'] + '\n' +
+        '│ ◈ *Lang* : ' + _0x40480d['LANGUAGE'] + '\n' +
+        '╰────────────────\n\n' +
+        '╔════════════════╗\n' +
+        '   ⚡ *SYSTEM STATUS* ⚡\n' +
+        '╚════════════════╝\n' +
+        '┏ ⁠⟡ *Always Online* ➔ ' + (_0x40480d[_0x28e39f(0xec)] ? '🟢' : '🔴') + '\n' +
+        '┣ ⁠⟡ *Auto Status View* ➔ ' + (_0x40480d[_0x28e39f(0xad)] ? '🟢' : '🔴') + '\n' +
+        '┣ ⁠⟡ *Auto Reject Calls* ➔ ' + (_0x40480d['REJECT_CALLS'] ? '🟢' : '🔴') + '\n' +
+        '┣ ⁠⟡ *Auto Read Msgs* ➔ ' + (_0x40480d[_0x28e39f(0x119)] ? '🟢' : '🔴') + '\n' +
+        '┣ ⁠⟡ *Call Blocker* ➔ ' + (_0x40480d[_0x28e39f(0x11b)] ? '🟢' : '🔴') + '\n' +
+        '┣ ⁠⟡ *Status Save* ➔ ' + (_0x40480d[_0x28e39f(0xb0)] ? '🟢' : '🔴') + '\n' +
+        '┣ ⁠⟡ *Status Reply* ➔ ' + (_0x40480d[_0x28e39f(0xd5)] ? '🟢' : '🔴') + '\n' +
+        '┣ ⁠⟡ *Status Reaction* ➔ ' + (_0x40480d[_0x28e39f(0x9b)] ? '🟢' : '🔴') + '\n' +
+        '┣ ⁠⟡ *Logs* ➔ ' + (_0x40480d[_0x28e39f(0xf0)] ? '🟢' : '🔴') + '\n' +
+        '┣ ⁠⟡ *PM Blocker* ➔ ' + (_0x40480d[_0x28e39f(0xc9)] ? '🟢' : '🔴') + '\n' +
+        '┗ ⁠⟡ *PM Disabler* ➔ ' + (_0x40480d['DISABLE_PM'] ? '🟢' : '🔴');
 
     var _0x4657fa=(_0x40480d[_0x28e39f(0xd3)]!==''?_0x40480d[_0x28e39f(0xd3)][_0x28e39f(0x100)](',')[0x0]:_0x55b8e5[_0x28e39f(0x111)]['id'][_0x28e39f(0x100)](':')[0x0])+_0x28e39f(0x9f);
     
