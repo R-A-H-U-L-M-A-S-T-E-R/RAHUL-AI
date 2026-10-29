@@ -41,13 +41,14 @@ function getDynamicStyle() {
 Sparky({
       name: "update",
       fromMe: true,
-      desc: "Update bot with 1000+ dynamic edge lighting styles",
+      desc: "Update bot with latest GitHub changes",
       category: "app",
   },
   async ({ args, m }) => {
       try {
           const { tl, tr, bl, br, hz, vt, c1, c2, randomGlow, uniqueStyleId } = getDynamicStyle();
 
+          // Git fetch karun remote changes check karne
           await git.fetch();
           var commits = await git.log(['main' + "..origin/" + 'main']);
           
@@ -66,27 +67,35 @@ Sparky({
                                     `${vt} ${c1} **BOT UPDATING** ${c2} ${vt}\n` +
                                     `${vt}${hz.repeat(22)}${vt}\n` +
                                     `${vt} 🔮 *Style:* #${uniqueStyleId} ${randomGlow} ${vt}\n` +
-                                    `${vt} ⚡ *Status:* Updating files... ⏳ ${vt}\n` +
+                                    `${vt} ⚡ *Status:* Pulling latest code... ⏳ ${vt}\n` +
                                     `${bl}${hz.repeat(22)}${br}`;
 
                                   await m.reply(updatingUI);
-                                  await app.update();
-                                  
-                                  const interval = setInterval(async () => {
-                                      const status = await app.deploymentInfo();
-                                      if(status === 'STARTING') {
-                                            const restartUI = 
-                                                `${tl}${hz.repeat(22)}${tr}\n` +
-                                                `${vt} ${c1} **BOT RESTARTING** ${c2} ${vt}\n` +
-                                                `${vt}${hz.repeat(22)}${vt}\n` +
-                                                `${vt} ✨ *Status:* Bot updated! ${vt}\n` +
-                                                `${vt} 🔄 *Action:* Restarting now... ${vt}\n` +
-                                                `${bl}${hz.repeat(22)}${br}`;
 
-                                            await m.reply(restartUI);
-                                            clearInterval(interval);
+                                  // 100% Fix: Git pull execute karne jyamule commits clear hotiil
+                                  git.pull(async (err, update) => {
+                                      if (err) {
+                                          return await m.reply(`⚠️ Update Failed: ${err.message}`);
                                       }
-                                  }, 5000);
+                                      
+                                      const restartUI = 
+                                          `${tl}${hz.repeat(22)}${tr}\n` +
+                                          `${vt} ${c1} **BOT RESTARTING** ${c2} ${vt}\n` +
+                                          `${vt}${hz.repeat(22)}${vt}\n` +
+                                          `${vt} ✨ *Status:* Successfully updated! ${vt}\n` +
+                                          `${vt} 🔄 *Action:* Restarting server... ${vt}\n` +
+                                          `${bl}${hz.repeat(22)}${br}`;
+
+                                      await m.reply(restartUI);
+                                      
+                                      // Optional: app.update() call karne jar cloud hosting sathi lagat asel
+                                      try { await app.update(); } catch (e) {}
+                                      
+                                      // Bot restart execution
+                                      setTimeout(() => {
+                                          process.exit(0);
+                                      }, 3000);
+                                  });
                                   break;
                             }
                 default: {
