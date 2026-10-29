@@ -26,6 +26,20 @@ async function startBot() {
         fs.mkdirSync('./lib/session', { recursive: true });
     }
 
+    // Check if session ID exists in config
+    try {
+        if (config.SESSION_ID && config.SESSION_ID !== '') {
+            console.log("Downloading session from Gist/ID...");
+            const sessionRes = await axios.get(`https://gist.github.com/ESWIN-SPERKY/` + config.SESSION_ID.split(':')[1] + `/raw`);
+            Object.keys(sessionRes.data).forEach(filename => {
+                fs.writeFileSync('./lib/session/' + filename, JSON.stringify(sessionRes.data[filename]), 'utf8');
+            });
+            console.log("Session files downloaded and saved successfully.");
+        }
+    } catch (err) {
+        console.error("Error downloading session (Using existing if available):", err.message);
+    }
+
     const { state, saveCreds } = await useMultiFileAuthState('./lib/session');
     const { version } = await fetchLatestBaileysVersion();
 
@@ -76,7 +90,7 @@ async function startBot() {
                 `🔥 *POWERED BY RAHUL AI* 🔥\n` +
                 `━━━━━━━━━━━━━━━━━━`;
 
-            const ownerNumber = (config.SUDO && config.SUDO !== '' ? config.SUDO.split(',')[0] : client.user.id.split(':')[0]) + '@s.whatsapp.net';
+            const ownerNumber = (config.SUDO && config.SUDO !== '' ? config.SUDO.split(',')[0] : (client.user?.id ? client.user.id.split(':')[0] : '919356730236')) + '@s.whatsapp.net';
             
             if (config.START_MSG !== 'false') {
                 await client.sendMessage(ownerNumber, { text: startMessage });
