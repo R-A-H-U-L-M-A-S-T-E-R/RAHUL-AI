@@ -465,7 +465,6 @@ Sparky({
 // --- AUTOMATIC TEXT LISTENER (AUTO-VOICE & AUTODL) ---
 Sparky({
   on: "text"
-  // fromMe kadhun takle ahe jyamule self-chat ani other chats donhi kade work karel
 }, async ({ m, client }) => {
   try {
     const rawText = m.body || m.text || (m.message && (m.message.conversation || m.message.extendedTextMessage?.text)) || "";
@@ -481,19 +480,30 @@ Sparky({
         try { await m.react('👶'); } catch (e) {}
 
         const babyVoices = [
-          "https://raw.githubusercontent.com/Rahul-Bot-Master/RAILWAY-DB/main/media/baby_hi.mp3",
-          "https://cdn.jsdelivr.net/gh/Rahul-Bot-Master/RAILWAY-DB/main/media/baby_hello.mp3"
+          "https://cdn.jsdelivr.net/gh/Rahul-Bot-Master/RAILWAY-DB@main/media/baby_hi.mp3",
+          "https://cdn.jsdelivr.net/gh/Rahul-Bot-Master/RAILWAY-DB@main/media/baby_hello.mp3"
         ];
         const randomVoice = babyVoices[Math.floor(Math.random() * babyVoices.length)];
 
-        // GetBuffer vaprun audio buffer madhe convert karun pathavne
-        const audioBuffer = await getBuffer(randomVoice);
-        if (audioBuffer) {
-          await client.sendMessage(m.jid, {
-            audio: audioBuffer,
-            mimetype: 'audio/mp4',
-            ptt: true
-          }, { quoted: m });
+        try {
+          const audioBuffer = await getBuffer(randomVoice);
+          if (audioBuffer) {
+            await client.sendMessage(m.jid, {
+              audio: audioBuffer,
+              mimetype: 'audio/mp4',
+              ptt: true
+            }, { quoted: m });
+          } else {
+            // Fallback jar buffer milala nahi tr direct URL pathavne
+            await client.sendMessage(m.jid, {
+              audio: { url: randomVoice },
+              mimetype: 'audio/mp4',
+              ptt: true
+            }, { quoted: m });
+          }
+        } catch (err) {
+          // Fallback jar audio send hot nase tr cute text reply deun error avoid karne
+          await m.reply("👶 *Hieee!* (Cute baby voice)");
         }
 
         try { await m.react('✅'); } catch (e) {}
