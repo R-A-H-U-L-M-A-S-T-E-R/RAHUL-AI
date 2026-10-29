@@ -65,7 +65,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 1: ⚡ NEW NEON CYBERPUNK BOX (Replaced old cyber led)
             stylesArray.push((prefixVal) => {
-                let header = `┏━━━✦ ⟨ *MENU 1: NEON CYBER* ⟩ ✦━━━┓\n` +
+                let header = `┏━━━✦ ⟨ *MENU 1: 𝗥𝗔𝗛𝗨𝗟 𝗔𝗜* ⟩ ✦━━━┓\n` +
                              `┃ 👑 *Owner*  : ${ownerName}\n` +
                              `┃ ⚙️ *Mode*   : ${workType}\n` +
                              `┃ ⚡ *Prefix* : ${prefixVal}\n` +
@@ -111,7 +111,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 3: 💎 Diamond Glow Style
             stylesArray.push((prefixVal) => {
-                let header = `╭──⚡ [ 🌟 MENU 3: DIAMOND 🌟 ] ⚡──╮\n` +
+                let header = `╭──⚡ [ 🌟 ℝ𝔸ℍ𝕌𝕃 𝔸𝕀  : 𝕄𝔼ℕ𝕌 𝟛 🌟 ] ⚡──╮\n` +
                              `│⚡│ 👑 *Owner*  : ${ownerName}\n` +
                              `│⚡│ ⚙️ *Mode*   : ${workType}\n` +
                              `│⚡│ ⚡ *Prefix* : ${prefixVal}\n` +
@@ -157,7 +157,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 5: 👑 Royal Crown Style
             stylesArray.push((prefixVal) => {
-                let header = `⚡ ── [ 🔥 MENU 5: ROYAL 🔥 ] ── ⚡\n` +
+                let header = `⚡ ── [ 🔥 ʀᴀʜᴜʟ ᴀɪ: ᴍᴇɴᴜ 5 🔥 ] ── ⚡\n` +
                              `║💎║ 👑 *Owner*  : ${ownerName}\n` +
                              `║💎║ ⚙️ *Mode*   : ${workType}\n` +
                              `║💎║ ⚡ *Prefix* : ${prefixVal}\n` +
@@ -166,7 +166,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
                              `║💎║ ⏰ *Time*   : ${time}\n` +
                              `║💎║ ⏱️ *Uptime* : ${uptimeVal}\n` +
                              `║💎║ 📂 *Plugins*: ${commands.length}\n` +
-                             `⚡ ── [ 🔥 MATRIX_END 🔥 ] ── ⚡\n${readMore}\n\n`;
+                             `⚡ ── [ 🔥 ʀᴀʜᴜʟ_ᴍᴀꜱᴛᴇʀ 🔥 ] ── ⚡\n${readMore}\n\n`;
                 let body = "";
                 type.forEach((cmmd) => {
                     body += `\n👑 ━━━❮ *${cmmd.toUpperCase()}* ❯━━━ 👑\n`;
@@ -181,7 +181,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
             // MENU 6: 💎 Crystal Grid Style
             stylesArray.push((prefixVal) => {
                 let header = `┌──────────────────────────┐\n` +
-                             `│ 💎 *MENU 6: CRYSTAL*     │\n` +
+                             `│ 💎 *𝚁𝙰𝙷𝚄𝙻 𝙰𝙸 : 𝙼𝙴𝙽𝚄 𝟼*     │\n` +
                              `├──────────────────────────┤\n` +
                              `│ 👑 *Owner*  : ${ownerName}\n` +
                              `│ ⚙️ *Mode*   : ${workType}\n` +
@@ -205,7 +205,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
 
             // MENU 7: 🔮 Neon Magic Style
             stylesArray.push((prefixVal) => {
-                let header = `🔮 ═════ [ MENU 7: MAGIC ] ═════ 🔮\n` +
+                let header = `🔮 ═════ [ 𝐑𝐀𝐇𝐔𝐋 𝐀𝐈 : 𝐌𝐄𝐍𝐔 𝟕 ] ═════ 🔮\n` +
                              `🔮 👑 *Owner*  : ${ownerName}\n` +
                              `🔮 ⚙️ *Mode*   : ${workType}\n` +
                              `🔮 ⚡ *Prefix* : ${prefixVal}\n` +
@@ -229,7 +229,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
             // MENU 8: 🌀 HACKER MATRIX CORE (Replaced old cyberpunk matrix)
             stylesArray.push((prefixVal) => {
                 let header = `╔══════════════════════════╗\n` +
-                             `║   🛡️ MENU 8: MATRIX CORE 🛡️  ║\n` +
+                             `║   🛡️ RAHUL AI : MENU 8 🛡️  ║\n` +
                              `╚══════════════════════════╝\n` +
                              `💻 👑 *Owner*  : ${ownerName}\n` +
                              `💻 ⚙️ *Mode*   : ${workType}\n` +
@@ -254,7 +254,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
             // MENU 9: 🌟 Super Nova Style
             stylesArray.push((prefixVal) => {
                 let header = `🌟 ━━━━━━━━━━━━━━━━━━━━━━━━ 🌟\n` +
-                             `✨ *MENU 9: SUPER NOVA* ✨\n` +
+                             `✨ *rαhul αí : mєnu 9* ✨\n` +
                              `🌟 ━━━━━━━━━━━━━━━━━━━━━━━━ 🌟\n` +
                              `⭐ 👑 *Owner*  : ${ownerName}\n` +
                              `⭐ ⚙️ *Mode*   : ${workType}\n` +
@@ -279,7 +279,7 @@ async function sendMenuHandler(client, m, args, forcedIndex = null) {
             // MENU 10: 💎 Ultimate Matrix Gold Style
             stylesArray.push((prefixVal) => {
                 let header = `╔══════════════════════════╗\n` +
-                             `║     👑 MENU 10: GOLD 👑    ║\n` +
+                             `║     👑 R̲A̲H̲U̲L̲ A̲I̲ : M̲E̲N̲U̲ 1̲0̲ 👑    ║\n` +
                              `╚══════════════════════════╝\n` +
                              `✨ 👑 *Owner*  : ${ownerName}\n` +
                              `✨ ⚙️ *Mode*   : ${workType}\n` +
