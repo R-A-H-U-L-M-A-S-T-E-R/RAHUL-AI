@@ -21,7 +21,7 @@ let autoDownloadEnabled = true;
 
 const _0x3471ce=_0x4c73;function _0x5149(){const _0x99704b=['HEROKU','PITCHER_API_BASE_URL','PWD','codesandbox','1460490jcYrnC','DIGITALOCEAN','REPLIT','13089848qhFTfM','CLOUDFLARE','GITHUB','TERMUX_VERSION','REPLIT_USER','env','32199750KLjfkJ','18wOomgQ','5701444PXyScu','AZURE','7366gnnTKS','846315zOxTke','RAILWAY','NETLIFY','VPS','AWS','GITHUB_SERVER_URL','DYNO','1131GsaKWJ','SPACE_ID','HUGGINGFACE','KOYEB','CODESANDBOX','RENDER','FLY_IO','5671732abHOue','AZURE_HTTP_FUNCTIONS','DIGITALOCEAN_APP_NAME','CF_PAGES','VERCEL','LINUX','userland'];_0x5149=function(){return _0x99704b;};return _0x5149();}(function(_0x14bc52,_0x9e047e){const _0x5ac994=_0x4c73,_0x256c17=_0x14bc52();while(!![]){try{const _0x1155d4=parseInt(_0x5ac994(0x14a))/0x1+parseInt(_0x5ac994(0x130))/0x2*(-parseInt(_0x5ac994(0x138))/0x3)+parseInt(_0x5ac994(0x13f))/0x4+parseInt(_0x5ac994(0x131))/0x5*(parseInt(_0x5ac994(0x12d))/0x6)+parseInt(_0x5ac994(0x12e))/0x7+parseInt(_0x5ac994(0x126))/0x8+-parseInt(_0x5ac994(0x12c))/0x9;if(_0x1155d4===_0x9e047e)break;else _0x256c17['push'](_0x256c17['shift']());}catch(_0x5dbaeb){_0x256c17['push'](_0x256c17['shift']());}}}(_0x5149,0xd4926));function _0x4c73(_0x3c6eb7,_0x511653){const _0x514924=_0x5149();return _0x4c73=function(_0x4c737c,_0x3e9250){_0x4c737c=_0x4c737c-0x125;let _0x40d9b6=_0x514924[_0x4c737c];return _0x40d9b6;},_0x4c73(_0x3c6eb7,_0x511653);}let SERVER=process[_0x3471ce(0x12b)][_0x3471ce(0x148)]?.['includes'](_0x3471ce(0x145))?_0x3471ce(0x144):process[_0x3471ce(0x12b)][_0x3471ce(0x147)]?.['includes'](_0x3471ce(0x149))?_0x3471ce(0x13c):process['env'][_0x3471ce(0x12a)]?_0x3471ce(0x125):process[_0x3471ce(0x12b)][_0x3471ce(0x135)]?_0x3471ce(0x135):process['env'][_0x3471ce(0x129)]?'TERMUX':process['env'][_0x3471ce(0x137)]?_0x3471ce(0x146):process[_0x3471ce(0x12b)][_0x3471ce(0x13b)]?_0x3471ce(0x13b):process[_0x3471ce(0x12b)][_0x3471ce(0x136)]?_0x3471ce(0x128):process['env']['RENDER']?_0x3471ce(0x13d):process[_0x3471ce(0x12b)][_0x3471ce(0x132)]?_0x3471ce(0x132):process[_0x3471ce(0x12b)][_0x3471ce(0x143)]?_0x3471ce(0x143):process[_0x3471ce(0x12b)][_0x3471ce(0x141)]?_0x3471ce(0x14b):process['env'][_0x3471ce(0x140)]?_0x3471ce(0x12f):process[_0x3471ce(0x12b)][_0x3471ce(0x133)]?_0x3471ce(0x133):process[_0x3471ce(0x12b)][_0x3471ce(0x13e)]?_0x3471ce(0x13e):process['env'][_0x3471ce(0x142)]?_0x3471ce(0x127):process[_0x3471ce(0x12b)][_0x3471ce(0x139)]?_0x3471ce(0x13a):_0x3471ce(0x134);
 
-// --- 1000 LED EDGE LIGHTING & CYBER MATRIX AUTO-ROTATING ENGINE ---
+// --- MENU 1 TO MENU 10 AUTO-ROTATING ENGINE ---
 let menuStyleIndex = 0;
 
 Sparky({
@@ -69,77 +69,249 @@ Sparky({
             cmnd.sort();
             type.sort();
 
-            const generate1000LEDStyles = () => {
+            const generate10MenuStyles = () => {
                 let stylesArray = [];
-                const ledTopFrames = [
-                    "🟥🟧🟨🟩🟦🟪 ⟨ LED_CORE ⟩ 🟪🟦🟩🟨🟧🟥",
-                    "╔═🔴═🟠═🟡═🟢═🔵═🟣══╗",
-                    "╭──⚡ [ 🌟 NEON_EDGE 🌟 ] ⚡──╮",
-                    "┏━━🔴━━━━━━━━━━━━━━━━━━━━🔴┓",
-                    "⚡ ── [ 🔥 CYBER_MATRIX 🔥 ] ── ⚡"
-                ];
-                const ledMidFrames = ["█▓▒░", "║🔥║", "│⚡│", "┃✨┃", "║💎║"];
-                const ledBotFrames = [
-                    "🟥🟧🟨🟩🟦🟪 ╚═══════════╝ 🟪🟦🟩🟨🟧🟥",
-                    "╚═🟣═🔵═🟢═🟡═🟠═🔴══╝",
-                    "╰──⚡ [ 🌟 END_EDGE 🌟 ] ⚡──╯",
-                    "┗━━🔴━━━━━━━━━━━━━━━━━━━━🔴┛",
-                    "⚡ ── [ 🔥 MATRIX_END 🔥 ] ── ⚡"
-                ];
-                const neonCategoryHeaders = [
-                    (c) => `\n🟥 ┏━━━❮ *${c.toUpperCase()}* ❯━━━┓ 🟥\n`,
-                    (c) => `\n⚡ ─── 🌟 *${c.toUpperCase()}* 🌟 ─── ⚡\n`,
-                    (c) => `\n🟦 ┌───「 *${c.toUpperCase()}* 」 🟦\n`
-                ];
-                const neonItemBullets = [
-                    (cmd) => `┃ 🔴 ➔ ${cmd}\n`,
-                    (cmd) => `┃ 🟠 ⚡ ${cmd}\n`,
-                    (cmd) => `┃ 🟡 ◈ ${cmd}\n`
-                ];
-                const neonFooters = [
-                    () => `┗━━━━━━━━━━━━━━━━━━━━━━┛\n`,
-                    () => `╰──────────────────────╯\n`
-                ];
 
-                for (let i = 0; i < 200; i++) {
-                    stylesArray.push((prefixVal) => {
-                        let tFrame = ledTopFrames[i % ledTopFrames.length];
-                        let mFrame = ledMidFrames[Math.floor(i / 5) % ledMidFrames.length];
-                        let bFrame = ledBotFrames[i % ledBotFrames.length];
-
-                        let header = `${tFrame}\n` +
-                                     `${mFrame} 👑 *Owner*  : ${ownerName}\n` +
-                                     `${mFrame} ⚙️ *Mode*   : ${workType}\n` +
-                                     `${mFrame} ⚡ *Prefix* : ${prefixVal}\n` +
-                                     `${mFrame} 🌐 *Server* : ${SERVER}\n` +
-                                     `${mFrame} 📅 *Date*   : ${date}\n` +
-                                     `${mFrame} ⏰ *Time*   : ${time}\n` +
-                                     `${mFrame} ⏱️ *Uptime* : ${uptimeVal}\n` +
-                                     `${mFrame} 📂 *Plugins*: ${commands.length}\n` +
-                                     `${bFrame}\n${readMore}\n\n`;
-
-                        let body = "";
-                        type.forEach((cmmd, idx) => {
-                            let catStyleFn = neonCategoryHeaders[(i + idx) % neonCategoryHeaders.length];
-                            body += catStyleFn(cmmd);
-
-                            let comad = cmnd.filter(({ category }) => category == cmmd);
-                            comad.forEach(({ Sparky }, itemIdx) => {
-                                let itemStyleFn = neonItemBullets[(i + itemIdx) % neonItemBullets.length];
-                                body += itemStyleFn(Sparky.trim());
-                            });
-
-                            let footStyleFn = neonFooters[(i + idx) % neonFooters.length];
-                            body += footStyleFn();
+                // MENU 1: ⚡ Cyber Matrix LED Style
+                stylesArray.push((prefixVal) => {
+                    let header = `🟥🟧🟨🟩🟦🟪 ⟨ MENU 1: CYBER LED ⟩ 🟪🟦🟩🟨🟧🟥\n` +
+                                 `█▓▒░ 👑 *Owner*  : ${ownerName}\n` +
+                                 `█▓▒░ ⚙️ *Mode*   : ${workType}\n` +
+                                 `█▓▒░ ⚡ *Prefix* : ${prefixVal}\n` +
+                                 `█▓▒░ 🌐 *Server* : ${SERVER}\n` +
+                                 `█▓▒░ 📅 *Date*   : ${date}\n` +
+                                 `█▓▒░ ⏰ *Time*   : ${time}\n` +
+                                 `█▓▒░ ⏱️ *Uptime* : ${uptimeVal}\n` +
+                                 `█▓▒░ 📂 *Plugins*: ${commands.length}\n` +
+                                 `🟥🟧🟨🟩🟦🟪 ╚═══════════╝ 🟪🟦🟩🟨🟧🟥\n${readMore}\n\n`;
+                    let body = "";
+                    type.forEach((cmmd) => {
+                        body += `\n🟥 ┏━━━❮ *${cmmd.toUpperCase()}* ❯━━━┓ 🟥\n`;
+                        cmnd.filter(({ category }) => category == cmmd).forEach(({ Sparky }) => {
+                            body += `┃ 🔴 ➔ ${Sparky.trim()}\n`;
                         });
-
-                        return header + body;
+                        body += `┗━━━━━━━━━━━━━━━━━━━━━━┛\n`;
                     });
-                }
+                    return header + body;
+                });
+
+                // MENU 2: 🔥 Neon Fire Animation Style
+                stylesArray.push((prefixVal) => {
+                    let header = `╔═🔴═🟠═🟡═🟢═🔵═🟣══╗\n` +
+                                 `║🔥║ 👑 *Owner*  : ${ownerName}\n` +
+                                 `║🔥║ ⚙️ *Mode*   : ${workType}\n` +
+                                 `║🔥║ ⚡ *Prefix* : ${prefixVal}\n` +
+                                 `║🔥║ 🌐 *Server* : ${SERVER}\n` +
+                                 `║🔥║ 📅 *Date*   : ${date}\n` +
+                                 `║🔥║ ⏰ *Time*   : ${time}\n` +
+                                 `║🔥║ ⏱️ *Uptime* : ${uptimeVal}\n` +
+                                 `║🔥║ 📂 *Plugins*: ${commands.length}\n` +
+                                 `╚═🟣═🔵═🟢═🟡═🟠═🔴══╝\n${readMore}\n\n`;
+                    let body = "";
+                    type.forEach((cmmd) => {
+                        body += `\n⚡ ─── 🌟 *${cmmd.toUpperCase()}* 🌟 ─── ⚡\n`;
+                        cmnd.filter(({ category }) => category == cmmd).forEach(({ Sparky }) => {
+                            body += `┃ 🟠 ⚡ ${Sparky.trim()}\n`;
+                        });
+                        body += `╰──────────────────────╯\n`;
+                    });
+                    return header + body;
+                });
+
+                // MENU 3: 💎 Diamond Glow Style
+                stylesArray.push((prefixVal) => {
+                    let header = `╭──⚡ [ 🌟 MENU 3: DIAMOND 🌟 ] ⚡──╮\n` +
+                                 `│⚡│ 👑 *Owner*  : ${ownerName}\n` +
+                                 `│⚡│ ⚙️ *Mode*   : ${workType}\n` +
+                                 `│⚡│ ⚡ *Prefix* : ${prefixVal}\n` +
+                                 `│⚡│ 🌐 *Server* : ${SERVER}\n` +
+                                 `│⚡│ 📅 *Date*   : ${date}\n` +
+                                 `│⚡│ ⏰ *Time*   : ${time}\n` +
+                                 `│⚡│ ⏱️ *Uptime* : ${uptimeVal}\n` +
+                                 `│⚡│ 📂 *Plugins*: ${commands.length}\n` +
+                                 `╰──⚡ [ 🌟 END_EDGE 🌟 ] ⚡──╯\n${readMore}\n\n`;
+                    let body = "";
+                    type.forEach((cmmd) => {
+                        body += `\n🟦 ┌───「 *${cmmd.toUpperCase()}* 」 🟦\n`;
+                        cmnd.filter(({ category }) => category == cmmd).forEach(({ Sparky }) => {
+                            body += `┃ 🟡 ◈ ${Sparky.trim()}\n`;
+                        });
+                        body += `┗━━━━━━━━━━━━━━━━━━━━━━┛\n`;
+                    });
+                    return header + body;
+                });
+
+                // MENU 4: 🚀 Rocket Speed Style
+                stylesArray.push((prefixVal) => {
+                    let header = `┏━━🔴━━━━━━━━━━━━━━━━━━━━🔴┓\n` +
+                                 `┃✨┃ 👑 *Owner*  : ${ownerName}\n` +
+                                 `┃✨┃ ⚙️ *Mode*   : ${workType}\n` +
+                                 `┃✨┃ ⚡ *Prefix* : ${prefixVal}\n` +
+                                 `┃✨┃ 🌐 *Server* : ${SERVER}\n` +
+                                 `┃✨┃ 📅 *Date*   : ${date}\n` +
+                                 `┃✨┃ ⏰ *Time*   : ${time}\n` +
+                                 `┃✨┃ ⏱️ *Uptime* : ${uptimeVal}\n` +
+                                 `┃✨┃ 📂 *Plugins*: ${commands.length}\n` +
+                                 `┗━━🔴━━━━━━━━━━━━━━━━━━━━🔴┛\n${readMore}\n\n`;
+                    let body = "";
+                    type.forEach((cmmd) => {
+                        body += `\n🚀 ─── 🛸 *${cmmd.toUpperCase()}* 🛸 ─── 🚀\n`;
+                        cmnd.filter(({ category }) => category == cmmd).forEach(({ Sparky }) => {
+                            body += `┃ 🟢 🚀 ${Sparky.trim()}\n`;
+                        });
+                        body += `╰──────────────────────╯\n`;
+                    });
+                    return header + body;
+                });
+
+                // MENU 5: 👑 Royal Crown Style
+                stylesArray.push((prefixVal) => {
+                    let header = `⚡ ── [ 🔥 MENU 5: ROYAL 🔥 ] ── ⚡\n` +
+                                 `║💎║ 👑 *Owner*  : ${ownerName}\n` +
+                                 `║💎║ ⚙️ *Mode*   : ${workType}\n` +
+                                 `║💎║ ⚡ *Prefix* : ${prefixVal}\n` +
+                                 `║💎║ 🌐 *Server* : ${SERVER}\n` +
+                                 `║💎║ 📅 *Date*   : ${date}\n` +
+                                 `║💎║ ⏰ *Time*   : ${time}\n` +
+                                 `║💎║ ⏱️ *Uptime* : ${uptimeVal}\n` +
+                                 `║💎║ 📂 *Plugins*: ${commands.length}\n` +
+                                 `⚡ ── [ 🔥 MATRIX_END 🔥 ] ── ⚡\n${readMore}\n\n`;
+                    let body = "";
+                    type.forEach((cmmd) => {
+                        body += `\n👑 ━━━❮ *${cmmd.toUpperCase()}* ❯━━━ 👑\n`;
+                        cmnd.filter(({ category }) => category == cmmd).forEach(({ Sparky }) => {
+                            body += `┃ 🟣 👑 ${Sparky.trim()}\n`;
+                        });
+                        body += `┗━━━━━━━━━━━━━━━━━━━━━━┛\n`;
+                    });
+                    return header + body;
+                });
+
+                // MENU 6: 💎 Crystal Grid Style
+                stylesArray.push((prefixVal) => {
+                    let header = `┌──────────────────────────┐\n` +
+                                 `│ 💎 *MENU 6: CRYSTAL*     │\n` +
+                                 `├──────────────────────────┤\n` +
+                                 `│ 👑 *Owner*  : ${ownerName}\n` +
+                                 `│ ⚙️ *Mode*   : ${workType}\n` +
+                                 `│ ⚡ *Prefix* : ${prefixVal}\n` +
+                                 `│ 🌐 *Server* : ${SERVER}\n` +
+                                 `│ 📅 *Date*   : ${date}\n` +
+                                 `│ ⏰ *Time*   : ${time}\n` +
+                                 `│ ⏱️ *Uptime* : ${uptimeVal}\n` +
+                                 `│ 📂 *Plugins*: ${commands.length}\n` +
+                                 `└──────────────────────────┘\n${readMore}\n\n`;
+                    let body = "";
+                    type.forEach((cmmd) => {
+                        body += `\n💎 ───「 *${cmmd.toUpperCase()}* 」─── 💎\n`;
+                        cmnd.filter(({ category }) => category == cmmd).forEach(({ Sparky }) => {
+                            body += `│ 🔹 ${Sparky.trim()}\n`;
+                        });
+                        body += `└──────────────────────────┘\n`;
+                    });
+                    return header + body;
+                });
+
+                // MENU 7: 🔮 Neon Magic Style
+                stylesArray.push((prefixVal) => {
+                    let header = `🔮 ═════ [ MENU 7: MAGIC ] ═════ 🔮\n` +
+                                 `🔮 👑 *Owner*  : ${ownerName}\n` +
+                                 `🔮 ⚙️ *Mode*   : ${workType}\n` +
+                                 `🔮 ⚡ *Prefix* : ${prefixVal}\n` +
+                                 `🔮 🌐 *Server* : ${SERVER}\n` +
+                                 `🔮 📅 *Date*   : ${date}\n` +
+                                 `🔮 ⏰ *Time*   : ${time}\n` +
+                                 `🔮 ⏱️ *Uptime* : ${uptimeVal}\n` +
+                                 `🔮 📂 *Plugins*: ${commands.length}\n` +
+                                 `🔮 ══════════════════════════ 🔮\n${readMore}\n\n`;
+                    let body = "";
+                    type.forEach((cmmd) => {
+                        body += `\n🔮 ── *${cmmd.toUpperCase()}* ── 🔮\n`;
+                        cmnd.filter(({ category }) => category == cmmd).forEach(({ Sparky }) => {
+                            body += `🔮 ➔ ${Sparky.trim()}\n`;
+                        });
+                        body += `🔮 ────────────────────────── 🔮\n`;
+                    });
+                    return header + body;
+                });
+
+                // MENU 8: 🌀 Cyberpunk Matrix Style
+                stylesArray.push((prefixVal) => {
+                    let header = `⚡ [ MENU 8: CYBERPUNK MATRIX ] ⚡\n` +
+                                 `█▓▒░ 👑 *Owner*  : ${ownerName}\n` +
+                                 `█▓▒░ ⚙️ *Mode*   : ${workType}\n` +
+                                 `█▓▒░ ⚡ *Prefix* : ${prefixVal}\n` +
+                                 `█▓▒░ 🌐 *Server* : ${SERVER}\n` +
+                                 `█▓▒░ 📅 *Date*   : ${date}\n` +
+                                 `█▓▒░ ⏰ *Time*   : ${time}\n` +
+                                 `█▓▒░ ⏱️ *Uptime* : ${uptimeVal}\n` +
+                                 `█▓▒░ 📂 *Plugins*: ${commands.length}\n` +
+                                 `⚡ [ ======================== ] ⚡\n${readMore}\n\n`;
+                    let body = "";
+                    type.forEach((cmmd) => {
+                        body += `\n⚡ [ *${cmmd.toUpperCase()}* ] ⚡\n`;
+                        cmnd.filter(({ category }) => category == cmmd).forEach(({ Sparky }) => {
+                            body += `  ⚡ ${Sparky.trim()}\n`;
+                        });
+                        body += `────────────────────────────\n`;
+                    });
+                    return header + body;
+                });
+
+                // MENU 9: 🌟 Super Nova Style
+                stylesArray.push((prefixVal) => {
+                    let header = `🌟 ━━━━━━━━━━━━━━━━━━━━━━━━ 🌟\n` +
+                                 `✨ *MENU 9: SUPER NOVA* ✨\n` +
+                                 `🌟 ━━━━━━━━━━━━━━━━━━━━━━━━ 🌟\n` +
+                                 `⭐ 👑 *Owner*  : ${ownerName}\n` +
+                                 `⭐ ⚙️ *Mode*   : ${workType}\n` +
+                                 `⭐ ⚡ *Prefix* : ${prefixVal}\n` +
+                                 `⭐ 🌐 *Server* : ${SERVER}\n` +
+                                 `⭐ 📅 *Date*   : ${date}\n` +
+                                 `⭐ ⏰ *Time*   : ${time}\n` +
+                                 `⭐ ⏱️ *Uptime* : ${uptimeVal}\n` +
+                                 `⭐ 📂 *Plugins*: ${commands.length}\n` +
+                                 `🌟 ━━━━━━━━━━━━━━━━━━━━━━━━ 🌟\n${readMore}\n\n`;
+                    let body = "";
+                    type.forEach((cmmd) => {
+                        body += `\n🌟 *${cmmd.toUpperCase()}* 🌟\n`;
+                        cmnd.filter(({ category }) => category == cmmd).forEach(({ Sparky }) => {
+                            body += `⭐ ${Sparky.trim()}\n`;
+                        });
+                        body += `────────────────────────────\n`;
+                    });
+                    return header + body;
+                });
+
+                // MENU 10: 💎 Ultimate Matrix Gold Style
+                stylesArray.push((prefixVal) => {
+                    let header = `╔══════════════════════════╗\n` +
+                                 `║     👑 MENU 10: GOLD 👑    ║\n` +
+                                 `╚══════════════════════════╝\n` +
+                                 `✨ 👑 *Owner*  : ${ownerName}\n` +
+                                 `✨ ⚙️ *Mode*   : ${workType}\n` +
+                                 `✨ ⚡ *Prefix* : ${prefixVal}\n` +
+                                 `✨ 🌐 *Server* : ${SERVER}\n` +
+                                 `✨ 📅 *Date*   : ${date}\n` +
+                                 `✨ ⏰ *Time*   : ${time}\n` +
+                                 `✨ ⏱️ *Uptime* : ${uptimeVal}\n` +
+                                 `✨ 📂 *Plugins*: ${commands.length}\n` +
+                                 `════════════════════════════\n${readMore}\n\n`;
+                    let body = "";
+                    type.forEach((cmmd) => {
+                        body += `\n⚜️ ── *${cmmd.toUpperCase()}* ── ⚜️\n`;
+                        cmnd.filter(({ category }) => category == cmmd).forEach(({ Sparky }) => {
+                            body += `⚜️ ◈ ${Sparky.trim()}\n`;
+                        });
+                        body += `────────────────────────────\n`;
+                    });
+                    return header + body;
+                });
+
                 return stylesArray;
             };
 
-            const autoStyles = generate1000LEDStyles();
+            const autoStyles = generate10MenuStyles();
             let selectedMenuStyle = autoStyles[menuStyleIndex](m.prefix);
             menuStyleIndex = (menuStyleIndex + 1) % autoStyles.length;
             let menu = selectedMenuStyle;
@@ -253,7 +425,7 @@ Sparky({
     return await m.reply("✅ Auto-Download successfully ON kela ahe!");
   } else if (status === "off") {
     autoDownloadEnabled = false;
-    return await m.reply("❌ Auto-Download successfully OFF kela ahe!");
+    return await m.reply("✅ Auto-Download successfully OFF kela ahe!");
   } else {
     return await m.reply(`*Auto-Download Status:* ${autoDownloadEnabled ? "ON 🟢" : "OFF 🔴"}\nVapra: _.autodl on_ kinva _.autodl off_`);
   }
@@ -270,7 +442,6 @@ Sparky({
     const text = m.body || m.text || "";
     if (!text) return;
 
-    // Standard Regex to check URL safely without isUrl dependency
     const urlRegex = /(https?:\/\/[^\s]+)/g;
     const matchUrls = text.match(urlRegex);
     
